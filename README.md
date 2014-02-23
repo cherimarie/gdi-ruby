@@ -1,5 +1,5 @@
-# Intro to Python
-
+# Intro to Ruby
+<!-- 
 The slides for this course can be viewed [here](http://calebsmith.github.io/gdi-intro-python/#/)
 
  [![Gittip](http://badgr.co/gittip/calebsmith.png)](https://www.gittip.com/calebsmith/)
@@ -38,3 +38,4 @@ What is Object-Oriented Programming and Functional Programming and how can they 
 
 We'll also get started on some projects that you can do with your new Python skills.
 
+ -->
