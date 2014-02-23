@@ -4,9 +4,9 @@
     <head>
         <meta charset="utf-8">
 
-        <title>Intro to Python ~ Girl Develop It</title>
+        <title>Intro to Ruby ~ Girl Develop It</title>
 
-        <meta name="description" content="This is the official Girl Develop It Core Intro to Python course. The course is meant to be taught in four two-hour sessions. Each of the slides and practice files are customizable according to the needs of a given class or audience.">
+        <meta name="description" content="This is the official Girl Develop It Core Intro to Ruby course. The course is meant to be taught in four two-hour sessions. Each of the slides and practice files are customizable according to the needs of a given class or audience.">
         <meta name="author" content="Girl Develop It">
 
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -35,7 +35,7 @@
               <!-- Opening slide -->
                 <section>
                   <img src = "images/gdi_logo_badge.png">
-                  <h3>Intro to Python</h3>
+                  <h3>Intro to Ruby</h3>
                   <h4>Class 1</h4>
                 </section>
                 
@@ -57,7 +57,7 @@
                 <section>
                   <h3>What we will cover today</h3>
                   <ul>
-                    <li class ="fragment">Why Python?</li>
+                    <li class ="fragment">Why Ruby?</li>
                     <li class ="fragment">What is programming?</li>
                     <li class ="fragment">Variables and arithmetic</li>
                     <li class ="fragment">Statements and Error Messages</li>
@@ -67,35 +67,35 @@
 
                 <!-- Block 1: 25 minutes -->
                 <section>
-                  <h3>Why Python?</h3>
+                  <h3>Why Ruby?</h3>
                   <ul>
                     <li class ="fragment">Suitable for beginners, yet used by professionals</li>
                     <li class ="fragment">Readable, maintainable code</li>
-                    <li class ="fragment">Rapid rate of development</li>
-                    <li class ="fragment">Few "magical" side-effects</li>
-                    <li class ="fragment">Variety of applications</li>
+                    <li class ="fragment">Rapid rate of development. "The Ruby Way"</li>
+                    <li class ="fragment">Strong community support</li>
+                    <li class ="fragment">Rails</li>
                   </ul>
                 </section>
 
                 <section>
-                  <h3>What is Python used for?</h3>
-                  <ul>
-                    <li class ="fragment">System Administration (Fabric, Salt, Ansible)</li>
-                    <li class ="fragment">3D animation and image editing (Maya, Blender, Gimp)</li>
-                    <li class ="fragment">Scientific computing (numpy, scipy)</li>
-                    <li class ="fragment">Web development (Django, Flask)</li>
-                    <li class ="fragment">Game Development (Civilization 4, EVE Online)</li>
+                  <h3>What is Ruby used for?</h3>
+                    <ul>
+                        <li class ="fragment">Web development (Rails)</li>
+                        <li class ="fragment">iPhone apps (RubyMotion)</li>
+                        <li class ="fragment">System Administration (Chef, Puppet, Capistrano)</li>
+                        <li class ="fragment">Testing (Vagrant)</li>
+                        <li class ="fragment">Security (Metasploit)</li>
                   </ul>
                 </section>
 
                 <section>
-                  <h3>Who is using Python?</h3>
+                  <h3>Who is using Ruby?</h3>
                   <ul>
-                    <li>Disney</li>
-                    <li>Dropbox</li>
-                    <li>Canonical and Red Hat</li>
-                    <li>Google</li>
-                    <li>NASA</li>
+                    <li>Hulu</li>
+                    <li>LivingSocial</li>
+                    <li>Groupon</li>
+                    <li>Basecamp</li>
+                    <li>Github</li>
                   </ul>
                 </section>
 
@@ -105,22 +105,22 @@
                         <li class="fragment">Teaching the computer to do a task</li>
                         <li class="fragment">A program is made of one or more files of code, each of which solve part of the overall task</li>
                         <li class="fragment">Programming code is human readable but also needs a form that the computer can run directly. This form is not human readable.</li>
-                        <li class="fragment">To create the form of code the computer can use, we use the Python <a href="http://en.wikipedia.org/wiki/Interpreter_(computing)">interpreter</a>. Other languages use other interpreters or a <a href="http://en.wikipedia.org/wiki/Compiler">compiler</a></li>
+                        <li class="fragment">To create the form of code the computer can use, we use the Ruby <a href="http://en.wikipedia.org/wiki/Interpreter_(computing)">interpreter</a>. Other languages use other interpreters or a <a href="http://en.wikipedia.org/wiki/Compiler">compiler</a></li>
                         <li class="fragment">Don't focus on what's "under the hood" for now. We will "drive the car" first</li>
                         <li class="fragment">In other words, there are many layers to the onion. We start at one layer and slowly move toward layers that are beneath or above us</li>
                     </ul> 
                 </section>
 
                 <section>
-                    <h3>Command line, Python Shell, Text Editors</h3>
+                    <h3>Command line, IRB, Text Editors</h3>
                     <table>
                         <tr>
                             <td><strong>Terminal</strong></td>
                             <td>A program that has a command line interface and issues commands to the operating system.</td>
                         </tr>
                         <tr>
-                            <td><strong>Python Shell</strong></td>
-                            <td>A command line program that runs inside of the terminal, takes Python code as input, interprets it, and prints out any results.</td>
+                            <td><strong>Ruby Shell</strong></td>
+                            <td>A command line program that runs inside of the terminal, takes Ruby code as input, interprets it, and prints out any results.</td>
                         </tr>
                         <tr>
                             <td><strong>Text Editor</strong></td>
@@ -154,34 +154,29 @@
                 <!-- Let's develop it: 10 minutes-->
                 <section>
                     <h3>Let's Develop It</h3>
-                    <p>Let's setup our computer for Python programming</p>
+                    <p>Let's setup our computer for Ruby programming</p>
                     <ul>
                         <li>
                             Let's install a text editor -
                             <a href="http://www.sublimetext.com/2">Install Sublime Text 2</a>
                         </li>
                         <li>
-                            <a href="http://www.python.org/download/">Install Python</a>
-                            (This step is for Windows users only. GNU/Linux and MacOSX come with Python installed)
+                            <a href="https://www.ruby-lang.org/en/downloads/">Install Ruby</a>
+                            (This step is for Windows users only. GNU/Linux and MacOSX come with Ruby installed)
                         </li>
                         <li>
-                            (Windows only): After installing Python, open the "powershell" program and type:
-                            <pre>[Environment]::SetEnvironmentVariable("Path", "$env:Path;C:\Python27", "User")</pre>
+                            (Windows only): After installing Ruby, open the "powershell" program and type:
+                            <pre>[Environment]::SetEnvironmentVariable("Path", "$env:Path;C:\Ruby27", "User")</pre>
                         </li>
                         <li>
-                            Locate and run the terminal program. Type 'python' and hit enter.
-                        </li>
-                        <li>
-                            More setup instructions are available:
-                            <a href="http://learnpythonthehardway.org/book/ex0.html">here</a>
-                            (You can, but don't have to install the other text editors recommended in this guide)
+                            Locate and run the terminal program. Type 'irb' and hit enter.
                         </li>
                     </ul>
                 </section>
                 <!-- Block 2: 30 minutes -->
                 <section>
-                    <h3>Working in the Python Shell</h3>
-                    <p>Open up your terminal and type 'python'</p>
+                    <h3>Working with IRB</h3>
+                    <p>Open up your terminal and type 'irb'</p>
                     <p class="fragment">Follow along with the examples in the slides. Type them in!</p>
                     <p class="fragment">Feel free to explore as well. You will not accidentally break things</p>
                 </section>
@@ -197,14 +192,13 @@
                     <pre><code contenteditable class="python">
 a = 2
 b = 3
-print a + b
 c = a + b
-print c * 2
+c
                     </code></pre>
                     <pre><code contenteditable class="python">
 a = 0
 a = a + .5
-print a
+a
                     </code></pre>
                 </section>
 
@@ -214,18 +208,18 @@ print a
 a = 'Hello '
 b = 'World'
 c = a + b
-print c
+c
                     </code></pre>
                     <pre><code contenteditable class="python">
 a = "Spam "
 b = a * 4
-print b
+b
                     </code></pre>
                     <pre><code contenteditable class="python">
 a = 'spam '
 b = 'eggs'
 c = a * 4 + b
-print c
+c
                     </code></pre>
                 </section>
 
@@ -281,7 +275,7 @@ print a / 6
                     <section>
                     <h3>Errors - continued ...</h3>
                     <pre><code contenteditable class="python">
-# SyntaxError - Doesn't conform to the rules of Python. This statement isn't meaningful to the computer
+# SyntaxError - Doesn't conform to the rules of Ruby. This statement isn't meaningful to the computer
 4spam)eggs(garbage) + 10
 
 # NameError - Using a name that hasn't been defined yet
@@ -361,13 +355,13 @@ pwd
                         <li class="fragment">Click file, open folder. Navigate to the gdi-intro-python folder we created and click "open"</li>
                         <li class="fragment">In the text editor, enter the following:
                     <pre><code contenteditable class="fragment python">
-print 'I am a Python program'
+print 'I am a Ruby program'
                     </code></pre>
                         </li>
                         <li class="fragment">Click file, save as. Type 'class1.py' and click ok.</li>
                         <li class="fragment">Open a terminal and navigate to the gdi-intro-python folder (if not left open from before)</li>
                         <li class="fragment">Type 'python class1.py'</li>
-                        <li class="fragment">You should see the terminal print "I am a Python program"</li>
+                        <li class="fragment">You should see the terminal print "I am a Ruby program"</li>
                     </ul>
                 </section>
 
@@ -399,7 +393,7 @@ print area
             </div>
             <footer>
                 <div class="copyright">
-                    Intro to Python ~ Girl Develop It ~
+                    Intro to Ruby ~ Girl Develop It ~
                     <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
                 </div>
             </footer>
