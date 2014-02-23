@@ -309,149 +309,110 @@ end
                     </ul>
                 </section>
 
+
+
+
+
+
                 <!-- Block 3 30 minutes -->
                 <section>
-                    <h3>Functions</h3>
-                    <p>Also known as "procedures"</p>
-                    <p> - A named unit of code that performs a specific task</p>
-                    <p class="fragment">When one uses a function, one makes a function <strong>call</strong></p>
-                    <p class="fragment">We have already made a function call when using the type, int, or float functions</p>
-
-                    <pre><code contenteditable class="fragment ruby">
-a = '3'
-print type(a)
-a = float(a)
-                    </code></pre>
-                </section>
-
-                <section>
-                    <h3>Function calls</h3>
-                    <pre><code contenteditable class="fragment ruby">
-a = 3
-print type(a)
-                    </code></pre>
-                    <p class="fragment">A function can take <strong>arguments</strong></p>
-                    <p class="fragment">In the example above, the variable `a` is passed as an argument to the function `type`</p>
-                    <p class="fragment">Arguments can also be called <strong>parameters</strong></p>
-                    <pre><code contenteditable class="fragment ruby">
-# Some more function call examples
-
-int('32')
-str(32)
-                    </code></pre>
-                </section>
-
-                <section>
-                    <h3>Function definition</h3>
-                    <p>The following example is a <strong>function definition</strong>. This allows us to create our own functions</p>
-                    <pre><code contenteditable class="fragment ruby">
-def print_plus_5(x):
-    print x + 5
-                    </code></pre>
-                    <p class="fragment">The function definition has the following parts</p>
+                    <h3>Collections</h3>
+                    <p>There are two main types:</p>
                     <ul>
-                        <li class="fragment">The <strong>def</strong> keyword signifies we are defining a function</li>
-                        <li class="fragment">The name of the function being defined - `print_plus_5`</li>
-                        <li class="fragment">The arguments in parentheses - `x`</li>
-                        <li class="fragment">The function <strong>body</strong>, which is a block of indented code that executes when the function is called. - `print x + 5`</li>
+                      <li>Arrays</li>
+                      <li>Hashes</li>
                     </ul>
-                </section>
-
-                <section>
-                    <h3>Function returns</h3>
-                    <p>A function can also <strong>return</strong> a value</p>
-                    <p class="fragment">To do this, one uses the <strong>return</strong> keyword</p>
                     <pre><code contenteditable class="fragment ruby">
-def plus_5(x):
-    return x + 5
+new_array = [1, 3, 5]
 
-y = plus_5(4)
-                    </code></pre>
-                    <ul>
-                        <li class="fragment">This allows us to call a function to obtain a value for later use. (Not the same as printing the value)</li>
-                        <li class="fragment">In this example, the function call `plus_5(4)` evaluates to 9, and y is set to this value</li>
-                        <li class="fragment">To determine what a function will return, use the <strong>substitution method</strong>.</li>
-                        <li class="fragment">If return is not used, the function returns <strong>None</strong></li>
-                    </ul>
-                </section>
-
-                <section>
-                    <h3>Functions with no arguments</h3>
-                    <p>A function does not have to take arguments, as in the following example:
-                    <pre><code contenteditable class="fragment ruby">
-def newline():
-    print ''
-
-newline()
-# prints an empty line. Nothing is returned
-                    </code></pre>
-                    <p class="fragment">This is useful when the function does some work but doesn't need any parameters. i.e. The function is intended to always do the same thing</p>
-                </section>
-
-                <section>
-                    <h3>Functions with more than one argument</h3>
-                    <p>A function can also take more than one argument separated by commas. For example:</p>
-                    <pre><code contenteditable class="fragment ruby">
-def find_rectangle_area(width, height):
-    return width * height
-
-area = find_rectangle_area(3, 4)
-# area is set to the value 12
+new_hash = {1 => "snoopy", 3 => "woodstock", 6 => "pigpen"}
                     </code></pre>
                 </section>
 
                 <section>
-                    <h3>Scope</h3>
-                    <p>The <strong>scope</strong> of a variable is the area of code in which a variable is still valid and can be used.</p>
-                    <p class="fragment">Variables defined within a function can not be used elsewhere.</p>
+                    <h3>Arrays</h3>
                     <pre><code contenteditable class="fragment ruby">
-def get_triangle_area(base, height):
-    rect_area = base * height
-    return rect_area / 2.0
-
-triangle_area = get_triangle_area(10, 20)
-
-print height
-# NameError
-print rect_area
-# NameError
+new_array = [1, 3, 5]
+arr = ["wow", "woooo", "zowie"]
                     </code></pre>
+                    <p class="fragment">Arrays are <strong>ordered</strong></p>
+                    <p class="fragment">Arrays are <strong>integer-indexed</strong></p>
+
+                    <pre><code contenteditable class="fragment ruby">
+new_array[0] #returns 1, the zeroth item in this array
+
+arr[2] #returns "zowie", the third item in this array
+
+arr[-1] #returns "zowie", the last (1st from the end) item in this array
+
+new_array.last #returns 5, the last item in this array
+
+arr.first #returns "wow", the first item in this array
+                    </code></pre>
+                    <p>Learn more about arrays <a href="http://www.ruby-doc.org/core-2.1.0/Array.html" alt="ruby documentation - array class">here</a>.</p>
                 </section>
 
                 <section>
-                    <h3>Import statements</h3>
-                    <p>The <strong>import</strong> statement allows us to use ruby code that is defined in one file in a different file, or inside of the shell.</p>
-                    <p class="fragment">The <strong>from</strong> keyword allows us to only import parts of a ruby file</p>
+                    <h3>Hashes</h3>
                     <pre><code contenteditable class="fragment ruby">
-# In knights.py
-def shrubbery():
-    print "I am a shrubber"
+grades_hash = { "Jane Doe" => 10, "Jim Doe" => 6, "Jan Doe" => 8}
 
-def ni():
-    print "Ni!" * 3
+new_hash = { 1 => "a", "d" => 12, "f" => 35 }
+                    </code></pre>
+                    <p class="fragment">Hashes are <strong>unordered.</strong></p>
+                    <p class="fragment">Hashes are like dictionaries, with unique <strong>keys</strong> and their <strong>values</strong>.</p>
 
-# Run a ruby shell in the same directory as knights.py and enter the following
-import knights
-knights.shrubbery()
-knights.ni()
+                    <pre><code contenteditable class="fragment ruby">
+grades_hash["Jane Doe"] #returns 10, the value of this key
 
-# or
-from knights import shrubbery, ni
-shrubbery()
-ni()
+new_hash["d"] #returns 12, the value of this key
+                    </code></pre>
+                    <p>Learn more about arrays <a href="http://www.ruby-doc.org/core-2.1.0/Array.html" alt="ruby documentation - array class">here</a>.</p>
+                </section>
+
+                <section>
+                    <h3>Adding Elements</h3>
+                    <pre><code contenteditable class="fragment ruby">
+grades_hash = { "Jane Doe" => 10, "Jim Doe" => 6, "Jan Doe" => 8}
+
+arr = ["wow", "woooo", "zowie"]
+                    </code></pre>
+
+                    <pre><code contenteditable class="fragment ruby">
+grades_hash["Juno Doe"] = 7
+# grades_hash changed to { "Jane Doe" => 10, "Jim Doe" => 6, "Jan Doe" => 8, "Juno Doe" => 7}
+# the new key/value pair has been added to the hash
+
+arr.push("yikes")
+# array changed to ["wow", "woooo", "zowie", "yikes"]
+# the new element has been pushed into the last spot in the array
+
+arr[2] = "gadzooks"
+# array changed to ["wow", "woooo", "gadzooks", "yikes"]
+# the third element has been reset to "gadzooks" 
+
+                    </code></pre>
+                </section>
+
+                  <section>
+                    <h3>Fun With Arrays</h3>
+                    <p>Try these out in IRB!</p>
+                    <pre><code contenteditable class="fragment ruby">
+pets_array = ["dog", "cat", "turtle", "parakeet", "ferret"]
+                   
+pets_array.size
+pets_array.reverse
+pets_array.empty?
+pets_array.min
+pets_array.max
+
                     </code></pre>
                 </section>
 
                 <!-- Let's develop it: 15 minutes -->
                 <section>
                     <h3>Let's Develop It</h3>
-                    <ul>
-                        <li>Write a program that uses at least one function to solve a geometry problem</li>
-                        <li>Hint: You might use a loop that obtains user input, does the calculation, then prints the answer. As before, the user should be able to quit by entering "quit"</li>
-                        <li>Hint: You can import your function in the shell and call it with different parameters to test it out</li>
-                        <li>Hint: Download <a href="http://calebsmith.github.io/gdi-intro-ruby/examples/geometry.py">geometry.py</a> and use it as an example</li>
-                    </ul>
-                    <p>If you'd like to try something different or in addition, try the next slide...</p>
+                   <p>Something with arrays and hashes</p>
                 </section>
 
                 <section>
@@ -459,17 +420,31 @@ ni()
                     <ul>
                         <li>Write a program that asks the user to guess a number between a given range, such as 1 to 10</li>
                         <li>The program should give the user hints such as "too high" or "too low". Alternatively, the hints might be "warm" or "cold" depending on how close they are to the number</li>
-                        <li>The computer will need to have a random number for the user to guess:</li>
+                        <li>The computer will need to have a random number for the user to guess. Insert the following at the top of your program:</li>
                         <pre><code contenteditable class="ruby">
-#At the top of the file
-from random import randint
-
-# Use this line where you need to have a random number.
-# (Hint, this is probably used before the user input loop)
-random_number = randint(1, 10)
+guess_me = rand(10)
+#generates a random number between 0 and 9, assigns it to the variable name guess_me 
                         </code></pre>
                     </ul>
                 </section>
+
+                <section>
+                    <h3>Nil</h3>
+                    <p class="fragment">Nil is an <strong>object</strong>! Try the following in IRB:</p>
+                    <pre><code contenteditable class="fragment ruby">
+nil.class
+nil.to_a
+nil.to_i
+nil.to_s
+nil.size
+                    </code></pre>
+                    <p class="fragment">There are some methods associated with nil, like .to_a, to help prevent errors in your code. If you try to call .to_a on something without first setting the value of it, you'll get an empty array instead of an error.</p>
+
+                    
+                    <p>Learn more about the nil class <a href="http://www.ruby-doc.org/core-2.1.0/NilClass.html" alt="ruby documentation - nil class">here</a>.</p>
+                </section>
+
+
 
                 <section>
                     <h3>Questions?</h3>
