@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Intro to Ruby ~ Girl Develop It</title>
+
+        <meta name="description" content="This is the official Girl Develop It Core Intro to Ruby course. The course is meant to be taught in four two-hour sessions. Each of the slides and practice files are customizable according to the needs of a given class or audience.">
+        <meta name="author" content="Girl Develop It">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <link rel="stylesheet" href="reveal/css/reveal.css">
+        <link rel="stylesheet" href="reveal/css/theme/gdicool.css" id="theme">
+
+        <!-- For syntax highlighting -->
+        <!-- light editor<link rel="stylesheet" href="lib/css/light.css">-->
+        <!-- dark editor--><link rel="stylesheet" href="reveal/lib/css/dark.css">
+
+        <!-- If use the PDF print sheet so students can print slides-->
+        
+        <link rel="stylesheet" href="reveal/css/print/pdf.css" type="text/css" media="print">
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+        <div class="reveal">
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+              <!-- Opening slide -->
+                <section>
+                    <img src = "images/gdi_logo_badge.png">
+                    <h3>Intro to Ruby</h3>
+                    <h4>Class 2</h4>
+                </section>
+
+                <!-- Block 1 30 minutes -->
+                <section>
+                    <h3>Review</h3>
+                    <ul>
+                        <li>Arithmetic and variables</li>
+                        <li>Data types</li>
+                        <li>Text editor, command line, and ruby shell</li>
+                    </ul> 
+                </section>
+
+                <section>
+                    <h3>What we will cover today</h3>
+                    <ul>
+                        <li class ="fragment">Boolean Expressions and Conditionals</li>
+                        <li class ="fragment">Loops</li>
+                        <li class ="fragment">Collections</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Boolean Expressions</h3>
+                    <p>We can tell the computer to compare values and return True or False. These are called <strong>Boolean expressions</strong></p>
+                    <ul>
+                        <li class="fragment">Test for equality by using `==`. We can't use `=` because that is used for assignment</li>
+                        <li class="fragment">Test for greater than and less than using `&gt;` and `&lt;`</li>
+                    </ul>
+                    <pre class="fragment"><code contenteditable class="ruby">
+a = 5
+b = 5
+puts a == b
+# Combine comparison and assignment
+c = a == b
+puts c
+
+puts 3 &lt; 5
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>Boolean Expressions continued</h3>
+                    <p>The following chart shows the various Boolean operators</p>
+                    <table>
+                        <tr>
+                            <td>a == b</td>
+                            <td>a is equal to b</td>
+                        </tr>
+                        <tr>
+                            <td>a != b</td>
+                            <td>a does not equal b</td>
+                        </tr>
+                        <tr>
+                            <td>a &lt; b</td>
+                            <td>a is less than b</td>
+                        </tr>
+                        <tr>
+                            <td>a &gt; b</td>
+                            <td>a is greater than b</td>
+                        </tr>
+                        <tr>
+                            <td>a &lt;= b</td>
+                            <td>a is less than or equal to b</td>
+                        </tr>
+                        <tr>
+                            <td>a &gt;= b</td>
+                            <td>a is greater than or equal to b</td>
+                        </tr>
+                    </table>
+                    <pre class="fragment"><code contenteditable class="ruby">
+a = 3
+b = 4
+puts a != b
+puts a <= 3
+puts a >= 4
+                    </code></pre>
+                    <p class="fragment">Remember: Equals does not equal "equals equals"</p>
+                </section>
+
+                <section>
+                    <h3>Conditionals</h3>
+                    <p>When we want different code to execute dependending on certain criteria, we use a <strong>conditional</strong></p>
+                    <p class="fragment">We achieve this using <strong>if</strong> statements</p>
+                    <pre><code contenteditable class="fragment ruby">
+if x == 5
+    puts 'x is equal to 5'
+                    </code></pre>
+                    <p class="fragment">We often want a different block to execute if the statement is false. This can be accomplished using <strong>else</strong></p>
+                    <pre><code contenteditable class="fragment ruby">
+if x == 5
+    puts 'x is equal to 5'
+else
+    puts 'x is not equal to 5'
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>Indentation</h3>
+                    <p>In ruby, <strong>blocks</strong> begin when text is indented and ends when it returns to the previous indentation</p>
+                    <p class="fragment">Let's look at the previous example again with a few minor changes and examine the meaning of its indentation</p>
+                    <pre><code contenteditable class="fragment ruby">
+if x == 5
+    puts 'x is equal to 5'
+    x_is_5 = true
+    puts 'Still in the x == 5 block'
+else
+    puts 'x is not equal to 5'
+    x_is_5 = false
+    puts 'Still in the else block of x == 5'
+puts 'Outside of the if or else blocks.'
+puts 'x_is_5:'
+puts x_is_5
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>Predicates</h3>
+                    <p>The expression after `if` and before the colon is a Boolean expression, also called a <strong>predicate</strong></p>
+                    <p class="fragment">A variable can be used to store the evaluation of a predicate, especially if it is particularly long or complicated</p>
+                    <p class="fragment">Predicates can be combined or prefaced with <strong>Logical operators</strong>: `not`, `and` and `or`</p>
+                    <p class="fragment">Predicates and the logical operators that act on them can be wrapped in parenthesis to enforce prescendence</p>
+                </section>
+
+                <section>
+                    <h3>Predicates continued</h3>
+                    <p>The following shows some examples of combining these techniques:</p>
+                    <pre><code contenteditable class="fragment ruby">
+# 1. Simple check of two variables
+if x != 0 or y != 0:
+    print 'The point x,y is not on the x or y axis'
+
+# 2. Checking for Pong paddle missing the ball for player 2
+if ball_right_x > paddle_left_x and (ball_top_y > paddle_bottom_y or ball_bottom_y < paddle_top_y):
+    player_1_score += 1
+
+# The second example is a little long, we should simplify it
+ball_above_paddle = ball_bottom_y < paddle_top_y
+ball_below_paddle = ball_top_y > paddle_bottom_y
+ball_right_paddle = ball_right_x > paddle_left_x
+
+if ball_right_paddle and (ball_above_paddle or ball_below_paddle):
+    player_1_score += 1
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>Chained conditionals</h3>
+                    <p class="fragment">Conditionals can also be <strong>chained</strong></p>
+                    <p class="fragment">Chained conditionals use <strong>elif</strong> as an additonal check after the preceeding `if` predicate was False. For example</p>
+                    <pre><code contenteditable class="fragment ruby">
+if x > 5:
+    print 'x is greater than 5'
+elif x < 5:
+    print 'x is less than 5'
+else:
+    print 'x is equal to 5'
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>Nested conditionals</h3>
+                    <p class="fragment">Conditionals can also be <strong>nested</strong></p>
+                    <p class="fragment">Nested conditionals occur inside of other conditionals and are indented over once more. When the code block is complete, they are unindented</p>
+                    <pre><code contenteditable class="fragment ruby">
+if x > 5:
+    print 'x is greater than 5'
+    if x > 10:
+        print '...it is also greater than 10'
+    print 'Done evaluating the x > 10 block'
+print 'Done evaluating the x > 5 block'
+                    </code></pre>
+                </section>
+
+                <!-- Let's develop it: 10 minutes -->
+                <section>
+                    <h3>Let's Develop It</h3>
+                    <p>Write a program that uses if statements to determine what to do given some user input</p>
+                    <p>The code below is an example:</p>
+                    <pre><code contenteditable class="fragment ruby">
+health = 100
+print "A vicious warg is chasing you."
+print "Options:"
+print "1 - Hide in the cave."
+print "2 - Climb a tree."
+input_value = raw_input("Enter choice:")
+if input_value == '1':
+    print 'You hide in a cave.'
+    print 'The warg finds you and injures your leg with its claws'
+    health = health - 10
+elif input_value == '2':
+    print 'You climb a tree.'
+    print 'The warg eventually looses interest and wanders off'
+                    </code></pre>
+                </section>
+
+                <!-- Block 2 25 minutes -->
+                <section>
+                    <h3>Iteration</h3>
+                    <p>It is often useful to perform a task and to repeat the process until a certain point is reached.</p>
+                    <p class="fragment">The repeated execution of a set of statements is called <strong>iteration</strong></p>
+                    <p class="fragment">One way to acheive this, is with the <strong>while</strong> loop.</p>
+                    <pre><code contenteditable class="fragment ruby">
+x = 10
+while x > 0:
+    print x
+    x = x - 1
+print 'Done'
+                    </code></pre>
+                <p class="fragment">The while statement takes a predicate, and as long as it evaluates to True, the code block beneath it is repeated.</p>
+                <p class="fragment">This creates a <strong>loop</strong>. Without the `x = x - 1` statement, this would be an <strong>infinite loop</strong></p>
+                </section>
+
+                <section>
+                    <h3>While loops</h3>
+                    <p>Consider the following example that uses iteration to derive a factorial</p>
+                    <p class="fragment">(A factorial of a number is equal to that number * every positive integer less than that number. E.g. The factorial of 4 is 4 * 3 * 2 * 1, which equals 24</p>
+                    <pre><code contenteditable class="fragment ruby">
+input_value = raw_input('Enter a positive integer:')
+n = int(input_value)
+result = 1
+while n > 1:
+    result = result * n
+    n = n - 1
+print "The factorial of " + input_value + " is:"
+print result
+                    </code></pre>
+                    <p class="fragment">N.B. - This implementation does not work for negative numbers. Why?</p>
+                </section>
+
+                <section>
+                    <h3>For loops</h3>
+                    <p>It is also useful to loop through a collection of elements, visiting each one to do some work, then stopping once all elements are processed.</p>
+                    <p class="fragment">This can be accomplished with a <strong>for</strong> loop</p>
+                    <p class="fragment">First, we need a collection. We create a <strong>list</strong> of numbers to loop over. This is called `numbers` in the following example</p>
+                    <pre><code contenteditable class="fragment ruby">
+numbers = [1, 3, 8]
+for number in numbers:
+    print "The current number is:"
+    print number
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>For loops continued</h3>
+                    <p>Let's examine the example carefully</p>
+                    <pre><code contenteditable class="fragment ruby">
+numbers = [1, 3, 8]
+for number in numbers:
+    print "The current number is:"
+    print number
+                    </code></pre>
+                    <p class="fragment">The for loop has three parts:</p>
+                    <ul>
+                        <li class="fragment">The collection to loop over - numbers</li>
+                        <li class="fragment">The name to give each element when the loop begins again - number</li>
+                        <li class="fragment">The block of statements to execute with the element - The two print statements</li>
+                    </ul>
+                </section>
+
+                <!-- Let's Develop It - 10 minutes -->
+                <section>
+                    <h3>Let's Develop It</h3>
+                    <ul>
+                        <li class="fragment">Write a program that obtains user input like the last program</li>
+                        <li class="fragment">However, this program should not exit until the user types "quit".</li>
+                        <li class="fragment">Hint: A loop should help you</li>
+                    </ul>
+                </section>
+
+                <!-- Block 3 30 minutes -->
+                <section>
+                    <h3>Functions</h3>
+                    <p>Also known as "procedures"</p>
+                    <p> - A named unit of code that performs a specific task</p>
+                    <p class="fragment">When one uses a function, one makes a function <strong>call</strong></p>
+                    <p class="fragment">We have already made a function call when using the type, int, or float functions</p>
+
+                    <pre><code contenteditable class="fragment ruby">
+a = '3'
+print type(a)
+a = float(a)
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>Function calls</h3>
+                    <pre><code contenteditable class="fragment ruby">
+a = 3
+print type(a)
+                    </code></pre>
+                    <p class="fragment">A function can take <strong>arguments</strong></p>
+                    <p class="fragment">In the example above, the variable `a` is passed as an argument to the function `type`</p>
+                    <p class="fragment">Arguments can also be called <strong>parameters</strong></p>
+                    <pre><code contenteditable class="fragment ruby">
+# Some more function call examples
+
+int('32')
+str(32)
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>Function definition</h3>
+                    <p>The following example is a <strong>function definition</strong>. This allows us to create our own functions</p>
+                    <pre><code contenteditable class="fragment ruby">
+def print_plus_5(x):
+    print x + 5
+                    </code></pre>
+                    <p class="fragment">The function definition has the following parts</p>
+                    <ul>
+                        <li class="fragment">The <strong>def</strong> keyword signifies we are defining a function</li>
+                        <li class="fragment">The name of the function being defined - `print_plus_5`</li>
+                        <li class="fragment">The arguments in parentheses - `x`</li>
+                        <li class="fragment">The function <strong>body</strong>, which is a block of indented code that executes when the function is called. - `print x + 5`</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Function returns</h3>
+                    <p>A function can also <strong>return</strong> a value</p>
+                    <p class="fragment">To do this, one uses the <strong>return</strong> keyword</p>
+                    <pre><code contenteditable class="fragment ruby">
+def plus_5(x):
+    return x + 5
+
+y = plus_5(4)
+                    </code></pre>
+                    <ul>
+                        <li class="fragment">This allows us to call a function to obtain a value for later use. (Not the same as printing the value)</li>
+                        <li class="fragment">In this example, the function call `plus_5(4)` evaluates to 9, and y is set to this value</li>
+                        <li class="fragment">To determine what a function will return, use the <strong>substitution method</strong>.</li>
+                        <li class="fragment">If return is not used, the function returns <strong>None</strong></li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Functions with no arguments</h3>
+                    <p>A function does not have to take arguments, as in the following example:
+                    <pre><code contenteditable class="fragment ruby">
+def newline():
+    print ''
+
+newline()
+# prints an empty line. Nothing is returned
+                    </code></pre>
+                    <p class="fragment">This is useful when the function does some work but doesn't need any parameters. i.e. The function is intended to always do the same thing</p>
+                </section>
+
+                <section>
+                    <h3>Functions with more than one argument</h3>
+                    <p>A function can also take more than one argument separated by commas. For example:</p>
+                    <pre><code contenteditable class="fragment ruby">
+def find_rectangle_area(width, height):
+    return width * height
+
+area = find_rectangle_area(3, 4)
+# area is set to the value 12
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>Scope</h3>
+                    <p>The <strong>scope</strong> of a variable is the area of code in which a variable is still valid and can be used.</p>
+                    <p class="fragment">Variables defined within a function can not be used elsewhere.</p>
+                    <pre><code contenteditable class="fragment ruby">
+def get_triangle_area(base, height):
+    rect_area = base * height
+    return rect_area / 2.0
+
+triangle_area = get_triangle_area(10, 20)
+
+print height
+# NameError
+print rect_area
+# NameError
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>Import statements</h3>
+                    <p>The <strong>import</strong> statement allows us to use ruby code that is defined in one file in a different file, or inside of the shell.</p>
+                    <p class="fragment">The <strong>from</strong> keyword allows us to only import parts of a ruby file</p>
+                    <pre><code contenteditable class="fragment ruby">
+# In knights.py
+def shrubbery():
+    print "I am a shrubber"
+
+def ni():
+    print "Ni!" * 3
+
+# Run a ruby shell in the same directory as knights.py and enter the following
+import knights
+knights.shrubbery()
+knights.ni()
+
+# or
+from knights import shrubbery, ni
+shrubbery()
+ni()
+                    </code></pre>
+                </section>
+
+                <!-- Let's develop it: 15 minutes -->
+                <section>
+                    <h3>Let's Develop It</h3>
+                    <ul>
+                        <li>Write a program that uses at least one function to solve a geometry problem</li>
+                        <li>Hint: You might use a loop that obtains user input, does the calculation, then prints the answer. As before, the user should be able to quit by entering "quit"</li>
+                        <li>Hint: You can import your function in the shell and call it with different parameters to test it out</li>
+                        <li>Hint: Download <a href="http://calebsmith.github.io/gdi-intro-ruby/examples/geometry.py">geometry.py</a> and use it as an example</li>
+                    </ul>
+                    <p>If you'd like to try something different or in addition, try the next slide...</p>
+                </section>
+
+                <section>
+                    <h3>Let's Develop It</h3>
+                    <ul>
+                        <li>Write a program that asks the user to guess a number between a given range, such as 1 to 10</li>
+                        <li>The program should give the user hints such as "too high" or "too low". Alternatively, the hints might be "warm" or "cold" depending on how close they are to the number</li>
+                        <li>The computer will need to have a random number for the user to guess:</li>
+                        <pre><code contenteditable class="ruby">
+#At the top of the file
+from random import randint
+
+# Use this line where you need to have a random number.
+# (Hint, this is probably used before the user input loop)
+random_number = randint(1, 10)
+                        </code></pre>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>Questions?</h3>
+                </section>
+
+                <section></section>
+            </div>
+            <footer>
+                <div class="copyright">
+                    Intro to ruby ~ Girl Develop It ~
+                    <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+                </div>
+            </footer>
+        </div>
+
+        <script src="reveal/lib/js/head.min.js"></script>
+        <script src="reveal/js/reveal.min.js"></script>
+
+        <script>
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+
+                theme: Reveal.getQueryHash().theme, // available theme are in /css/themes
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'reveal/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+
+        </script>
+    </body>
+</html>
+
