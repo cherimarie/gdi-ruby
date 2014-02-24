@@ -69,11 +69,11 @@
                 <section>
                   <h3>Why Ruby?</h3>
                   <ul>
-                    <li class ="fragment">Suitable for beginners, yet used by professionals</li>
-                    <li class ="fragment">Readable, maintainable code</li>
-                    <li class ="fragment">Rapid rate of development. "The Ruby Way"</li>
-                    <li class ="fragment">Strong community support</li>
-                    <li class ="fragment">Rails</li>
+                    <li class ="fragment">Human readable. The syntax is very intuitive.</li>
+                    <li class ="fragment">The web development ecosystem is rich: Rails, Sinatra, Camping.</li>
+                    <li class ="fragment">The community is large, active and interested in helping others learn.</li>
+                    <li class ="fragment">You can make a lucrative career out of it.</li>
+                    <li class ="fragment">Using Ruby will cost you $0.</li>
                   </ul>
                 </section>
 
@@ -119,7 +119,7 @@
                             <td>A program that has a command line interface and issues commands to the operating system.</td>
                         </tr>
                         <tr>
-                            <td><strong>Ruby Shell</strong></td>
+                            <td><strong>IRB</strong></td>
                             <td>A command line program that runs inside of the terminal, takes Ruby code as input, interprets it, and prints out any results.</td>
                         </tr>
                         <tr>
@@ -183,66 +183,60 @@
 
                 <section>
                     <h3>Variables and Arithmetic</h3>
-                    <pre><code contenteditable class="python">
+                    <pre><code contenteditable class="ruby">
 3 + 4 
 2 * 4 
 6 - 2 
 4 / 2 
                     </code></pre>
-                    <pre><code contenteditable class="python">
+                    <pre><code contenteditable class="ruby">
 a = 2
 b = 3
 c = a + b
-c
                     </code></pre>
-                    <pre><code contenteditable class="python">
+                    <pre><code contenteditable class="ruby">
 a = 0
 a = a + .5
-a
                     </code></pre>
                 </section>
 
                 <section>
                     <h3>Strings</h3>
-                    <pre><code contenteditable class="python">
+                    <pre><code contenteditable class="ruby">
 a = 'Hello '
 b = 'World'
 c = a + b
-c
                     </code></pre>
-                    <pre><code contenteditable class="python">
+                    <pre><code contenteditable class="ruby">
 a = "Spam "
 b = a * 4
-b
                     </code></pre>
-                    <pre><code contenteditable class="python">
+                    <pre><code contenteditable class="ruby">
 a = 'spam '
 b = 'eggs'
 c = a * 4 + b
-c
                     </code></pre>
                 </section>
 
                 <section>
                     <h3>Data types</h3>
+                    <h2>Built-in: Numbers (Fixnum & Float), Booleans, Strings, Symbols, Regular Expressions, Arrays, Ranges & Hashes</h2>
                     <ul>
                         <li>Variables are names of objects</li>
                         <li>Among other things, variables are used to represent something that can't be known until the program is run</li>
                         <li>Objects always have a "type"</li>
                         <li>The type of an object helps define what it can do</li>
-                        <li>The type can be found using: `type()`</li>
-                        <li>type() is a <strong>function</strong>. We call it by using parenthesis and pass it an object by placing the object inside the parenthesis</li>
+                        <li>The type can be found using: .class</li>
                     </ul>
-                    <pre><code contenteditable class="python">
-a = 4
-print type(a)
-print type(4)
-
-print type(3.14)
-
-b = 'spam, again'
-print type(b)
-print type("But I don't like spam")
+                    <pre><code contenteditable class="ruby">
+irb(main):001:0> 1.class
+=> Fixnum
+irb(main):002:0> "Hello".class
+=> String
+irb(main):003:0> 1.0022.class
+=> Float
+irb(main):004:0> true.class
+=> TrueClass
                     </code></pre>
                 </section>
 
@@ -250,41 +244,44 @@ print type("But I don't like spam")
                         <h3>Data types - continued ...</h3>
                         <ul>
                             <li>Objects can be used with a set of <strong>operators</strong></li>
-                            <li>An int or float can be used with any of: +, -, *, /</li>
-                            <li>A string can be used with any of: +, *</li>
+                            <li>.to_* converts to a different type.</li>
+                            <li>.to_s converts one item into its String representation.</li>
                             <li>What happens if we try to use division or subtraction with a string?</li>
                         </ul>
-                    <pre><code contenteditable class="python">
-print "Spam" - "am"
-a = 'Spam and eggs'
-print a / 'hashbrowns'
-print a / 6
+                    <pre><code contenteditable class="ruby">
+irb(main):002:0> 'hello' / 5
+NoMethodError: undefined method `/' for "hello":String
                     </code></pre>
                     </section>
 
                     <section>
                         <h3>Errors</h3>
                         <ul>
-                            <li class="fragment">There are different kinds of errors that can occur. We've seen a few of these so far</li>
-                            <li class="fragment">A runtime error results in an <strong>Exception</strong> of which there are several types. Each type gives us some information about the nature of the error and how to correct it</li>
-                            <li class="fragment">One type of exception is a <strong>SyntaxError</strong>. This results when our code can not be evaluated because it is incorrect at a syntactic level. In other words, we are not following the "rules" of the language.</li>
-                            <li class="fragment">Some other examples are the <strong>TypeError</strong> and <strong>NameError</strong> exceptions.</li>
+                            <li class="fragment">There are different kinds of errors that can occur. We just saw the NoMethodError, but there are some other common errors.</li>
+                            <li class="fragment">In general, invalid operations result in a <strong>RuntimeError</strong>. You can create these by writing 'raise' in your code. </li>
+                            <li class="fragment">Another type of exception is an <strong>IOError</strong>. You might see this if you are trying to read from or write to a file that doesn't exist.</li>
+                            <li class="fragment">You will also run into the <strong>ArgumentError</strong> This comes up when you pass the wrong information into a method.</li>
                         </ul>
                     </section>
 
                     <section>
                     <h3>Errors - continued ...</h3>
-                    <pre><code contenteditable class="python">
-# SyntaxError - Doesn't conform to the rules of Ruby. This statement isn't meaningful to the computer
-4spam)eggs(garbage) + 10
+                    <pre><code contenteditable class="ruby">
+irb(main):002:0> 'hello how are you?' / 5
+NoMethodError: undefined method `/' for "hello how are you?":String
 
-# NameError - Using a name that hasn't been defined yet
-a = 5
-print b
-b = 10
+irb(main):003:0> raise
+RuntimeError:
 
-# TypeError - Using an object in a way that its type does not support
-'string1' - 'string2'
+irb(main):004:0> File.open("/etc/hosts") {|f| f << "example"}
+IOError: not opened for writing
+
+irb(main):005:0> def foo
+irb(main):006:1> end
+=> nil
+irb(main):007:0> foo 1,2
+ArgumentError: wrong number of arguments (2 for 0)
+
                     </code></pre>
                     <p class="fragment">There are also <strong>semantic</strong> errors. These are harder to catch because the computer can't catch them for us.</p>
                 </section>
@@ -340,27 +337,27 @@ pwd
 -> /home/username
 mkdir Projects
 cd Projects
-mkdir gdi-intro-python
-cd gdi-intro-python
+mkdir gdi-ruby
+cd gdi-ruby
 pwd
--> /home/username/Projects/gdi-intro-python
+-> /home/username/Projects/gdi-ruby
                     </code></pre>
-                    <p class="fragment">Now that the folders are made, we only have to use 'cd Projects/gdi-intro-python' in the future.</p>
+                    <p class="fragment">Now that the folders are made, we only have to use 'cd Projects/gdi-ruby' in the future.</p>
                 </section>
 
                 <section>
                     <h3>The Text Editor</h3>
                     <p>Open sublime text.</p>
                     <ul>
-                        <li class="fragment">Click file, open folder. Navigate to the gdi-intro-python folder we created and click "open"</li>
+                        <li class="fragment">Click file, open folder. Navigate to the gdi-intro-ruby folder we created and click "open"</li>
                         <li class="fragment">In the text editor, enter the following:
-                    <pre><code contenteditable class="fragment python">
+                    <pre><code contenteditable class="fragment ruby">
 print 'I am a Ruby program'
                     </code></pre>
                         </li>
                         <li class="fragment">Click file, save as. Type 'class1.py' and click ok.</li>
-                        <li class="fragment">Open a terminal and navigate to the gdi-intro-python folder (if not left open from before)</li>
-                        <li class="fragment">Type 'python class1.py'</li>
+                        <li class="fragment">Open a terminal and navigate to the gdi-intro-ruby folder (if not left open from before)</li>
+                        <li class="fragment">Type 'ruby class1.rb'</li>
                         <li class="fragment">You should see the terminal print "I am a Ruby program"</li>
                     </ul>
                 </section>
@@ -369,21 +366,21 @@ print 'I am a Ruby program'
                     <h3>User Input</h3>
                     <p>To obtain user input, use 'raw_input()'</p>
                     <p class="fragment">Change the class1.py text to the following and run it again</p>
-                    <pre><code contenteditable class="fragment python">
-input_value = raw_input("Enter a radius:")
-radius = float(input_value)
+                    <pre><code contenteditable class="fragment ruby">
+puts "Enter a radius:"
+radius = gets.chomp.to_f
 area = 3.14159 * radius ** 2
-print "The area of a circle with radius " + input_value + " is:"
-print area
+puts "The area of a circle with radius " + radius + " is:"
+puts area
                     </code></pre>
-                    <p class="fragment">N.B. - The user's input is a string so we use float() to make it a number</p>
+                    <p class="fragment">N.B. - The user's input is a string so we use to_f make it a number</p>
                 </section>
 
                 <!-- Let's develop it: 15 minutes -->
                 <section>
                     <h3>Let's Develop It</h3>
-                    <p>Write your own program that uses raw_input and does something else with the value</p>
-                    <p>You can use float() to treat the input as a number if you need a number, or use the input directly as a string</p>
+                    <p>Write your own program that uses input and does something else with the value</p>
+                    <p>You can use .to_f to treat the input as a number if you need a number, or use the input directly as a string</p>
                 </section>
 
                 <section>
