@@ -176,15 +176,15 @@
                 <!-- Block 2: 30 minutes -->
                 <section>
                     <h3>Working with IRB</h3>
-                    <p>Open up your terminal and type 'irb>
+                    <p>Open up your terminal and type `irb`
                     <p>IRB is a command line interface to ruby that is installed when we install Ruby. It works like a calculator and is a great way to get started quickly.</p>
 
                     <p class="fragment">Follow along with the examples in the slides. Type them in!</p>
-                    <p class="fragment">Feel free to explore as well. You will not accidentally break things</p>
+                    <p class="fragment">Feel free to explore as well. You will not accidentally break things.</p>
                 </section>
 
                 <section>
-                    <h3>Variables and Arithmetic</h3>
+                    <h3>Arithmetic</h3>
                     <p>Try out some calculator functions</p>
                     <pre><code contenteditable class="ruby">
 3 + 4 
@@ -192,44 +192,27 @@
 6 - 2 
 4 / 2 
                     </code></pre>
+                </section>
+                <section>
+                    <h3>Variables</h3>
+                    <p>In Ruby, any lowercase word is a variable. Variables are like nicknames given to information that will be used often.</p>
+                    <p>number = 5 assigns a value of 5 to the `number` variable.</p>
+                    <p>There are 5 types of variables in ruby. For now, we will be using what are called ‘local variables’.</p>
+                    <p>Local variables begin with a lowercase letter and may include numbers and underscores.</p>
                     <pre><code contenteditable class="ruby">
-a = 2
-b = 3
-c = a + b
-                    </code></pre>
-                    <pre><code contenteditable class="ruby">
-a = 0
-a = a + .5
+x = 6
+number5 = 5
+other_number = 2
+result = x + number5 + other_number
                     </code></pre>
                 </section>
 
                 <section>
-                    <h3>Strings</h3>
-                    <pre><code contenteditable class="ruby">
-a = 'Hello '
-b = 'World'
-c = a + b
-c.reverse
-                    </code></pre>
-                    <pre><code contenteditable class="ruby">
-a = "Spam "
-b = a * 4
-                    </code></pre>
-                    <pre><code contenteditable class="ruby">
-a = 'spam '
-b = 'eggs'
-c = a * 4 + b
-                    </code></pre>
-                    <p>Type `quit` to get out of IRB</p>
-                </section>
-
-                <section>
-                    <h3>Data types</h3>
-                    <h2>Built-in: Numbers (Fixnum & Float), Booleans, Strings, Symbols, Regular Expressions, Arrays, Ranges & Hashes</h2>
+                    <h2>Data types</h2>
+                    <h3>Built-in: Numbers (Fixnum & Float), Booleans, Strings, Symbols, Regular Expressions, Arrays, Ranges & Hashes</h3>
                     <ul>
-                        <li>Variables are used to save information for later use.</li>
                         <li>Objects always have a "type"</li>
-                        <li>The type of an object helps define what it can do</li>
+                        <li>The type of an object helps define what it can do.</li>
                         <li>The type can be found using: .class</li>
                         <li>An identifier for the object can be found using: .object_id</li>
                     </ul>
@@ -254,14 +237,96 @@ irb> true.class
 => TrueClass
                     </code></pre>
                 </section>
+              <section>
+                  <h3>Strings</h3>
+                  <p>Strings are characters inside double or single quotes.</p>
 
+                  <pre><code contenteditable class="ruby">
+a = 'Hello '
+b = 'World'
+c = a + b
+c.reverse
+
+interpolated_string = "#{a} #{b}"
+
+                  </code></pre>
+                  <pre><code contenteditable class="ruby">
+a = "Spam "
+b = a * 4
+                  </code></pre>
+                  <pre><code contenteditable class="ruby">
+a = 'spam '
+b = 'eggs'
+c = a * 4 + b
+                  </code></pre>
+                  <p>Type `quit` to get out of IRB</p>
+              </section>
+
+              <section>
+                  <h3>Symbols</h3>
+                  <p>You can think of symbols as lightweight Strings.</p>
+                  <pre><code contenteditable class="ruby">
+"hello"  # transient and mutable
+:hello   # permanent and immutable
+                  </code></pre>
+                  <p>It's good to know these exist, but don't think about them too much for now.</p>
+              </section>
+
+              <section>
+                  <h3>Booleans</h3>
+                  <p>In Ruby, true and false are reserved words that represent TrueClass and FalseClass Objects.</p>
+                  <p>You can perform boolean logic with these classes: conjunction, disjunction and negation.</p>
+                  <pre><code contenteditable class="ruby">
+
+true & true
+=> true
+
+false & true
+=>
+
+false | true
+=> true
+
+false | false
+=> false
+
+!true
+=> false
+
+!false
+=> true
+
+                  </code></pre>
+              </section>
+              <section>
+                  <h3>Regular Expression</h3>
+                  <p>These are one of the most powerful programming concepts ever. I'm still learning them 5 years in.</p>
+                  <p>Regular Expressions are used to match patterns within Strings</p>
+                  <pre><code contenteditable class="ruby">
+irb> co_matcher = /co/
+irb> puts "Match found!" if ("cool beans" =~ co_matcher)
+
+irb> puts "The matching string was #{$~}" if "one two three four" =~ /(one).*(f...)/
+
+                  </code></pre>
+              </section>
+              <section>
+                  <h3>Arrays, Ranges & Hashes we will leave for the next class</h3>
+                  <p>Examples of what they will look like:</p>
+                  <pre><code contenteditable class="ruby">
+irb> array_of_numbers = [1,2,3]
+irb> range_of_numbers = (1..10)
+irb> hash_of_number_to_value = {"1" => 1, "2" => 2}
+                  </code></pre>
+              </section>
                     <section>
-                        <h3>Data types - continued ...</h3>
+                        <h3>Methods</h3>
                         <ul>
                             <li>These different objects can be used with a set of <strong>methods</strong></li>
-                            <li>A method is a series of statements<li>
-                            <li>.to_* are built in methods that convert objects to a different type.</li>
-                            <li>.to_s converts one object into its String representation.</li>
+                            <li>A method is a series of statements</li>
+                            <li>To see what methods are on an object use `.methods`</li>
+                            <li>`.to_*` are built in methods that convert objects to a different type.</li>
+                            <li>`.to_s` converts one object into its String representation.</li>
                             <li>What happens if we try to use division or subtraction with a string?</li>
                         </ul>
                     <pre><code contenteditable class="ruby">
@@ -269,8 +334,8 @@ irb> "2".to_i
 => 2
 irb> 2.to_s
 => "2"
-irb> 'hello' / 5
-NoMethodError: undefined method `/' for "hello":String
+irb> "2" / 5
+NoMethodError: undefined method `/' for "2":String
                     </code></pre>
                     </section>
 
@@ -287,9 +352,6 @@ NoMethodError: undefined method `/' for "hello":String
                     <section>
                     <h3>Errors - continued ...</h3>
                     <pre><code contenteditable class="ruby">
-irb> 'hello how are you?' / 5
-NoMethodError: undefined method `/' for "hello how are you?":String
-
 irb> raise
 RuntimeError:
 
@@ -384,7 +446,7 @@ print 'I am a Ruby program'
 
                 <section>
                     <h3>User Input</h3>
-                    <p>To obtain user input, use 'getsx'</p>
+                    <p>To obtain user input, use `gets`</p>
                     <p class="fragment">Change the class1.rb text to the following and run it again</p>
                     <pre><code contenteditable class="fragment ruby">
 puts "Enter a radius:"
