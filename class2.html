@@ -79,7 +79,7 @@ puts 3 &lt; 5
 
                 <section>
                     <h3>Boolean Expressions continued</h3>
-                    <p>The following chart shows the various Boolean operators</p>
+                    <p>A boolean expression evaluates to true or false.</p>
                     <table>
                         <tr>
                             <td>a == b</td>
@@ -114,18 +114,52 @@ puts a <= 3
 puts a >= 4
                     </code></pre>
                     <p class="fragment">Remember: Equals does not equal "equals equals"</p>
+                    <p> <a href="http://ruby.learncodethehardway.org/book/ex27.html">Further reading </a> on boolean expressions...</p>
+                </section>
+
+                <section>
+                    <h3>Boolean Expressions continued, cont'd</h3>
+                    <p>A boolean expression evaluates to true or false. It can also have multiple parts, joined by AND (&&) or OR (||).</p>
+                    <table>
+                        <tr>
+                            <td>true and true</td>
+                            <td>true && true</td>
+                        </tr>
+                        <tr>
+                            <td>true and false</td>
+                            <td>true && false</td>
+                        </tr>
+                        <tr>
+                            <td>1 == 1 and 2 == 1</td>
+                            <td>1 == 1 && 2 == 1</td>
+                        </tr>
+                        <tr>
+                            <td>true or 1 == 1</td>
+                            <td>true || 1 == 1</td>
+                        </tr>
+                        <tr>
+                            <td>1 == 1 or 2 != 1</td>
+                            <td>1 == 1 || 2 != 1</td>
+                        </tr>
+                        <tr>
+                            <td>not (true and false)</td>
+                            <td>not (true && false)</td>
+                        </tr>
+                    </table>
+                    <p>Predicates and the logical operators that act on them can be wrapped in parenthesis to enforce precedence.</p>
+                    <p> <a href="http://ruby.learncodethehardway.org/book/ex28.html">Further practice </a> on boolean expressions...</p>
                 </section>
 
                 <section>
                     <h3>Conditionals</h3>
                     <p>When we want different code to execute depending on certain criteria, we use a <strong>conditional</strong></p>
-                    <p class="fragment">We achieve this using <strong>if</strong> statements</p>
+                    <p class="fragment">We achieve this using <strong>if</strong> statements and boolean expressions.</p>
                     <pre><code contenteditable class="fragment ruby">
 if x == 5
     puts 'x is equal to 5'
 end
                     </code></pre>
-                    <p class="fragment">We often want a different block to execute if the statement is false. This can be accomplished using <strong>else</strong></p>
+                    <p class="fragment">We often want a different block to execute if the statement is false. This can be accomplished using <strong>else</strong>.</p>
                     <pre><code contenteditable class="fragment ruby">
 if x == 5
     puts 'x is equal to 5'
@@ -136,30 +170,22 @@ end
                 </section>
 
                 <section>
-                    <h3>Predicates</h3>
-                    <p>The expression after `if` and before the block is a Boolean expression, also called a <strong>predicate</strong></p>
-                    <p class="fragment">A variable can be used to store the evaluation of a predicate, especially if it is particularly long or complicated</p>
-                    <p class="fragment">Predicates can be combined or prefaced with <strong>Logical operators</strong>: `not`, `and` and `or`</p>
-                    <p class="fragment">Predicates and the logical operators that act on them can be wrapped in parenthesis to enforce precedence</p>
-                </section>
-
-                <section>
-                    <h3>Predicates continued</h3>
+                    <h3>Conditionals continued</h3>
                     <p>The following shows some examples of combining these techniques:</p>
                     <pre><code contenteditable class="fragment ruby">
 # 1. Both 
-if x > 3 and y > 3
+if x > 3 && y > 3
     puts 'Both values are greater than 3!'
 end
 
 # 2. Either 
-if x != 0 or y != 0
+if x != 0 || y != 0
     puts 'The point x,y is not on the x or y axis'
 end
 
 # 3. Not
-if 
-    puts 'The point x,y is not on the x or y axis'
+if not(x > y)
+    puts 'x is less than y'
 end
                     </code></pre>
                 </section>
@@ -171,12 +197,12 @@ end
 
                     <p>For example:</p>
                     <pre><code contenteditable class="fragment ruby">
-if x > 2
-   puts "x is greater than 2"
-elsif x <= 2 and x!=0
-   puts "x is 1"
+if x > 10
+   puts "x is greater than 10"
+elsif x <= 10 && x!=0
+   puts "x is a number between 1 and 10"
 else
-   puts "I can't guess the number"
+   puts "Wow, don't be so negative, dude"
 end
                     </code></pre>
                 </section>
@@ -212,6 +238,7 @@ if input == '1'
   puts "You hide in a cave"
   puts "The warg finds you and bites your leg."
   health = health - 10
+  puts "Your health is now at " + health
 elsif input == '2'
   puts "You climb a tree"
   puts "The warg loses interest and wanders off."
@@ -219,9 +246,16 @@ else
   puts "That's not a valid escape option."
 end 
                     </code></pre>
-                    <p>Remember, you can run your program by calling it with Ruby from the command line:</p>
+                    <p>Remember: 
+                    <ul>
+                    <li>You can run your program by calling it with Ruby from the command line
                     <pre><code contenteditable class="fragment">
                       $ ruby program_name.rb 
+                    </code></pre></li>
+                    <li>"gets.chomp" is the value of user input at the command line, with the trailing whitespace chomped off.</li>
+                    <li>"gets.chomp" will be a string, so if you need to do math with it, convert it to an integer with the ".to_i" method
+                    <pre><code contenteditable class="fragment">
+                      input = gets.chomp.to_i 
                     </code></pre>
                 </section>
 
@@ -254,7 +288,7 @@ puts 'Done'
 puts 'Enter a positive integer:'
 
 input_value = gets.chomp
-#.to_i converts object to an integer
+#.to_i converts string to an integer
 n = input_value.to_i
 
 result = 1
@@ -280,6 +314,8 @@ for i in 0..5
    puts "Value of i is #{i}"
 end
                     </code></pre>
+                    <p>More information about ranges can be found <a href="http://www.ruby-doc.org/core-2.1.0/Range.html">here.</a></p>
+                    <p>"#{i}" is an example of <strong>string interpolation</strong></p>
                 </section>
 
                 <section>
@@ -305,7 +341,7 @@ end
                     <ul>
                         <li class="fragment">Write a program that obtains user input like the last program</li>
                         <li class="fragment">However, this program should not exit until the user types "quit".</li>
-                        <li class="fragment">Hint: A loop should help you</li>
+                        <li class="fragment">Hint: A loop will be helpful</li>
                     </ul>
                 </section>
 
@@ -417,6 +453,7 @@ pets_array.max
 
                 <section>
                     <h3>Let's Develop It</h3>
+                    <!-- TODO: Make this use arrays or hashes -->
                     <ul>
                         <li>Write a program that asks the user to guess a number between a given range, such as 1 to 10</li>
                         <li>The program should give the user hints such as "too high" or "too low". Alternatively, the hints might be "warm" or "cold" depending on how close they are to the number</li>
@@ -450,7 +487,10 @@ nil.size
                     <h3>Questions?</h3>
                 </section>
 
-                <section></section>
+                <section>
+                    <h3>Homework:</h3>
+                    <!-- TO DO -->
+                </section>
             </div>
             <footer>
                 <div class="copyright">
