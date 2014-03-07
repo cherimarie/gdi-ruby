@@ -4,9 +4,9 @@
     <head>
         <meta charset="utf-8">
 
-        <title>Intro to Python ~ Girl Develop It</title>
+        <title>Intro to Ruby ~ Girl Develop It</title>
 
-        <meta name="description" content="This is the official Girl Develop It Core Intro to Python course. The course is meant to be taught in four two-hour sessions. Each of the slides and practice files are customizable according to the needs of a given class or audience.">
+        <meta name="description" content="This is the official Girl Develop It Core Intro to Ruby course. The course is meant to be taught in four two-hour sessions. Each of the slides and practice files are customizable according to the needs of a given class or audience.">
         <meta name="author" content="Girl Develop It">
 
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -35,372 +35,308 @@
               <!-- Opening slide -->
                 <section>
                     <img src = "images/gdi_logo_badge.png">
-                    <h3>Intro to Python</h3>
+                    <h3>Intro to Ruby</h3>
                     <h4>Class 4</h4>
                 </section>
 
                 <section>
                     <h3>Review</h3>
                     <ul>
-                        <li>Method calls</li>
-                        <li>Combining lists and dictionaries</li>
-                        <li>Builtins for collections</li>
+                        <li>What is a method?</li>
+                        <li>Creating & calling a method</li>
+                        <li>What is an object?</li>
                     </ul>
                 </section>
 
-                <!-- Block 1  - Intro to Classes and OOP - 20 minutes -->
+                <!-- Built in classes of Ruby: 20 minutes -->
                 <section>
-                    <h3>Functions on Dictionaries</h3>
+                    <h3>Built in classes of Ruby</h3>
+                    <p>Ruby has many classes predefined:</p>
+                    <ul>
+                      <li>String</li>
+                      <li>Integer</li>
+                      <li>Float</li>
+                      <li>Array</li>
+                      <li>Hash</li>
+                    </ul>
+                    <p>They are commonly used object types, and have methods associated with them already. How convenient!</p> 
+                    <pre><code contenteditable class="fragment ruby">
+a = Array.new
+b = String.new 
+
+                    </code></pre>
+                </section>
+
+                <section>
+                    <h3>Built in classes of Ruby</h3>
+                    <p>When we create new objects from these classes, we can do things with them immediately.</p>
+                    <p>To see all methods associated with an object or class, run ".methods" on it.</p>
+                    <pre><code contenteditable class="fragment ruby">
+b = "holy cow!"
+b.reverse
+b.methods
+                    </code></pre>
+                    <p>You can also view all the built in classes and their associated methods in the <a href="http://www.ruby-doc.org/core-2.0.0/" alt="Ruby docuemntation">Ruby documentation</a>.</p> 
+                </section>
+
+                <section>
+                    <h3>Extending a Class</h3>
+                    <p>You can write new methods for the built in classes of Ruby!</p>
+                    <p>It will then be available to all instances of that class in your program.</p>
+                    <pre><code contenteditable class="fragment ruby">
+class String
+
+  def get_excited
+    wow = self + "!!!"
+    return wow 
+  end 
+
+end 
+                    </code></pre>
+                    <p>By defining our method within the String class, it is available to all instances of String. We used "self" to refer to the object using the method.</p> 
+                    <p>You can redefine existing methods for classes this way, too, but it's not recommended.</p>
+                </section>
+
+      <!-- Creating a class: 20 minutes -->
+                <section>
+                    <h3>Creating a Class</h3>
+                    <p>It's very easy to create your own classes in Ruby.</p>
+                    <pre><code contenteditable class="fragment ruby">
+class Die
+  
+  def roll 
+     @numberShowing = 1 + rand(6) #rand(6) returns a random-ish number between 0-5
+  end 
+
+  def showing 
+    @numberShowing
+  end 
+
+end 
+
+die = Die.new
+die.roll
+puts die.showing
+
+                    </code></pre>
+                    <p>Now, within the program that contains this class definition, you can create new Die objects, and perform the "roll" method on them.</p> 
                     <p></p>
-                    <pre><code contenteditable class="fragment python">
-character = {
-    'x': 10,
-    'y': 20,
-    'health': 100,
-}
-
-def injure(character, damage):
-    character['health'] = character['health'] - damage
-    if character['health'] < 0:
-        character['health'] = 0
-
-def heal(character, amount):
-    character['health'] = character['health'] + amount
-    if character['health'] > 100:
-        character['health'] = 100
-                    </code></pre>
                 </section>
 
                 <section>
-                    <h3>Classes</h3>
-                    <p>A <strong>class</strong> creates a new type of object.</p>
-                    <p class="fragment">A class defines the attributes and methods of objects of that type</p>
-                    <p class="fragment">Classes are used to create new objects of that type</p>
-                    <pre><code contenteditable class="fragment python">
-class Character():
+                    <h3>Creating a Class, cont'd</h3>
+                    <p>What is the result of calling the showing method on a newly-created, un-rolled Die object?</p>
+                    <p>We can avoid this by calling the roll method as part of the creation of a new instance of Die.</p>
+                    <pre><code contenteditable class="fragment ruby">
+# in die.rb
+class Die
+  
+  def initialize 
+    roll
+  end 
 
-    def __init__(self, x, y, health):
-        self.x = x
-        self.y = y
-        self.health = health
+  def roll 
+     @numberShowing = 1 + rand(6) 
+  end 
 
-character = Character(10, 20, 100)
+  def showing 
+    @numberShowing
+  end 
+
+end 
+
+#in irb
+load 'die.rb'
+die = Die.new
+puts die.showing
+ 
                     </code></pre>
+                    <p>You can copy and paste your class definition into irb, or save it into a file. The "load 'die.rb'" line isn't necessary unless you've saved it to a die.rb file.</p> 
                 </section>
 
-                <section>
-                    <h3>A Sense of Self</h3>
-                    <p>The first argument to every method is <strong>self</strong>.</p>
-                    <p class="fragment">self contains the attributes and methods for the current object</p>
-                    <pre><code contenteditable class="fragment python">
-class Character():
-
-    def __init__(self, x, y, health):
-        self.x = x
-        self.y = y
-        self.health = health
-
-character = Character(10, 20, 100)
-                    </code></pre>
-                </section>
-
-                <section>
-                    <h3>The __init__ Method</h3>
-                    <p>This method defines what the class should do when creating a new object.</p>
-                    <pre><code contenteditable class="fragment python">
-class Character():
-
-    def __init__(self, x, y, health):
-        self.x = x
-        self.y = y
-        self.health = health
-
-character_a = Character(10, 20, 100)
-character_b = Character(10, 20, 100)
-                    </code></pre>
-                <p class="fragment">To create a new Character, the syntax looks like a function call. These arguments are passed to the __init__ method</p>
-                </section>
-
-                <section>
-                    <h3>Class Methods</h3>
-                    <p>A class also defines <strong>methods</strong>, which are functions that operate on objects of that type</p>
-                    <p class="fragment">Assigning values to an attribute on self is how we <strong>mutate</strong> the object's state.</p>
-                    <pre><code contenteditable class="fragment python">
-# inside the character class
-
-    def heal(self, amount):
-        self.health = self.health + amount
-        if self.health > 100:
-            self.health = 100
-
-    def injure(self, amount):
-        self.health = self.health - amount
-        if self.health < 0:
-           self.health = 0
-
-character = Character(10, 20, 100)
-character.injure(10)
-                    </code></pre>
-                </section>
-
-                <!-- Let's develop it: 10 minutes -->
+              <!-- Let's develop it: 10 minutes -->
                 <section>
                     <h3>Let's Develop It</h3>
                     <ul>
-                        <li>In your text editor, create your own class with an __init__ method, and at least one other method.</li>
-                        <li>Open a Python shell and import the class. Create one or more objects from the class</li>
-                        <li>If time allows, create a function that creates objects from your class, calls a method, and prints one of its attributes</li>
-                        <li>Use the next slide as an example</li>
+                        <li>In your text editor, create your own class with an initialize method, and at least one other method.</li>
+                        <li>Open a ruby shell and load the class. Create one or more objects from the class and run some methods on them.</li>
+                        <li>Use the next slides as an example.</li>
                     </ul>
                 </section>
 
                 <section>
-                    <pre><code contenteditable class="python">
-# in character.py
-class Character():
+                    <pre><code contenteditable class="ruby">
+# in character.rb
+class Character 
 
-    def __init__(self, x, y, health):
-        self.x = x
-        self.y = y
-        self.health = health
+  def initialize(name)
+    @name = name
+    @health = 10
+  end
 
-    def heal(self, amount):
-        self.health = self.health + amount
-        if self.health > 100:
-            self.health = 100
-                    </code></pre>
-                    <pre><code contenteditable class="python">
-# in Python shell
-from character import Character
-character_a = Character(10, 20, 100)
-character_a.injure(10)
-print "character health is: " + character_a.health
-                    </code></pre>
-                </section>
+  def heal
+    @health += 6
+  end 
 
-                <!-- Block 2 - Inheritance and Composition 20 Minutes -->
+  def adventure
+    if @health > 0
+      puts "#{@name} goes on a great adventure and meets a dragon!"
+      puts "It hugged #{@name} kind of hard..."
+      @health -= 5
+    else 
+      puts "#{@name} is dead :("
+      exit
+    end 
+  end 
 
-                <section>
-                    <h3>Inheritance</h3>
-                    <p>A class can <strong>inherit</strong> from another class.</p>
-                    <p class="fragment">A class that inherits from another is called the "child class" and obtains the methods and attributes of its "parent"</p>
-                    <pre><code contenteditable class="fragment python">
-class Mobile(object):
-    """
-    An object with an x, y position, and methods for moving
-    """
-
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
-
-    def move_up():
-        self.y = self.y - 1
-
-    # ... methods for move_down, move_left, and move_right
+end
                     </code></pre>
                 </section>
 
                 <section>
-                    <h3>Inheritance Continued</h3>
-                    <p>The move_up method is <strong>overridden</strong> in the child class below:</p>
-                    <pre><code contenteditable class="fragment python">
-class BoundedMobile(Mobile):
-    """
-    An object with an x, y position, and methods for moving
-    The x, y position must be within bounds
-    """
+                    <pre><code contenteditable class="ruby">
+# in irb
+load 'character.rb'
+me = Character.new("Cheri")
+me.adventure
+me.heal 
+me.adventure
+# repeat until you're done having fun
 
-    def move_up():
-        self.y = self.y - 1
-        if self.y < 0:
-            self.y = 0
                     </code></pre>
-                    <p class="fragment">See <a href="http://calebsmith.github.io/gdi-intro-python/examples/mobile.py">mobile.py</a> for a more complete example.</p>
+                </section>
+        
+        <!-- Putting it together: 10 minutes -->
+                <section>
+                    <h3>Inheritence</h3>
+                    <p>Classes can <strong>inherit</strong> from one other class.</p>
+                    <p>All elves are characters, so if all characters have an adventure method, so do all elves. Elves may also have their own methods that other characters do not.</p>
+
+                    <pre><code contenteditable class="fragment ruby">
+# in character.rb
+class Elf < Character
+
+  def twinkle
+    puts "I'm super magical!"
+  end 
+
+end
+
+#in irb
+load 'character.rb'
+me = Character.new("Cheri")
+me.adventure
+me.twinkle 
+ 
+                    </code></pre>
+                    <p>You'll note the initialize method was also inherited, as our new Elf knows it's name and started off with 10 health.</p>
                 </section>
 
                 <section>
-                    <h3>What's Super about Super</h3>
-                    <p><strong>super</strong> is often helpful when writing methods that override the method of the parent class</p>
-                    <pre><code contenteditable class="fragment python">
-class BoundedMobile(Mobile):
-    """
-    An object with an x, y position, and methods for moving
-    The x, y position must be within bounds
-    """
+                    <h3>Inheritence, cont'd</h3>
+                    <p>Subclasses may differ from from their <strong>super classes</strong> in some ways.</p>
+                    <p>Methods can be overwritted when this is the case.</p>
 
-    def move_up():
-        super(BoundedMobile, self).move_up()
-        if self.y < 0:
-            self.y = 0
+                    <pre><code contenteditable class="fragment ruby">
+# in character.rb
+class Elf < Character
+  def twinkle
+    puts "I'm super magical!"
+  end
+
+  def heal
+    @health += 8 #it's easier to heal when you're magic
+  end 
+end
+
+#in irb
+load 'character.rb'
+me = Character.new("Cheri")
+me.adventure
+me.heal
                     </code></pre>
-                    <p class="fragment">The call to super() takes the name of the child class, followed by self. This is followed by the method call and any arguments to pass to it</p>
+                    <p>More information about inheritance can be found <a href="http://rubylearning.com/satishtalim/ruby_inheritance.html" alt="rubylearning.com">here</a>.</p>
                 </section>
 
                 <section>
-                    <h3>Composition</h3>
-                    <p>Classes can also use the technique of <strong>composition</strong></p>
-                    <p class="fragment">This simply means that a given object contains other objects within it.</p>
-                    <p class="fragment">This often leads to a clearer and simpler design</p>
-                    <pre><code contenteditable class="fragment python">
-class Grid(object):
-
-    def __init__(self, x_limit, y_limit):
-        self.x_limit = x_limit
-        self.y_limit = y_limit
-        self.mobiles = []
-
-    def add_mobile(self, x, y):
-        mob = BoundedMobile(x, y, self.x_limit, self.y_limit)
-        mobs = self.mobiles.get((x, y), [])
-        mobs.append(mob)
-        self.mobiles[(x, y)] = mobs
-                    </code></pre>
-                </section>
-
-                <section>
-                    <h3>Composition Continued</h3>
-                    <p>Given the class on the previous slide, the following code creates mobiles within the grid object. (Complete code is available in the aforementioned <a href="http://calebsmith.github.io/gdi-intro-python/examples/mobile.py">mobile.py</a> file.)</p>
-                    <pre><code contenteditable class="fragment python">
-from mobile import Grid
-
-grid = Grid(7, 7)
-grid.add_mobile(1, 2)
-grid.add_mobile(0, 1)
-grid.add_mobile(0, 1)
-
-grid.display_grid()
-                    </code></pre>
-                </section>
-
-                <!-- Let's develop it: 10 minutes -->
-                <section>
-                    <h3>Let's Develop It</h3>
-                    <p>Create a class that uses inheritance, composition, or both.</p>
-                    <p>To help you, use your work from the last exercise or the classes from <a href="http://calebsmith.github.io/gdi-intro-python/examples/mobile.py">mobile.py</a></p>
-                </section>
-
-                <!-- Block 3 - Functional Programming - 20 Minutes -->
-                <section>
-                    <h3>List Comprehensions</h3>
-                    <p>I have a list and I have something I want to do to each element to create a new list</p>
-                    <pre><code contenteditable class="fragment python">
-squares = []
-for number in range(11):
-    squares.append(number ** 2)
-                    </code></pre>
-                    <p class="fragment">This pattern is so common, there is a shorter way to express it:</p>
-                    <pre><code contenteditable class="fragment python">
-squares = [number ** 2 for number in range(11)]
-                    </code></pre>
-                    <p class="fragment">This is called a <strong>list comprehension</strong></p>
-                </section>
-
-                <section>
-                    <h3>Generators</h3>
-                    <p>A <strong>generator</strong> is like a list, but it is evaluated when it is used rather than when it is defined.</p>
-                    <p class="fragment">Generators are useful when the list may be very large or when the task is time consuming</p>
-                    <pre><code contenteditable class="fragment python">
-#Define a generator
-def find_squares(numbers):
-    for number in numbers
-        yield number ** 2
-
-#Iterate on a generator like a list
-for square in find_squares(range(10)):
-    print square
-                    </code></pre>
-                    <p class="fragment">A function with a <strong>yield</strong> statement creates a generator. Each yield statement "yields" the next value in the sequence</p>
-                </section>
-
-                <section>
-                    <h3>Generator Comprehensions</h3>
-                    <p>A <strong>generator comprehension</strong> is created the same way as list comprehension, but replacing the square brackets with parenthesis.</p>
-                    <pre><code contenteditable class="fragment python">
-ten_squares = (number ** 2 for number in range(10))
-                    </code></pre>
-                    <p class="fragment">These are used liberally in the functions of <a href="http://calebsmith.github.io/gdi-intro-python/examples/books.py">books.py</a> example from class 3.</p>
-                </section>
-
-                <section>
-                    <h3>Higher order functions</h3>
-                    <p>A <strong>higher order function</strong> is a function that returns a function, takes a function as an argument, or both</p>
-                    <p class="fragment">One commonly used higher order function that is a Python builtin is called <strong>map</strong></p>
-                    <pre><code contenteditable class="fragment python">
-# Define any function
-def sqaure(number):
-    return number ** 2
-
-# Pass the function to map along with an iterable
-squares = map(square, range(10))
-                    </code></pre>
-                    <p class="fragment">N.B. - map has performance problems for large data sets and should only be used when the data set is well defined and somewhat small.</section>
-                </section>
-
-                <section>
-                    <h3>Let's Develop It</h3>
-                    <p>Choose among any of these projects (Resources available on the next page):</p>
+                    <h3>Putting it all together</h3>
+                    <p>For a command line program, you need these pieces:</p>
                     <ul>
-                        <li>Search the Web - Write a program that searches the web using DuckDuckGo and displays results.
-                        </li>
-                        <li>Encryption - Write a program that encrypts a string from user input, or file and is able to decrypt it as well.
-                        </li>
-                        <li>Command Line Game - Create a simple game that runs inside the terminal.
-                        </li>
+                      <li>Files containing your class definitions</li>
+                      <li>A file containing your program, which requires the classes</li>
+                      <li>To call the program file from the command line</li>
+                    </ul>
+
+                    <pre><code contenteditable class="fragment ruby">
+# in character.rb
+class Character
+  # contents of class definitions here 
+end
+
+class Elf < Character
+  # contents of class definitions here 
+end
+                    </code></pre>
+                    <pre><code contenteditable class="fragment ruby">
+# in adventure.rb
+require_relative 'character.rb' #file path relative to the location of adventure.rb
+require_relative 'die.rb'
+
+puts "Your name?"
+char = Character.new(gets.chomp)
+# plus lots more adventuring..... 
+                    </code></pre>
+                    <pre><code contenteditable class="fragment ruby">
+#in command line
+ruby adventure.rb
+# then have some fun!
+                    </code></pre>
                 </section>
 
+              <!-- Let's develop it: 40 minutes -->
                 <section>
-                    <h3>Let's Develop It Resources</h3>
-                    <table>
-                        <tr>
-                            <td>Search the Web</td>
-                            <td><a href="https://github.com/crazedpsyc/python-duckduckgo/">python-duckduckgo</a> library to get started. Download duckduckgo.py and put it in the same directory as your code. Use the query() function it provides to begin. (HINT: Results are often empty, but 'related' list usually has a few hits.)</td>
-                        </tr>
-                        <tr>
-                            <td>Encryption</td>
-                            <td>Read about the <a href="https://en.wikipedia.org/wiki/Caesar_cipher">Caesar Cipher</a> or find a similarly simple encryption mechanism online. You should find the ord() and chr() functions helpful, as well as the modulus operator '%'</td> 
-                        </tr>
-                    </table>
-                    <p>continued on next page...</p>
+                    <h3>Let's Develop It</h3>
+                    <p>Putting it all togther: A role-playing game!</p>
+                    <ul>
+                        <li>If you didn't do a Character class last time, copy and paste the code to get one started.</li>
+                        <li>Create a couple subclasses of Character.</li>
+                        <li>Write a command-line program that calls all your character and die classes to allow the user to have an adventure!</li>
+                        <li>Maybe user can choose their character type?</li>
+                        <li>Maybe the user's progress will be dependent on outcome of dice-rolling?</li>
+                    </ul>
                 </section>
 
+            <!-- Wrap up: 10 minutes -->
                 <section>
-                    <h3>Let's Develop It Resources Continued</h3>
+                    <h3>Futher Resources</h3>
                     <table>
                         <tr>
-                            <td>Command Line Game</td>
-                            <td>This might be a text adventure with paragraphs of text followed by a series of choices for the user. A choice maps to another node in the story (another paragraph with choices). You might try storing the paragraphs separately in a text file. The format might be something different, such as a series of "rooms", each with a description, for the user to explore by entering commands such as "go west". Examples of these kinds of games are <a href="https://en.wikipedia.org/wiki/Colossal_Cave_Adventure">Colossal Cave Adventure</a> and <a href="https://en.wikipedia.org/wiki/Zor">Zork</a></td>
+                            <td><a href="http://www.ruby-doc.org/"Ruby-doc.org</a></td>
+                            <td>Official Ruby Documentation</td>
                         </tr>
-                    </table>
-                </section>
-
-                <section>
-                    <h3>Future Resources</h3>
-                    <p></p>
-                    <table>
-                        <tr>
-                            <td><a href="http://docs.python.org/2/">Python.org Documentation</a></td>
-                            <td>Official Python Documentation</td>
+                       <tr>
+                            <td><a href="http://pine.fm/LearnToProgram">Learn to Program</a></td>
+                            <td>Excellent free book about programming basics</td>
                         </tr>
                         <tr>
-                            <td><a href="http://www.greenteapress.com/thinkpython/html/index.html">Think Python</a></td>
-                            <td>Online and print book with exercises.</td>
+                            <td><a href="https://rubymonk.com/">Ruby Monk</a></td>
+                            <td>Free, interactive, in-browser tutorials</td>
                         </tr>
                         <tr>
-                            <td><a href="http://learnpythonthehardway.org/book/">Learn Python the Hard Way</a></td>
-                            <td>Online and print book with exercises</td>
+                            <td><a href="http://ruby.learncodethehardway.org/">Ruby the Hard Way</a></td>
+                            <td>Fun, free (HTML version) book with great information about programming</td>
                         </tr>
                         <tr>
-                            <td><a href="https://developers.google.com/edu/python/">Google's Python Class</a></td>
-                            <td>Video lectures coupled with exercises</td>
+                            <td><a href="http://www.sinatrarb.com/">Sinatra</a></td>
+                            <td>A basic web app framework that runs on Ruby</td>
                         </tr>
                         <tr>
-                            <td><a href="http://newcoder.io/tutorials/">New Coder</a></td>
-                            <td>Ideas for slightly larger projects and resources to get you started. Projects include accessing API's, scraping pages, writing IRC bots, and others.</td>
+                            <td><a href="http://ruby.railstutorial.org/">The Rails Tutorial</a></td>
+                            <td>The Rails web app framework is the most popular use of Ruby... are you ready to dive in?</td>
                         </tr>
                         <tr>
                             <td><a href="http://girldevelopit.com/">Girl Develop It</a></td>
-                            <td>Local workshops, events, and coding sessions</td>
+                            <td>Local workshops, events, and coding sessions with awesome people</td>
                         </tr>
                     </table>
                 </section>
@@ -412,7 +348,7 @@ squares = map(square, range(10))
             </div>
             <footer>
                 <div class="copyright">
-                    Intro to Python ~ Girl Develop It ~
+                    Intro to Ruby ~ Girl Develop It ~
                     <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
                 </div>
             </footer>
