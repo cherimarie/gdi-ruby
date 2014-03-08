@@ -70,7 +70,7 @@
                   <h3>Why Ruby?</h3>
                   <ul>
                     <li class ="fragment">Human readable. The syntax is very intuitive.</li>
-                    <li class ="fragment">The web development ecosystem is rich: Rails, Sinatra, Camping.</li>
+                    <li class ="fragment">There are several web development tools written in Ruby: Rails, Sinatra, Camping.</li>
                     <li class ="fragment">The community is large, active and interested in helping others learn.</li>
                     <li class ="fragment">You can make a lucrative career out of it.</li>
                     <li class ="fragment">Using Ruby will cost you $0.</li>
@@ -151,29 +151,6 @@
                     </table>
                 </section>
 
-                <!-- Let's develop it: 10 minutes-->
-                <section>
-                    <h3>Let's Develop It</h3>
-                    <p>Let's setup our computer for Ruby programming</p>
-                    <ul>
-                        <li>
-                            Let's install a text editor -
-                            <a href="http://www.sublimetext.com/2">Install Sublime Text 2</a>
-                        </li>
-                        <li>
-                            <a href="https://www.ruby-lang.org/en/downloads/">Install Ruby</a>
-                            (This step is for Windows users only. GNU/Linux and MacOSX come with Ruby installed)
-                        </li>
-                        <li>
-                            (Windows only): After installing Ruby, open the "powershell" program and type:
-                            <pre>[Environment]::SetEnvironmentVariable("Path", "$env:Path;C:\Ruby27", "User")</pre>
-                        </li>
-                        <li>
-                            Locate and run the terminal program. Type 'irb' and hit enter.
-                        </li>
-                    </ul>
-                </section>
-                <!-- Block 2: 30 minutes -->
                 <section>
                     <h3>Working with IRB</h3>
                     <p>Open up your terminal and type `irb`
@@ -190,9 +167,33 @@
 3 + 4 
 2 * 4 
 6 - 2 
-4 / 2 
+4 / 2
+4 /* 2
+=> SyntaxError: (irb):10:syntax error, unexpected *
+
                     </code></pre>
                 </section>
+
+              <section>
+                  <h3>Errors</h3>
+                  <ul>
+                      <li class="fragment">There are different kinds of errors that can occur. We just saw the SyntaxError which often helps us find misspelled words or missing quotes.</li>
+                      <li class="fragment">Another type of error is an <strong>IOError</strong>. You might see this if you are trying to read from or write to a file that doesn't exist.</li>
+                      <li class="fragment">You will also run into the <strong>ArgumentError</strong> This comes up when you pass the wrong information into a method.</li>
+                      <li class="fragment">Take time to read each Error. They often tell you how to fix the issue and can be a great starting point when searching for help online.</li>
+                  </ul>
+                <pre><code contenteditable class="ruby">
+irb> File.open("/etc/hosts") {|f| f << "example"}
+IOError: not opened for writing
+
+irb> def foo
+irb> end
+=> nil
+irb> foo 1,2
+ArgumentError: wrong number of arguments (2 for 0)
+                </code></pre>
+              </section>
+
                 <section>
                     <h3>Variables</h3>
                     <p>In Ruby, any lowercase word is a variable. Variables are like nicknames given to information that will be used often.</p>
@@ -243,12 +244,9 @@ irb> true.class
 
                   <pre><code contenteditable class="ruby">
 a = 'Hello '
-b = 'World'
+b = "World"
 c = a + b
 c.reverse
-
-interpolated_string = "#{a} #{b}"
-
                   </code></pre>
                   <pre><code contenteditable class="ruby">
 a = "Spam "
@@ -278,38 +276,26 @@ c = a * 4 + b
                   <p>You can perform boolean logic with these classes: conjunction, disjunction and negation.</p>
                   <pre><code contenteditable class="ruby">
 
-true & true
+true & true # true AND true
 => true
 
-false & true
-=>
-
-false | true
-=> true
-
-false | false
+false & true # false AND true
 => false
 
-!true
-=> false
-
-!false
+false | true # false OR true
 => true
 
+false | false # false OR false
+=> false
+
+!true # NOT true
+=> false
+
+!false # NOT false
+=> true
                   </code></pre>
               </section>
-              <section>
-                  <h3>Regular Expression</h3>
-                  <p>These are one of the most powerful programming concepts ever. I'm still learning them 5 years in.</p>
-                  <p>Regular Expressions are used to match patterns within Strings</p>
-                  <pre><code contenteditable class="ruby">
-irb> co_matcher = /co/
-irb> puts "Match found!" if ("cool beans" =~ co_matcher)
 
-irb> puts "The matching string was #{$~}" if "one two three four" =~ /(one).*(f...)/
-
-                  </code></pre>
-              </section>
               <section>
                   <h3>Arrays, Ranges & Hashes we will leave for the next class</h3>
                   <p>Examples of what they will look like:</p>
@@ -338,35 +324,6 @@ irb> "2" / 5
 NoMethodError: undefined method `/' for "2":String
                     </code></pre>
                     </section>
-
-                    <section>
-                        <h3>Errors</h3>
-                        <ul>
-                            <li class="fragment">There are different kinds of errors that can occur. We just saw the NoMethodError, but there are some other common errors.</li>
-                            <li class="fragment">In general, invalid operations result in a <strong>RuntimeError</strong>. You can create these by writing 'raise' in your code. </li>
-                            <li class="fragment">Another type of exception is an <strong>IOError</strong>. You might see this if you are trying to read from or write to a file that doesn't exist.</li>
-                            <li class="fragment">You will also run into the <strong>ArgumentError</strong> This comes up when you pass the wrong information into a method.</li>
-                        </ul>
-                    </section>
-
-                    <section>
-                    <h3>Errors - continued ...</h3>
-                    <pre><code contenteditable class="ruby">
-irb> raise
-RuntimeError:
-
-irb> File.open("/etc/hosts") {|f| f << "example"}
-IOError: not opened for writing
-
-irb> def foo
-irb> end
-=> nil
-irb> foo 1,2
-ArgumentError: wrong number of arguments (2 for 0)
-
-                    </code></pre>
-                    <p class="fragment">There are also <strong>semantic</strong> errors. These are harder to catch because the computer can't catch them for us.</p>
-                </section>
 
                 <!-- Let's develop it: 10 minutes -->
                 <section>
@@ -434,7 +391,7 @@ pwd
                         <li class="fragment">Click file, open folder. Navigate to the gdi-ruby folder we created and click "open"</li>
                         <li class="fragment">In the text editor, enter the following:
                     <pre><code contenteditable class="fragment ruby">
-print 'I am a Ruby program'
+puts 'I am a Ruby program'
                     </code></pre>
                         </li>
                         <li class="fragment">Click file, save as. Type 'class1.rb' and click ok.</li>
@@ -449,11 +406,10 @@ print 'I am a Ruby program'
                     <p>To obtain user input, use `gets`</p>
                     <p class="fragment">Change the class1.rb text to the following and run it again</p>
                     <pre><code contenteditable class="fragment ruby">
-puts "Enter a radius:"
-radius = gets.chomp.to_f
-area = 3.14159 * radius ** 2
-puts "The area of a circle with radius " + radius + " is:"
-puts area
+puts 'Hello there, and what\'s your name?'
+name = gets
+puts 'Your name is ' + name + '?  What a lovely name!'
+puts 'Pleased to meet you, ' + name + '.  :)'
                     </code></pre>
                     <p class="fragment">N.B. - The user's input is a string so we use to_f make it a number</p>
                 </section>
