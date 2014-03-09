@@ -53,7 +53,6 @@
                     <ul>
                         <li class="fragment">Objects</li>
                         <li class="fragment">Methods</li>
-                        <li class="fragment">ARGV</li>
                         <li class="fragment">OOP</li>
                     </ul>
                 </section>
@@ -62,22 +61,22 @@
                   <h3>Objects</h3>
                   <p>An <strong>object</strong> is the building block of a program.</p>
                   <p class="fragment">There will be many objects all working together to get something done.</p>
-                  <p class="fragment">An object can represent something in real life like a Coffee Cup or something you can't see like a Birthday or a behaviour like a Sun Salutation.</p>
-                  <p class="fragment">Objects are capable of <strong>doing things</strong>. They also have <strong>properties</strong> like height or weight.</p>
+                  <p class="fragment">An object can represent something in real life like a Coffee or something you can't see like a Birthday or an action like the Path you walk around Green Lake.</p>
+                  <p class="fragment">Objects are capable of <strong>doing things</strong>. They also have <strong>properties</strong> like color or size.</p>
                 <pre><code contenteditable class="fragment ruby">
-Object: Coffee Cup
+Object: Bike
 What can it do?
-- Get created
-- Get filled
-- Get emptied
-- Tell you if the lid is on
+- Exist
+- Go
+- Brake
+- Pop a Wheelie
 
-What are some properties of your Coffee Cup?
-- It's 14 oz
-- It's metal
-- It has a liquid-tight lid
-- It lives in on the shelf
-- Belongs to me
+What are some properties of your Bike?
+- Brand
+- Size
+- Wheel Size
+- Number of Speeds
+- Material
                 </code></pre>
               </section>
 
@@ -86,32 +85,32 @@ What are some properties of your Coffee Cup?
                 <p><strong>Objects</strong> can be grouped by Class.</p>
                 <p class="fragment">Classes define a template for objects. They describe what a certain type of object can do and what properties they have in common.</p>
                 <pre><code contenteditable class="fragment ruby">
-class CoffeeCup
+class Bike
 end
 
-my_cup = CoffeeCup.new
-my_cup.class
-=> CoffeeCup
+bike = Bike.new
+bike.class
+=> Bike
                 </code></pre>
               </section>
 
                 <section>
                     <h3>Methods</h3>
-                    <p>A <strong>method</strong> is a series of statements. Sometimes they are called functions.</p>
+                    <p>A <strong>method</strong> is a series of statements. Sometimes methods are called functions.</p>
                     <p class="fragment">Methods are often used to communicate between objects.</p>
-                    <p class="fragment">For example, a Human object might tell a CoffeeCup object to tighten_lid.</p>
+                    <p class="fragment">For example, a Bike object might receive a message to `pop_wheelie`.</p>
                     <pre><code contenteditable class="fragment ruby">
-class CoffeeCup
+class Bike
 
-  def tighten_lid
-    puts "lid is now on tight!"
+  def pop_wheelie
+    puts "popped wheelie!!"
   end
 
 end
 
-my_cup = CoffeeCup.new
-my_cup.tighten_lid
-=> "lid is now on tight!"
+bike = Bike.new
+bike.pop_wheelie
+=> "popped wheelie!!"
 
                     </code></pre>
                 </section>
@@ -119,10 +118,12 @@ my_cup.tighten_lid
               <section>
                   <h3>Built in Methods</h3>
                   <p>Some methods have already been defined on your object.</p>
+                  <p>For example, we can call `new` on Bike to create a new instance from our Bike template</p>
                   <pre><code contenteditable class="fragment ruby">
-my_cup.methods
+bike = Bike.new
+bike.methods
 
-my_cup.methods - Object.methods
+bike.methods - Object.methods
 
                   </code></pre>
               </section>
@@ -131,15 +132,20 @@ my_cup.methods - Object.methods
                   <h3>Object Methods</h3>
                   <p>Methods have access to the properties of their objects.</p>
                   <pre><code contenteditable class="fragment ruby">
-class CoffeeCup
-  def initialize
-    @color = "black"
+class Bike
+  def set_brand
+    @brand = "Fuji"
   end
 
-  def tighten_lid
-    puts "#{@color} lid is now on tight!"
+  def get_brand
+    puts "The brand of the bike is: #{@brand}"
   end
 end
+
+bike = Bike.new
+bike.set_brand
+bike.get_brand
+=> "The brand of the bike is: Fuji"
                   </code></pre>
               </section>
 
@@ -147,17 +153,20 @@ end
                   <h3>Method Input</h3>
                   <p>Methods can do things with data given to them.</p>
                   <pre><code contenteditable class="fragment ruby">
-class CoffeeCup
-  def initialize
-    @color = "black"
+class Bike
+  def set_brand
+    @brand = "Fuji"
   end
 
-  def tighten_lid(strength=:normal)
-    case strength
-      when :normal
-        puts "#{@color} lid is now on tight!"
-      when :max
-        puts "#{@color} lid is now on tight! So tight you cannot get it off!"
+  def get_brand
+    puts "The brand of the bike is: #{@brand}"
+  end
+
+  def go_speed(speed)
+    if speed < 15
+      puts "Safety first."
+    else
+      puts "Speed racer!"
     end
   end
 end
@@ -169,29 +178,31 @@ end
                   <p>Local variables are only available in the methods where they were defined.</p>
                   <p>Instance variables are available to all the methods in the class.</p>
                   <pre><code contenteditable class="fragment ruby">
-class CoffeeCup
-  def initialize
-    @color = "black"
+class Bike
+  def set_brand
+    @brand = "Fuji"
   end
 
-  def tighten_lid(strength=:normal)
-    message = "#{@color} lid is now on tight!"
-    case strength
-      when :normal
-        puts message
-      when :max
-        puts message + " So tight you cannot get it off!"
+  def get_brand
+    puts "The brand of the bike is: #{@brand}"
+  end
+
+  def go_speed(speed)
+    if speed < 15
+      puts "Safety first."
+    else
+      puts "Speed racer!"
     end
   end
 
-  def fill_up
-    puts message
+  def get_speed
+    puts speed
   end
 end
 
-my_cup = CoffeeCup.new
-my_cup.fill_up
-=> NameError: undefined local variable or method `message'
+bike = Bike.new
+bike.get_speed
+=> NameError: undefined local variable or method `speed'
                   </code></pre>
               </section>
 
@@ -227,7 +238,7 @@ puts "Hi!"
               <section>
                   <h3>OOP & Easy Understanding</h3>
                   <p>Objects often take on names from their domain which makes them easy to conceptualize.</p>
-                  <p>For example, without seeing my code, you can probably guess what my CoffeeCup can do (or not do)</p>
+                  <p>For example, without seeing my code, you can probably guess what my Bike can do (or not do)</p>
               </section>
 
               <section>
@@ -241,7 +252,20 @@ puts "Hi!"
                   <h3>OOP & Complexity</h3>
                   <p>As code becomes more complex, we as programmers need to think about which parts of the object are relevant to others.</p>
                   <p><strong>Abstraction</strong> is used to say only what is needed.</p>
-                  <p>For example, your CoffeeCup might have a current_level and a filled_level that it compares to see if it is full. Other objects may not need to know the actual levels and you might be able to abstract this data out into a more relevant method `filled?`.</p>
+                  <p>For example, your Bike might have tire_pressure and spoke_count properties that help indicate whether the bike is being maintained. Other objects may not need to know the actual maintenance details and you might be able to abstract this data out into a more relevant method `maintained?`.</p>
+                <pre><code contenteditable class="fragment ruby">
+class Bike
+  def perform_maintenance
+    @tires_filled = YES
+    @cleaned = YES
+    @bolts_tightened = YES
+  end
+
+  def maintained?
+    @tires_filled & @cleaned & @bolts_tightened
+  end
+end
+                </code></pre>
               </section>
 
               <section>
@@ -249,6 +273,13 @@ puts "Hi!"
                   <p>Just as you inherited traits from your mom, your objects may inherit traits from other objects.</p>
                   <p><strong>Inheritance</strong> is when you use on class as the basis for another.</p>
                   <p>You might use Inheritance if two objects have the same properties and methods. This way you don't need to write the same thing twice.</p>
+                <pre><code contenteditable class="fragment ruby">
+ class RoadBike < Bike
+ end
+
+ road_bike = RoadBike.new
+ road_bike.perform_maintenance
+                 </code></pre>
               </section>
 
               <section>
@@ -256,6 +287,21 @@ puts "Hi!"
                 <p>Similar to inherited traits and behaviors, there are also polymorphic traits and behaviors.</p>
                 <p><strong>Polymorphic</strong> means that something can take on many forms.</p>
                 <p>Within OOP, this relates to different objects being able to respond to the same message in different ways.</p>
+                <pre><code contenteditable class="fragment ruby">
+class Fixie
+ def gears
+   1
+ end
+end
+
+class RoadBike
+ def gears
+   21
+ end
+end
+
+[RoadBike.new, Fixie.new].each {|bike| puts bike.gears}
+                </code></pre>
               </section>
 
                 <section>
