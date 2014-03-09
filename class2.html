@@ -305,32 +305,33 @@ puts result
                 </section>
 
                 <section>
-                    <h3>For loops</h3>
+                    <h3>Each loops</h3>
                     <p>It is also useful to loop through a collection of elements, visiting each one to do some work, then stopping once all elements are processed.</p>
-                    <p class="fragment">This can be accomplished with a <strong>for</strong> loop</p>
+                    <p class="fragment">This can be accomplished using the <strong>.each</strong> method.</p>
                     <p class="fragment">First, we need a collection. We use a <strong>range</strong> of numbers to loop over.</p>
                     <pre><code contenteditable class="fragment ruby">
-for i in 0..5
+(0..5).each do |i|
    puts "Value of i is #{i}"
 end
                     </code></pre>
                     <p>More information about ranges can be found <a href="http://www.ruby-doc.org/core-2.1.0/Range.html">here.</a></p>
                     <p>"#{i}" is an example of <strong>string interpolation</strong></p>
                 </section>
-
+<!-- this section under construction -->
                 <section>
-                    <h3>For loops continued</h3>
+                    <h3>Each loops continued</h3>
                     <p>Let's examine the example carefully</p>
                     <pre><code contenteditable class="fragment ruby">
-for i in 0..5
+(0..5).each do |i|
    puts "Value of i is #{i}"
 end
                     </code></pre>
-                    <p class="fragment">The for loop has three parts:</p>
+                    <p class="fragment">The loop has three parts:</p>
                     <ul>
-                        <li class="fragment">The name to give each element when the loop begins again - "i"</li>
-                        <li class="fragment">The expression that will be looped through- "0..5"</li>
-                        <li class="fragment">The code to execute with the element - The puts statement</li>
+                        <li>The collection that will be looped through, in parenthesis because it's a range- "(0..5)"</li>
+                        <li>The name to give each element when the loop begins again - "i"</li>
+                        
+                        <li>The code to execute with the element - The puts statement</li>
                     </ul>
                     <p>Learn more about loops in Ruby <a href="http://www.tutorialspoint.com/ruby/ruby_loops.htm" alt="Loops tutorial">here</a>.</p>
                 </section>
