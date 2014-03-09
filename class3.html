@@ -53,7 +53,7 @@
                     <ul>
                         <li class="fragment">Objects</li>
                         <li class="fragment">Methods</li>
-                        <li class="fragment">OOP</li>
+                        <li class="fragment">Object Oriented Programming</li>
                     </ul>
                 </section>
 
@@ -85,10 +85,14 @@ What are some properties of your Bike?
                 <p><strong>Objects</strong> can be grouped by Class.</p>
                 <p class="fragment">Classes define a template for objects. They describe what a certain type of object can do and what properties they have in common.</p>
                 <pre><code contenteditable class="fragment ruby">
+# Engineer in Trek headquarters defines what it takes to build a bike
 class Bike
 end
 
+# Fabricator uses template to build a Trek bike
 bike = Bike.new
+
+# Consumer buying a bike asks which template was used to fabricate the bike
 bike.class
 => Bike
                 </code></pre>
@@ -100,15 +104,20 @@ bike.class
                     <p class="fragment">Methods are often used to communicate between objects.</p>
                     <p class="fragment">For example, a Bike object might receive a message to `pop_wheelie`.</p>
                     <pre><code contenteditable class="fragment ruby">
+
 class Bike
 
+  # In Ruby, we define a method beginning with `def` followed by the method name `pop_wheelie` and ending with `end`
   def pop_wheelie
     puts "popped wheelie!!"
   end
 
 end
 
+# Fabricate a new bike
 bike = Bike.new
+
+# Send a message/Call a method on that bike. Tell it to `pop_wheelie`
 bike.pop_wheelie
 => "popped wheelie!!"
 
@@ -118,11 +127,14 @@ bike.pop_wheelie
               <section>
                   <h3>Built in Methods</h3>
                   <p>Some methods have already been defined on your object.</p>
-                  <p>For example, we can call `new` on Bike to create a new instance from our Bike template</p>
+                  <p>For example, we can call `new` on Bike to create a new instance from our Bike template.</p>
                   <pre><code contenteditable class="fragment ruby">
 bike = Bike.new
+
+# Look at all the things our bike can do
 bike.methods
 
+# Look at methods specific to bike
 bike.methods - Object.methods
 
                   </code></pre>
@@ -151,7 +163,7 @@ bike.get_brand
 
               <section>
                   <h3>Method Input</h3>
-                  <p>Methods can do things with data given to them.</p>
+                  <p>Methods can operate on data given to them.</p>
                   <pre><code contenteditable class="fragment ruby">
 class Bike
   def set_brand
@@ -271,7 +283,7 @@ end
               <section>
                   <h3>OOP & Borrowing</h3>
                   <p>Just as you inherited traits from your mom, your objects may inherit traits from other objects.</p>
-                  <p><strong>Inheritance</strong> is when you use on class as the basis for another.</p>
+                  <p><strong>Inheritance</strong> is when you use one class as the basis for another.</p>
                   <p>You might use Inheritance if two objects have the same properties and methods. This way you don't need to write the same thing twice.</p>
                 <pre><code contenteditable class="fragment ruby">
  class RoadBike < Bike

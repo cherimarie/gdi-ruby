@@ -69,7 +69,7 @@
                 <section>
                   <h3>Why Ruby?</h3>
                   <ul>
-                    <li class ="fragment">Human readable. The syntax is very intuitive.</li>
+                    <li class ="fragment">It reads like English. The syntax is intuitive.</li>
                     <li class ="fragment">There are several web development tools written in Ruby: Rails, Sinatra, Camping.</li>
                     <li class ="fragment">The community is large, active and interested in helping others learn.</li>
                     <li class ="fragment">You can make a lucrative career out of it.</li>
@@ -102,12 +102,12 @@
                 <section>
                     <h3>What is programming?</h3>
                     <ul>
-                        <li class="fragment">Teaching the computer to do a task</li>
-                        <li class="fragment">A program is made of one or more files of code, each of which solve part of the overall task</li>
+                        <li class="fragment">Teaching the computer to do a task.</li>
+                        <li class="fragment">A program is made of one or more files of code, each of which solve part of the overall task.</li>
                         <li class="fragment">Programming code is human readable but also needs a form that the computer can run directly. This form is not human readable.</li>
                         <li class="fragment">To create the form of code the computer can use, we use the Ruby <a href="http://en.wikipedia.org/wiki/Interpreter_(computing)">interpreter</a>. Other languages use other interpreters or a <a href="http://en.wikipedia.org/wiki/Compiler">compiler</a></li>
-                        <li class="fragment">Don't focus on what's "under the hood" for now. We will "drive the car" first</li>
-                        <li class="fragment">In other words, there are many layers to the onion. We start at one layer and slowly move toward layers that are beneath or above us</li>
+                        <li class="fragment">Don't focus on what's "under the hood" for now. We will "drive the car" first.</li>
+                        <li class="fragment">In other words, there are many layers to the onion. We start at one layer and slowly move toward layers that are beneath or above us.</li>
                     </ul> 
                 </section>
 
@@ -119,7 +119,7 @@
                             <td>A program that has a command line interface and issues commands to the operating system.</td>
                         </tr>
                         <tr>
-                            <td><strong>IRB</strong></td>
+                            <td><strong>IRB - Interactive Ruby Shell</strong></td>
                             <td>A command line program that runs inside of the terminal, takes Ruby code as input, interprets it, and prints out any results.</td>
                         </tr>
                         <tr>
@@ -201,15 +201,19 @@ ArgumentError: wrong number of arguments (2 for 0)
                     <p>There are 5 types of variables in ruby. For now, we will be using what are called ‘local variables’.</p>
                     <p>Local variables begin with a lowercase letter and may include numbers and underscores.</p>
                     <pre><code contenteditable class="ruby">
+# Everything after this pound sign will not be evaluated.
+# These are called comments and I will use them to annotate code
 x = 6
 number5 = 5
 other_number = 2
 result = x + number5 + other_number
+=> 13
+# You could also read the above as result = 6 + 5 + 2
                     </code></pre>
                 </section>
 
                 <section>
-                    <h2>Data types</h2>
+                    <h2>Data types - Ways to represent data</h2>
                     <h3>Built-in: Numbers (Fixnum & Float), Booleans, Strings, Symbols, Regular Expressions, Arrays, Ranges & Hashes</h3>
                     <ul>
                         <li>Objects always have a "type"</li>
@@ -223,7 +227,7 @@ irb> number = 1
 irb> number.class
 => Fixnum
 irb> apple = number
-=> 5
+=> 1
 irb> apple.class
 => Fixnum
 irb> number.object_id
@@ -247,15 +251,18 @@ a = 'Hello '
 b = "World"
 c = a + b
 c.reverse
+=> "dlroW olleH"
                   </code></pre>
                   <pre><code contenteditable class="ruby">
 a = "Spam "
 b = a * 4
+=>"Spam Spam Spam Spam " # Here multiplying a "Spam " by 4 concatenates (links) four strings together
                   </code></pre>
                   <pre><code contenteditable class="ruby">
 a = 'spam '
 b = 'eggs'
 c = a * 4 + b
+=> "spam spam spam spam eggs"
                   </code></pre>
                   <p>Type `quit` to get out of IRB</p>
               </section>
@@ -275,7 +282,7 @@ c = a * 4 + b
                   <p>In Ruby, true and false are reserved words that represent TrueClass and FalseClass Objects.</p>
                   <p>You can perform boolean logic with these classes: conjunction, disjunction and negation.</p>
                   <pre><code contenteditable class="ruby">
-
+#TODO add actual true and false statements to make these come alive
 true & true # true AND true
 => true
 
@@ -300,6 +307,7 @@ false | false # false OR false
                   <h3>Arrays, Ranges & Hashes we will leave for the next class</h3>
                   <p>Examples of what they will look like:</p>
                   <pre><code contenteditable class="ruby">
+#TODO show what these eval to and reiterate that they are ways to house data and why we care
 irb> array_of_numbers = [1,2,3]
 irb> range_of_numbers = (1..10)
 irb> hash_of_number_to_value = {"1" => 1, "2" => 2}
