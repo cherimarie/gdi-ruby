@@ -1,41 +1,40 @@
 # Intro to Ruby
-<!-- 
-The slides for this course can be viewed [here](http://calebsmith.github.io/gdi-intro-python/#/)
 
- [![Gittip](http://badgr.co/gittip/calebsmith.png)](https://www.gittip.com/calebsmith/)
+The slides for this course can be viewed [here](http://cherimarie.github.io/gdi-ruby)
  
-This is the Girl Develop It Intro to Python course. Material is loosely based on Think Python by Allen B. Downey and written by Caleb Smith
+This is the Girl Develop It Intro to Ruby course. Material is written by Cheri Allen & Heather Moore. Thanks to Chris Pine and Sandi Metz for inspirational books.
 
-The course is meant to be taught in 4 two-hour sections. Each of the slides and practice files are customizable according to the needs of a given class or audience.
-
-* N.B. - This repo should see a bit of change in the next few weeks (as of 6-24-2013) and very much constitutes a WIP
+The course is meant to be taught in 5 two-hour sections. Each of the slides and practice files are customizable according to the needs of a given class or audience.
 
 ## Classes
 
+### Class 0 
+
+Installfest & Intro to Command Line
+
+Get your developement environment set up on your machine. Install Ruby, Rails, and Git, with the assistance of some helpful volunteers. We'll also have a brief lecture on working with the command line.
+
 ### Class 1
 
-Intro to programming in Python - First steps for programming using the Python shell.
+Intro to programming in Ruby
 
-What is programming? What is Python? We'll tackle these concepts, set up a development environment, and get started working in the Python shell
+What is programming? What is Ruby? We'll give you some context for the class, then dive right into writing code! Using the Interactive Ruby Shell, we'll begin experimenting with variables, methods, and data types. We'll end the class by writing a little interactive command line program.
 
 ### Class 2
 
-Structured programming - Functions, Loops, and conditionals 
+Structured programming (loops and conditions), working with collections
 
-We'll be creating small programs in the text editor, implementing control flow and loading these programs into the shell.
+We'll create small programs in the text editor that use conditionals and loops for control flow. Then, we'll explore Ruby's collections data types, and see some of the ways we can work with them. 
 
 ### Class 3
 
-Python data structures and other essential built-ins 
+Object Oriented Programming, part I
 
-Lists, dictionaries and other built-in containers give the Python programmer tremendous power. We'll use these combined with other Python built-ins to process text files for information.
+We'll discuss the basic concepts of object oriented programming. We'll write our own methods, and explore some of the predefined methods that are available in Ruby for certain classes of object.
 
 ### Class 4
 
-Higher level abstractions using object oriented and functional programming 
+Object Oriented Programming, part II
 
-What is Object-Oriented Programming and Functional Programming and how can they help make programming easier?
+We will expand our knowledge of OOP by discussing classes and inheritence. We will tie together everything we've learned with a relatively complex, totally fun final project.
 
-We'll also get started on some projects that you can do with your new Python skills.
-
- -->
