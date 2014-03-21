@@ -38,8 +38,9 @@ Object Oriented Programming, part II
 
 We will expand our knowledge of OOP by discussing classes and inheritence. We will tie together everything we've learned with a relatively complex, totally fun final project.
 
+
 ###Blurb
- 
+
 Ready to start programming? Want to learn one language that you can use to build web apps and iPhone apps, do system administration, and security? Then you're reay to learn Ruby.
 
 Ruby is an open source language that powers applications and products like Hulu, LivingSocial, Groupon, and Github. There is a thriving, friendly community of users, and the job market for developers is strong.
