@@ -73,16 +73,14 @@ b = String.new
                     <p>To see all methods associated with an object or class, run ".methods" on it.</p>
                     <pre><code contenteditable class="fragment ruby">
 b = "holy cow!"
-b.reverse
 b.methods
                     </code></pre>
-                    <p>You can also view all the built in classes and their associated methods in the <a href="http://www.ruby-doc.org/core-2.0.0/" alt="Ruby docuemntation">Ruby documentation</a>.</p> 
+                    <p>You can view all the built in classes and their associated methods in the <a href="http://www.ruby-doc.org/core-2.0.0/" alt="Ruby docuemntation">Ruby documentation</a>.</p> 
                 </section>
 
                 <section>
                     <h3>Extending a Class</h3>
-                    <p>You can write new methods for the built in classes of Ruby!</p>
-                    <p>It will then be available to all instances of that class in your program.</p>
+                    <p>You can write new methods for the built in classes of Ruby. They will then be available to all instances of that class in your program.</p>
                     <pre><code contenteditable class="fragment ruby">
 class String
 
@@ -93,7 +91,7 @@ class String
 
 end 
                     </code></pre>
-                    <p>By defining our method within the String class, it is available to all instances of String. We used "self" to refer to the object using the method.</p> 
+                    <p>A Method defined within the String class is available to all instances of String in the program. "self" refers to the object using the method.</p> 
                     <p>You can redefine existing methods for classes this way, too, but it's not recommended.</p>
                 </section>
 
@@ -102,10 +100,12 @@ end
                     <h3>Creating a Class</h3>
                     <p>It's very easy to create your own classes in Ruby.</p>
                     <pre><code contenteditable class="fragment ruby">
+# die.rb                    
 class Die
   
   def roll 
-     @numberShowing = 1 + rand(6) #rand(6) returns a random-ish number between 0-5
+     @numberShowing = 1 + rand(6) 
+    #rand(6) returns a random-ish number between 0-5
   end 
 
   def showing 
@@ -113,22 +113,28 @@ class Die
   end 
 
 end 
-
+                    </code></pre>
+                    <p>Inside the class, define its methods.</p>
+                    </section> 
+                <section>
+                <h3>Creating a Class</h3>
+                <p>You can use your class right away by loading it into IRB.</p>
+                <pre><code>
+#in irb
+load 'die.rb'
 die = Die.new
 die.roll
 puts die.showing
-
-                    </code></pre>
-                    <p>Now, within the program that contains this class definition, you can create new Die objects, and perform the "roll" method on them.</p> 
-                    <p></p>
+                </code></pre>
+                <p>You can use it in another file by requiring it. We'll discuss this later.</p>               
+                <!-- pause here til everyone's got this working -->
                 </section>
-
                 <section>
-                    <h3>Creating a Class, cont'd</h3>
-                    <p>What is the result of calling the showing method on a newly-created, un-rolled Die object?</p>
+                    <h3>Refactoring a Class</h3>
+                    <p>What is the result of calling the .showing method on a newly-created, un-rolled Die object?</p>
                     <p>We can avoid this by calling the roll method as part of the creation of a new instance of Die.</p>
-                    <pre><code contenteditable class="fragment ruby">
-# in die.rb
+                    <pre><code class="fragment ruby">
+# die.rb
 class Die
   
   def initialize 
@@ -144,14 +150,8 @@ class Die
   end 
 
 end 
-
-#in irb
-load 'die.rb'
-die = Die.new
-puts die.showing
  
                     </code></pre>
-                    <p>You can copy and paste your class definition into irb, or save it into a file. The "load 'die.rb'" line isn't necessary unless you've saved it to a die.rb file.</p> 
                 </section>
 
               <!-- Let's develop it: 10 minutes -->
@@ -159,13 +159,13 @@ puts die.showing
                     <h3>Let's Develop It</h3>
                     <ul>
                         <li>In your text editor, create your own class with an initialize method, and at least one other method.</li>
-                        <li>Open a ruby shell and load the class. Create one or more objects from the class and run some methods on them.</li>
-                        <li>Use the next slides as an example.</li>
+                        <li>Open IRB and load the class. Create one or more objects from the class and run some methods on them.</li>
+                        <li>You could use the next slides as an example.</li>
                     </ul>
                 </section>
 
                 <section>
-                    <pre><code contenteditable class="ruby">
+                    <pre><code class="ruby">
 # in character.rb
 class Character 
 
@@ -181,7 +181,7 @@ class Character
   def adventure
     if @health > 0
       puts "#{@name} goes on a great adventure and meets a dragon!"
-      puts "It hugged #{@name} kind of hard..."
+      puts "The dragon hugged #{@name} kind of hard..."
       @health -= 5
     else 
       puts "#{@name} is dead :("
@@ -211,9 +211,13 @@ me.adventure
                     <h3>Inheritance</h3>
                     <p>Classes can <strong>inherit</strong> from one other class.</p>
                     <p>All elves are characters, so if all characters have an adventure method, so do all elves. Elves may also have their own methods that other characters do not.</p>
+                    </section>
 
-                    <pre><code contenteditable class="fragment ruby">
-# in character.rb
+                    <section>
+                    <h3>Inheritance</h3>
+                    <p>Denote that Elf inherits from Character by using the &lt symbol</p>
+                    <pre><code class="fragment ruby">
+# in character.rb, after defining Character class
 class Elf < Character
 
   def twinkle
@@ -229,16 +233,15 @@ me.adventure
 me.twinkle 
  
                     </code></pre>
-                    <p>You'll note the initialize method was also inherited, as our new Elf knows it's name and started off with 10 health.</p>
+                    <p>Notice that the initialize method was also inherited, as our new Elf knows its name and started off with 10 health.</p>
                 </section>
 
                 <section>
-                    <h3>Inheritance, cont'd</h3>
-                    <p>Subclasses may differ from from their <strong>super classes</strong> in some ways.</p>
-                    <p>Methods can be overwritten when this is the case.</p>
+                    <h3>Inheritance</h3>
+                    <p><strong>Subclasses</strong> may differ from from their <strong>super classes</strong> in some ways. Methods can be overwritten when this is the case.</p>
 
                     <pre><code contenteditable class="fragment ruby">
-# in character.rb
+# in character.rb, after defining Character class
 class Elf < Character
   def twinkle
     puts "I'm super magical!"
@@ -261,13 +264,16 @@ me.heal
                 <section>
                     <h3>Putting it all together</h3>
                     <p>For a command line program, you need these pieces:</p>
-                    <ul>
-                      <li>Files containing your class definitions</li>
-                      <li>A file containing your program, which requires the classes</li>
-                      <li>To call the program file from the command line</li>
-                    </ul>
-
-                    <pre><code contenteditable class="fragment ruby">
+                    <ol>
+                      <li>File(s) containing your class definitions</li>
+                      <li>A file containing your program, which requires the class file(s)</li>
+                      <li>To call the program file from the command line (not IRB)</li>
+                    </ol>
+                    </section>
+                    <section>
+                    <h3>Putting it all together</h3>
+                    <p>The file containing your class definitions: </p>
+                    <pre><code contenteditable class="ruby">
 # in character.rb
 class Character
   # contents of class definitions here 
@@ -277,16 +283,27 @@ class Elf < Character
   # contents of class definitions here 
 end
                     </code></pre>
-                    <pre><code contenteditable class="fragment ruby">
+                    </section>
+
+                     <section>
+                    <h3>Putting it all together</h3>
+                    <p>The file containing your program, which requires the class file: </p>
+                    <pre><code contenteditable class="ruby">
 # in adventure.rb
-require_relative 'character.rb' #file path relative to the location of adventure.rb
+require_relative 'character.rb' 
+  #file path relative to the location of adventure.rb file
 require_relative 'die.rb'
+
 
 puts "Your name?"
 char = Character.new(gets.chomp)
 # plus lots more adventuring..... 
                     </code></pre>
-                    <pre><code contenteditable class="fragment ruby">
+                    </section>
+                    <section>
+                    <h3>Putting it all together</h3>
+                    <p>Call the program file from the command line: </p>
+                    <pre><code contenteditable class="ruby">
 #in command line
 ruby adventure.rb
 # then have some fun!
@@ -298,16 +315,17 @@ ruby adventure.rb
                     <h3>Let's Develop It</h3>
                     <p>Putting it all together: A role-playing game!</p>
                     <ul>
-                        <li>If you didn't do a Character class last time, copy and paste the code to get one started.</li>
-                        <li>Create a couple subclasses of Character.</li>
-                        <li>Write a command-line program that calls all your character and die classes to allow the user to have an adventure!</li>
+                        <li>If you didn't write a Character class, copy and paste the code to get one started.</li>
+                        <li>Create a few subclasses of Character.</li>
+                        <li>Write a command-line program that calls your character and die classes to allow the user to have an adventure!</li>
                         <li>Maybe user can choose their character type?</li>
                         <li>Maybe the user's progress will be dependent on outcome of dice-rolling?</li>
                     </ul>
                 </section>
 
             <!-- Wrap up: 10 minutes -->
-                <section>
+                <section> 
+                <!-- TODO: Make the styling here not ugly-->
                     <h3>Further Resources</h3>
                     <table>
                         <tr>
@@ -322,6 +340,12 @@ ruby adventure.rb
                             <td><a href="https://rubymonk.com/">Ruby Monk</a></td>
                             <td>Free, interactive, in-browser tutorials</td>
                         </tr>
+                    </table>
+                </section>
+
+                                <section>
+                    <h3>Further Resources</h3>
+                    <table>
                         <tr>
                             <td><a href="http://ruby.learncodethehardway.org/">Ruby the Hard Way</a></td>
                             <td>Fun, free (HTML version) book with great information about programming</td>
@@ -340,6 +364,7 @@ ruby adventure.rb
                         </tr>
                     </table>
                 </section>
+
 
                 <section>
                     <h3>Questions?</h3>
