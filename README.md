@@ -22,7 +22,7 @@ What is programming? What is Ruby? We'll give you some context for the class, th
 
 ### Class 2
 
-Structured programming (loops and conditions), working with collections
+Structured programming (loops and conditions), working with collections data types 
 
 We'll create small programs in the text editor that use conditionals and loops for control flow. Then, we'll explore Ruby's collections data types, and see some of the ways we can work with them. 
 
@@ -41,7 +41,7 @@ We will expand our knowledge of OOP by discussing classes and inheritence. We wi
 
 ###Blurb
 
-Ready to start programming? Want to learn one language that you can use to build web apps and iPhone apps, do system administration, and security? Then you're reay to learn Ruby.
+Ready to start programming? Want to learn one language that you can use to build web apps and iPhone apps, do system administration, and security? Then you're ready to learn Ruby.
 
 Ruby is an open source language that powers applications and products like Hulu, LivingSocial, Groupon, and Github. There is a thriving, friendly community of users, and the job market for developers is strong.
 
