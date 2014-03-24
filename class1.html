@@ -30,16 +30,14 @@
 
     <body>
         <div class="reveal">
-            <!-- Any section element inside of this container is displayed as a slide -->
             <div class="slides">
-              <!-- Opening slide -->
+
                 <section>
                   <img src = "images/gdi_logo_badge.png">
                   <h3>Intro to Ruby</h3>
                   <h4>Class 1</h4>
                 </section>
                 
-                <!-- Welcome-->
                 <section>
                   <h3>Welcome!</h3>
                   <div class = "left-align">
@@ -47,9 +45,21 @@
                   <p class ="green">Some "rules"</p>
                   <ul>
                     <li>We are here for you!</li>
-                    <li>Every question is important</li>
-                    <li>Help each other</li>
-                    <li>Have fun</li>
+                    <li>Every question is important.</li>
+                    <li>Help each other.</li>
+                    <li>Have fun!</li>
+                  </ul>
+                  </div>
+                </section>
+
+                <section>
+                  <h3>Welcome!</h3>
+                  <div class = "left-align">
+                  <p class = "blue">Tell us about yourself.</p>
+                  <ul>
+                    <li>Who are you?</li>
+                    <li>What do you hope to get out of the class?</li>
+                    <li>What is your favorite ice cream?</li>
                   </ul>
                   </div>
                 </section>
@@ -59,17 +69,24 @@
                   <ul>
                     <li class ="fragment">Why Ruby?</li>
                     <li class ="fragment">What is programming?</li>
-                    <li class ="fragment">Variables and arithmetic</li>
-                    <li class ="fragment">Statements and Error Messages</li>
-                    <li class ="fragment">Development Environment Setup</li>
+                    <li class ="fragment">Variables, Arithmetic & Objects</li>
+                    <li class ="fragment">Methods and Error Messages</li>
                   </ul>
                 </section>
 
-                <!-- Block 1: 25 minutes -->
                 <section>
                   <h3>Why Ruby?</h3>
                   <ul>
                     <li class ="fragment">It reads like English. The syntax is intuitive.</li>
+                    <pre>
+                      <code contenteditable class="ruby fragment">
+# Java
+for(int i = 0; i < 5; i++)
+
+# Ruby
+5.times do
+                      </code>
+                    </pre>
                     <li class ="fragment">There are several web development tools written in Ruby: Rails, Sinatra, Camping.</li>
                     <li class ="fragment">The community is large, active and interested in helping others learn.</li>
                     <li class ="fragment">You can make a lucrative career out of it.</li>
@@ -82,7 +99,7 @@
                     <ul>
                         <li class ="fragment">Web development (Rails)</li>
                         <li class ="fragment">iPhone apps (RubyMotion)</li>
-                        <li class ="fragment">System Administration (Chef, Puppet, Capistrano)</li>
+                        <li class ="fragment">System Administration (Chef)</li>
                         <li class ="fragment">Testing (Vagrant)</li>
                         <li class ="fragment">Security (Metasploit)</li>
                   </ul>
@@ -119,8 +136,8 @@
                             <td>A program that has a command line interface and issues commands to the operating system.</td>
                         </tr>
                         <tr>
-                            <td><strong>IRB - Interactive Ruby Shell</strong></td>
-                            <td>A command line program that runs inside of the terminal, takes Ruby code as input, interprets it, and prints out any results.</td>
+                            <td><strong>IRB</strong></td>
+                            <td>Interactive Ruby Shell is a command line program that runs inside of the terminal, takes Ruby code as input, interprets it, and prints out any results.</td>
                         </tr>
                         <tr>
                             <td><strong>Text Editor</strong></td>
@@ -130,31 +147,10 @@
                 </section>
 
                 <section>
-                    <h3>Example Text Editors</h3>
-                    <table>
-                        <tr>
-                            <td><strong>Linux</strong></td>
-                            <td>Gedit, Jedit, Kate</td>
-                        </tr>
-                        <tr>
-                            <td><strong>MacOSX</strong></td>
-                            <td>TextMate, TextWrangler</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Windows</strong></td>
-                            <td>Notepad++</td>
-                        </tr>
-                        <tr>
-                            <td><strong>All</strong></td>
-                            <td>Sublime Text, Vim, Emacs</td>
-                        </tr>
-                    </table>
-                </section>
-
-                <section>
                     <h3>Working with IRB</h3>
                     <p>Open up your terminal and type `irb`
                     <p>IRB is a command line interface to ruby that is installed when we install Ruby. It works like a calculator and is a great way to get started quickly.</p>
+                    <p>Type `quit` and then `enter` to get out of IRB</p>
 
                     <p class="fragment">Follow along with the examples in the slides. Type them in!</p>
                     <p class="fragment">Feel free to explore as well. You will not accidentally break things.</p>
@@ -214,32 +210,23 @@ result = x + number5 + other_number
 
                 <section>
                     <h2>Data types - Ways to represent data</h2>
-                    <h3>Built-in: Numbers (Fixnum & Float), Booleans, Strings, Symbols, Regular Expressions, Arrays, Ranges & Hashes</h3>
+                    <p>Built-in: Numbers, Booleans, Strings, Symbols, Regular Expressions, Arrays, Ranges & Hashes</p>
                     <ul>
-                        <li>Objects always have a "type"</li>
-                        <li>The type of an object helps define what it can do.</li>
-                        <li>The type can be found using: .class</li>
-                        <li>An identifier for the object can be found using: .object_id</li>
+                        <li>Data always has a "type".</li>
+                        <li>You will hear the words Class/Type/Object used interchangeably.</li>
+                        <li>Let's explore a few built in Objects.</li>
                     </ul>
                     <pre><code contenteditable class="ruby">
 irb> number = 1
 => 1
 irb> number.class
 => Fixnum
-irb> apple = number
-=> 1
-irb> apple.class
-=> Fixnum
-irb> number.object_id
-=> 11
-irb> apple.object_id
-=> 11
 irb> "Hello".class
 => String
 irb> 1.0022.class
 => Float
-irb> true.class
-=> TrueClass
+irb> [].class
+=> Array
                     </code></pre>
                 </section>
               <section>
@@ -264,7 +251,6 @@ b = 'eggs'
 c = a * 4 + b
 => "spam spam spam spam eggs"
                   </code></pre>
-                  <p>Type `quit` to get out of IRB</p>
               </section>
 
               <section>
@@ -279,22 +265,9 @@ c = a * 4 + b
 
               <section>
                   <h3>Booleans</h3>
-                  <p>In Ruby, true and false are reserved words that represent TrueClass and FalseClass Objects.</p>
-                  <p>You can perform boolean logic with these classes: conjunction, disjunction and negation.</p>
+                  <p>This is another Object that we will learn about later.</p>
+                  <p>For now, when you hear Boolean, think TRUE and FALSE.</p>
                   <pre><code contenteditable class="ruby">
-#TODO add actual true and false statements to make these come alive
-true & true # true AND true
-=> true
-
-false & true # false AND true
-=> false
-
-false | true # false OR true
-=> true
-
-false | false # false OR false
-=> false
-
 !true # NOT true
 => false
 
@@ -304,20 +277,27 @@ false | false # false OR false
               </section>
 
               <section>
-                  <h3>Arrays, Ranges & Hashes we will leave for the next class</h3>
+                  <h3>Arrays, Ranges & Hashes we will also leave for the next class</h3>
                   <p>Examples of what they will look like:</p>
                   <pre><code contenteditable class="ruby">
-#TODO show what these eval to and reiterate that they are ways to house data and why we care
+# arrays are used to hold sets of data.
 irb> array_of_numbers = [1,2,3]
-irb> range_of_numbers = (1..10)
-irb> hash_of_number_to_value = {"1" => 1, "2" => 2}
+irb> array_of_numbers.first
+=> 1
+
+# ranges are used to express a sequence.
+irb> range_of_numbers = (1..5)
+irb> range_of_numbers.include?(4)
+=> true
+
+# hashes are like dictionaries. You can look up a value by a key.
+irb> hash_of_key_to_value = {"Apple" => "A fruit.", "Cucumber" => "A vegetable."}
                   </code></pre>
               </section>
                     <section>
                         <h3>Methods</h3>
                         <ul>
-                            <li>These different objects can be used with a set of <strong>methods</strong></li>
-                            <li>A method is a series of statements</li>
+                            <li>Methods define the behavior of an Object.</li>
                             <li>To see what methods are on an object use `.methods`</li>
                             <li>`.to_*` are built in methods that convert objects to a different type.</li>
                             <li>`.to_s` converts one object into its String representation.</li>
@@ -333,82 +313,6 @@ NoMethodError: undefined method `/' for "2":String
                     </code></pre>
                     </section>
 
-                <!-- Let's develop it: 10 minutes -->
-                <section>
-                    <h3>Let's Develop It</h3>
-                    <p>We'll practice what we've learned in the shell</p>
-                    <p>Review the slides on your computer and practice entering any commands you didn't fully understand before</p>
-                    <p>Ask the teacher or a TA for any help</p>
-                </section>
-
-                <!-- Block 3 30 minutes -->
-
-                <section>
-                    <h3>Using the Terminal</h3>
-                    <p>Try each of the following commands in turn:</p>
-                    <table>
-                        <tr>
-                            <th><strong>Command</strong></th>
-                            <th><strong>Short for</strong></th>
-                            <th><strong>Description</strong></th>
-                        </tr>
-                        <tr>
-                            <td>pwd</td>
-                            <td>Print working directory</td>
-                            <td>Displays what folder you are in.</td>
-                        </tr>
-                        <tr>
-                            <td>ls</td>
-                            <td>List</td>
-                            <td>Lists the files and folders in the current folder</td>
-                        </tr>
-                        <tr>
-                            <td>cd</td>
-                            <td>Change directory</td>
-                            <td>Change to another folder. Takes the folder name as an argument. 'cd ..' goes up a directory</td>
-                        </tr>
-                        <tr>
-                            <td>cat</td>
-                            <td>Concatenate</td>
-                            <td>Prints the contents of a file. Takes a filename as an argument</td>
-                        </tr>
-                    </table>
-                </section>
-
-                <section>
-                    <h3>Creating a folder</h3>
-                    <p>We need a folder to save our work in.</p>
-                    <p class="fragment">The -&gt;'s below indicate the expected output of the previous command.</p>
-                    <pre><code contenteditable class="fragment bash">
-pwd
--> /home/username
-mkdir Projects
-cd Projects
-mkdir gdi-ruby
-cd gdi-ruby
-pwd
--> /home/username/Projects/gdi-ruby
-                    </code></pre>
-                    <p class="fragment">Now that the folders are made, we only have to use 'cd Projects/gdi-ruby' in the future.</p>
-                </section>
-
-                <section>
-                    <h3>The Text Editor</h3>
-                    <p>Open sublime text.</p>
-                    <ul>
-                        <li class="fragment">Click file, open folder. Navigate to the gdi-ruby folder we created and click "open"</li>
-                        <li class="fragment">In the text editor, enter the following:
-                    <pre><code contenteditable class="fragment ruby">
-puts 'I am a Ruby program'
-                    </code></pre>
-                        </li>
-                        <li class="fragment">Click file, save as. Type 'class1.rb' and click ok.</li>
-                        <li class="fragment">Open a terminal and navigate to the gdi-ruby folder (if not left open from before)</li>
-                        <li class="fragment">Type 'ruby class1.rb'</li>
-                        <li class="fragment">You should see the terminal print "I am a Ruby program"</li>
-                    </ul>
-                </section>
-
                 <section>
                     <h3>User Input</h3>
                     <p>To obtain user input, use `gets`</p>
@@ -422,7 +326,6 @@ puts 'Pleased to meet you, ' + name + '.  :)'
                     <p class="fragment">N.B. - The user's input is a string so we use to_f make it a number</p>
                 </section>
 
-                <!-- Let's develop it: 15 minutes -->
                 <section>
                     <h3>Let's Develop It</h3>
                     <p>Write your own program that uses input and does something else with the value</p>
