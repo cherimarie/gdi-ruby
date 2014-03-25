@@ -37,30 +37,131 @@
         <section>
           <h3>What we will cover today</h3>
           <ul>
-            <li class="fragment">Objects</li>
             <li class="fragment">Methods</li>
+            <li class="fragment">Objects</li>
             <li class="fragment">Object Oriented Programming</li>
           </ul>
         </section>
+        <section>
+          <h3>Methods</h3>
+          <p>A <strong>method</strong> is a series of statements, also called a function.</p>
+          <p class="fragment">Methods are often used to define reusable behavior.</p>
+          <p class="fragment">Let's look at a method we've already used:</p>
+          <pre><code contenteditable class="fragment ruby">
+irb>1 + 1
+=> 2
+  </code></pre>
+          <p class="fragment">The `+` here is actually a method. You can view the code for this method in the <a href="http://www.ruby-doc.org/core-2.1.0/Fixnum.html#method-i-2B">ruby-docs</a>.</p>
+          <p class="fragment">Because `+` has been defined, you can use it many times without re-writing how addition works.</p>
+        </section>
+        <section>
+          <h3>Built in Methods</h3>
+          <p>Ruby has already defined many methods for you.</p>
+          <p>For example, we can find out if a number is even using <strong>.even?</strong> or capitalize names with <strong>.capitalize</strong>.</p>
+          <pre><code contenteditable class="fragment ruby">
+    1.even?
+    => false
+
+    "fred".capitalize
+    => "Fred"
+
+    # Here's a trick to look at all the methods on a String
+    "fred".methods - Object.methods
+  </code></pre>
+        </section>
+
+        <section>
+          <h3>Method Input</h3>
+          <ul>
+            <li class="fragment">Some methods use data that you give them.</li>
+            <li class="fragment">Let's continue looking at "fred" and a new method <strong>.center</strong></li>
+            <li class="fragment">This method will place "fred" at the center of a new String with a padding of your choice on the sides.</li>
+          </ul>
+          <pre><code contenteditable class="fragment ruby">
+     # This places our 4 character String 'fred' at the center
+     # of a 20 character String with hyphens on the sides.
+     "fred".center(20, "-")
+     => "--------fred--------"
+  </code></pre>
+        </section>
+
+        <section>
+          <h3>Write a Method</h3>
+          <p>Let's write a version of `center` that always uses hyphens to the sides.</p>
+          <pre><code contenteditable class="fragment ruby">
+    # To define a method start with `def` followed by the method name
+    # `centered_with_hyphens` and any data it looks at
+    # `(passed_in_string)`. Use `end` at the end.
+
+    def centered_with_hyphens(passed_in_string)
+      passed_in_string.center(20, "-")
+    end
+
+    "fred".centered_with_hyphens
+    => "--------fred--------"
+  </code></pre>
+        </section>
+
+        <section>
+          <h3>Methods & Return Values</h3>
+          <p>Every Ruby method returns something.</p>
+          <p>Usually, it's the last statement in the method.</p>
+          <p>If you don't want to return the last statement, you'll use a reserved word <strong>return</strong></p>
+          <pre><code contenteditable class="fragment ruby">
+    # These two methods return the same thing
+
+    def centered_with_hyphens(passed_in_string)
+      passed_in_string.center(20, "-")
+    end
+
+    def centered_with_hyphens(passed_in_string)
+      return passed_in_string.center(20, "-")
+    end
+  </code></pre>
+        </section>
+
+        <section>
+          <h3>Methods & Variables</h3>
+          <p><strong>Local vars</strong> are only available in the methods where they were defined.</p>
+          <pre><code contenteditable class="fragment ruby">
+    # Let's extract the length of the padded string into
+    # a local variable
+    def centered_with_hyphens(passed_in_string)
+      new_length = 20
+      passed_in_string.center(new_length, "-")
+    end
+
+    # If we define a new method, it will not know what
+    # new_length is
+
+    def centered_with_at_signs(passed_in_string)
+      passed_in_string.center(new_length, "@")
+    end
+
+    irb> centered_with_at_signs('fred')
+
+  </code></pre>
+        </section>
+
         <section>
           <h3>Objects</h3>
           <p>An <strong>Object</strong> is the building block of a program.</p>
           <p class="fragment">Objects <strong>do things</strong> and have <strong>properties</strong>.</p>
           <pre><code contenteditable class="fragment ruby">
-    Object: Bike
+    Object: Number
     What can it do?
-    - Exist
-    - Go
-    - Brake
-    - Wheelie
+    - Add
+    - Subtract
+    - Divide
+    - Multiply
 
-    What are some properties of your Bike?
-    - Brand
-    - Size
-    - Speeds
-    - Material
+    What are some properties of your Number?
+    - Length
+    - Base
+    - Even
   </code></pre>
         </section>
+
         <section>
           <h3>Object Class</h3>
           <p><strong>Objects</strong> can be grouped by Class.</p>
@@ -69,11 +170,11 @@
           </p>
           <pre><code contenteditable class="fragment ruby">
     # Engineer in Trek headquarters defines
-    # what it takes to build a bike
+    # what it takes to build a bike Object
     class Bike
     end
 
-    # Fabricator uses template to build a Trek bike
+    # Fabricator uses template to build a new Bike
     bike = Bike.new
 
     # Consumer buying a bike asks which template was used
@@ -82,49 +183,14 @@
     => Bike
   </code></pre>
         </section>
-        <section>
-          <h3>Methods</h3>
-          <p>A <strong>method</strong> is a series of statements, also called a function.</p>
-          <p class="fragment">Methods are often used to communicate between objects.</p>
-          <p class="fragment">For example, a Bike object might `go`.</p>
-          <pre><code contenteditable class="fragment ruby">
-    class Bike
-      # In Ruby, we define a method beginning with `def` followed
-      # by the method name `go` and ending with `end`
-      def go
-        puts "going!!"
-      end
-    end
 
-    # Fabricate a new bike
-    bike = Bike.new
-
-    # Send a message/Call a method on that bike. Tell it to `go`
-    bike.go
-    => "going!!"
-  </code></pre>
-        </section>
-        <section>
-          <h3>Built in Methods</h3>
-          <p>Some methods have already been defined on your object.</p>
-          <p>For example, we can call `new` on Bike to create a new instance from our Bike template.</p>
-          <pre><code contenteditable class="fragment ruby">
-    bike = Bike.new
-
-    # Look at all the things our bike can do
-    bike.methods
-
-    # Look at methods specific to bike
-    bike.methods - Object.methods
-
-  </code></pre>
-        </section>
         <section>
           <h3>Object Methods</h3>
           <p>Methods have access to the properties of their objects.</p>
           <pre><code contenteditable class="fragment ruby">
     class Bike
       def set_brand
+        # Object property is noted with an @
         @brand = "Fuji"
       end
 
@@ -139,78 +205,7 @@
     => "The brand of the bike is: Fuji"
   </code></pre>
         </section>
-        <section>
-          <h3>Method Input</h3>
-          <p>Methods can operate on data given to them.</p>
-          <pre><code contenteditable class="fragment ruby">
-    class Bike
-      def set_brand
-        @brand = "Fuji"
-      end
 
-      def get_brand
-        puts "The brand of the bike is: #{@brand}"
-      end
-
-      def go_speed(speed)
-        if speed < 15
-          puts "Safety first."
-        else
-          puts "Speed racer!"
-        end
-      end
-    end
-
-  </code></pre>
-        </section>
-        <section>
-          <h3>Methods & Variables</h3>
-          <p><strong>Local vars</strong> are only available in the methods where they were defined.</p>
-          <p><strong>Instance vars</strong> are available to all the methods in the class.</p>
-          <pre><code contenteditable class="fragment ruby">
-    class Bike
-      def set_brand
-        @brand = "Fuji"
-      end
-
-      def go_speed(speed)
-        if speed < 15
-          puts "Safety first."
-        else
-          puts "Speed racer!"
-        end
-      end
-
-      def get_speed
-        puts speed
-      end
-    end
-
-    bike = Bike.new
-    bike.get_speed
-    => NameError: undefined local variable or method `speed'
-  </code></pre>
-        </section>
-        <section>
-          <h3>Methods & Return Values</h3>
-          <p>Every Ruby method returns something.</p>
-          <p>Usually, it's the last statement in the method.</p>
-          <p>If you don't want to return the last statement, you'll use a reserved word <strong>return</strong></p>
-          <p>Notice that the method <strong>puts</strong> returns nil</p>
-          <pre><code contenteditable class="fragment ruby">
-    def return_early
-    return "This is what you get!"
-    1*2
-    end
-
-    return_early
-    => "This is what you get!"
-
-    puts "Hi!"
-    "Hi"
-    => nil
-  </code></pre>
-        </section>
         <section>
           <h3>Objects Working Together</h3>
           <ul>
@@ -244,21 +239,18 @@
             others.
           </p>
           <p><strong>Abstraction</strong> is used to say only what is needed.</p>
-          <p>For example, your Bike might have tire_pressure and spoke_count properties that help indicate whether the bike is
-            being maintained. Other objects may not need to know the actual maintenance details and you might be able to
-            abstract this data out into a more relevant method `maintained?`.
-          </p>
           <pre><code contenteditable class="fragment ruby">
     class Bike
-    def perform_maintenance
-    @tires_filled = YES
-    @cleaned = YES
-    @bolts_tightened = YES
-    end
+      def perform_maintenance
+        @tires_filled = YES
+        @cleaned = YES
+        @bolts_tightened = YES
+      end
 
-    def maintained?
-    @tires_filled & @cleaned & @bolts_tightened
-    end
+      # Abstract maintenance details into a relevant method
+      def maintained?
+        @tires_filled & @cleaned & @bolts_tightened
+      end
     end
   </code></pre>
         </section>
@@ -279,22 +271,23 @@
         </section>
         <section>
           <h3>OOP & Ducks</h3>
-          <p>Similar to inherited traits and behaviors, there are also polymorphic traits and behaviors.</p>
-          <p><strong>Polymorphic</strong> means that something can take on many forms.</p>
-          <p>Within OOP, this relates to different objects being able to respond to the same message in different ways.</p>
+          <ul>
+          <li>Similar to inherited traits and behaviors, there are also polymorphic traits and behaviors.</li>
+          <li><strong>Polymorphic</strong> means many forms.</li>
+          <li>Within OOP, this relates to different objects being able to respond to the same message in different ways.</li>
+            </ul>
           <pre><code contenteditable class="fragment ruby">
     class Fixie
-    def gears
-    1
+      def gears
+        1
+      end
     end
-    end
-
     class RoadBike
-    def gears
-    21
+      def gears
+        21
+      end
     end
-    end
-
+            
     [RoadBike.new, Fixie.new].each {|bike| puts bike.gears}
   </code></pre>
         </section>
