@@ -36,7 +36,7 @@ We'll discuss the basic concepts of object oriented programming. We'll write our
 
 Object Oriented Programming, part II
 
-We will expand our knowledge of OOP by discussing classes and inheritence. We will tie together everything we've learned with a relatively complex, totally fun final project.
+We will expand our knowledge of OOP by discussing classes and inheritance. We will tie together everything we've learned with a relatively complex, totally fun final project.
 
 
 ###Blurb
