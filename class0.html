@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+    <head>
       <meta charset="utf-8">
 
       <title>Intro to Ruby ~ Girl Develop It</title>
@@ -26,17 +26,17 @@
       <!--[if lt IE 9]>
       <script src="lib/js/html5shiv.js"></script>
       <![endif]-->
-  </head>
+    </head>
 
-  <body>
-    <div class="reveal">
-        <!-- Any section element inside of this container is displayed as a slide -->
-      <div class="slides">
-          <!-- Opening slide -->
-        <section>
-          <img src = "images/gdi_logo_badge.png">
-          <h3>Intro to Ruby</h3>
-          <h4>Class 0 - Installfest</h4>
+    <body>
+        <div class="reveal">
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+            <!-- Opening slide -->
+            <section>
+            <img src = "images/gdi_logo_badge.png">
+            <h3>Intro to Ruby</h3>
+            <h4>Class 0</h4>
         </section>
         
         <!-- Welcome-->
@@ -50,6 +50,18 @@
             <li>Every question is important</li>
             <li>Help each other</li>
             <li>Have fun</li>
+          </ul>
+          </div>
+        </section>
+
+         <section>
+          <h3>Welcome!</h3>
+          <div class = "left-align">
+          <p class = "blue">Tell us about yourself.</p>
+          <ul>
+            <li>Who are you?</li>
+            <li>What do you hope to get out of this class?</li>
+            <li>What is your favorite ice cream or frozen dessert?</li>
           </ul>
           </div>
         </section>
@@ -72,14 +84,15 @@
         <section>
           <h3>Installfest</h3>
           <p><a href="http://docs.railsbridge.org/installfest/" alt="railsbridge installfest">Here it is!</a></p>
-          <p>Just work through the instructions for your operating system. Ask a volunteer for help if you get stuck or lost. This entire process should take at least an hour.</p>
+          <p class="green">http://docs.railsbridge.org/installfest/</p>
+          <p>Just work through the instructions for your operating system. <strong>Stop after the "Configure Git" step.</strong> Ask a volunteer for help if you get stuck or lost. This process should take about an hour.</p>
         </section>
 
         <!-- Part 2: Intro to Terminal, 20 minutes -->
         <section>
           <h3>Intro to Terminal</h3>
-          <p>Working in the terminal can be really intimidating!</p>
-          <p>With practice, you'll find that navigation and file manipulation is significantly faster in the terminal than in the GUI.</p>
+          <p>Working in the terminal can be really intimidating at first!</p>
+          <p>With practice, navigation and file manipulation is significantly faster in the terminal than in the GUI.</p>
           <p>Professional software developers use the terminal all the time, and this class will require some use of it.</p>
         </section>
 
@@ -91,25 +104,19 @@
         </section>
 
         <section>
+          <h3>Intro to Terminal Prompt</h3>
+          <p>The line that appears in the terminal when you open it is called the prompt. It usually contains information about the user and current directory. It can be customized.</p>
+          <img src="images/prompt1.png" alt="example prompt">
+          <img src="images/prompt2.png" alt="example prompt">
+          <img src="images/prompt3.png" alt="example prompt">
+          <img src="images/prompt4.png" alt="example prompt">
+          <img src="images/prompt5.png" alt="example prompt">
+          <p>Terminal instructions often start a line with a $. This represents the last character in the prompt, you don't have to type it.</p>
+        </section>
+
+        <section>
           <h3>Terminal Cheatsheet</h3>
-          <p>These are the most common commands that we'll be using in the terminal:</p>
-          <table>
-            <tr>
-              <td>pwd</td>
-              <td>"present working directory" - where am I?</td>
-            </tr>
-            <tr>
-              <td>cd [location]</td>
-              <td>"change directory" - navigate to the location I'm providing</td>
-            </tr>
-            <tr>
-              <td>ls</td>
-              <td>"list" the contents of the current directory</td>
-            </tr>
-            <tr>
-              <td>ls -al</td>
-              <td>"list all" of the contents of current directory, including invisible ones</td>
-            </tr>
+          <table style="font-size: 20px; line-height: 1.4em;">
             <tr>
               <td>.</td>
               <td>the current directory- ex: "touch ./wow.txt"</td>
@@ -121,6 +128,18 @@
             <tr>
               <td>~</td>
               <td>the root directory- ex: "cd ~/Pictures"</td>
+            </tr>
+            <tr>
+              <td>cd [location]</td>
+              <td>"change directory" to [location]</td>
+            </tr>
+            <tr>
+              <td>pwd</td>
+              <td>"present working directory" - where am I?</td>
+            </tr>
+            <tr>
+              <td>ls -al</td>
+              <td>"list all" of the contents of current directory, including invisible ones</td>
             </tr>
             <tr>
               <td>touch [filename.extension]</td>
@@ -137,17 +156,92 @@
             <tr>
               <td>rm -rf [directoryname]</td>
               <td>"remove recursively with force" the directory called directoryname</td>
+            </tr> 
+            <tr>
+              <td>clear OR cmd+k</td>
+              <td>clear the terminal screen</td>
+            </tr> 
+            <tr>
+              <td>help</td>
+              <td>lists all possible commands</td>
+            </tr> 
+            <tr>
+              <td>man [command]</td>
+              <td>displays the manual for command</td>
             </tr>            
           </table>
+        </section>
+
+        <section>
+        <h3>Terminal Activities</h3>
+        <pre><code class="terminal">
+# navigate to your desktop
+cd ~/Desktop    #Linux, Mac
+cd desktop      #Windows
+
+# make a directory called ruby_adventures
+mkdir ruby_adventures
+
+# navigate into new directory
+cd ruby_adventures
+
+# create a file
+touch class0.rb
+
+# list the contents of the directory
+ls 
+        </code></pre>
         </section>
 
         <!-- Let's Develop It - 10 min -->
         <section>
         <h3>Let's Develop It!</h3>
         <p>Work along with your instructor to practice navigating in the terminal, and make and delete a few files.</p>
-
         </section>
-      </div>
-    </div>
-  </body>
-<</html>
+
+        <section>
+        <h3>Questions?</h3>
+        </section>
+
+        <section>
+        <h3>Homework</h3>
+        <p><strong>Practice:</strong> spend at least 20 minutes practicing navigating and creating documents and directories with the command line.</p>
+        <p><strong>Prep:</strong> Work through Code Academy's <a href="http://www.codecademy.com/courses/ruby-beginner-en-d1Ylq/0/1?curriculum_id=5059f8619189a5000201fbcb" alt="Code Academy">"Intro to Ruby"</a>.</p>
+        </section>
+            <footer>
+                <div class="copyright">
+                    Intro to Ruby ~ Girl Develop It ~
+                    <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+                </div>
+            </footer>
+        </div>
+
+        <script src="reveal/lib/js/head.min.js"></script>
+        <script src="reveal/js/reveal.min.js"></script>
+
+        <script>
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+
+                theme: Reveal.getQueryHash().theme, // available theme are in /css/themes
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'reveal/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'reveal/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'reveal/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'reveal/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'reveal/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'reveal/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+
+        </script>
+    </body>
+</html>
+
