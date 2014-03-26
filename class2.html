@@ -2,30 +2,30 @@
 <html lang="en">
 
     <head>
-        <meta charset="utf-8">
+      <meta charset="utf-8">
 
-        <title>Intro to Ruby ~ Girl Develop It</title>
+      <title>Intro to Ruby ~ Girl Develop It</title>
 
-        <meta name="description" content="This is the official Girl Develop It Core Intro to Ruby course. The course is meant to be taught in four two-hour sessions. Each of the slides and practice files are customizable according to the needs of a given class or audience.">
-        <meta name="author" content="Girl Develop It">
+      <meta name="description" content="This is the official Girl Develop It Core Intro to Ruby course. The course is meant to be taught in four two-hour sessions. Each of the slides and practice files are customizable according to the needs of a given class or audience.">
+      <meta name="author" content="Girl Develop It">
 
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-        <link rel="stylesheet" href="reveal/css/reveal.css">
-        <link rel="stylesheet" href="reveal/css/theme/gdicool.css" id="theme">
+      <link rel="stylesheet" href="reveal/css/reveal.css">
+      <link rel="stylesheet" href="reveal/css/theme/gdicool.css" id="theme">
 
-        <!-- For syntax highlighting -->
-        <!-- light editor<link rel="stylesheet" href="lib/css/light.css">-->
-        <!-- dark editor--><link rel="stylesheet" href="reveal/lib/css/dark.css">
+      <!-- For syntax highlighting -->
+      <!-- light editor<link rel="stylesheet" href="lib/css/light.css">-->
+      <!-- dark editor--><link rel="stylesheet" href="reveal/lib/css/dark.css">
 
-        <!-- If use the PDF print sheet so students can print slides-->
-        
-        <link rel="stylesheet" href="reveal/css/print/pdf.css" type="text/css" media="print">
+      <!-- If use the PDF print sheet so students can print slides-->
+      
+      <link rel="stylesheet" href="reveal/css/print/pdf.css" type="text/css" media="print">
 
-        <!--[if lt IE 9]>
-        <script src="lib/js/html5shiv.js"></script>
-        <![endif]-->
+      <!--[if lt IE 9]>
+      <script src="lib/js/html5shiv.js"></script>
+      <![endif]-->
     </head>
 
     <body>
@@ -182,7 +182,7 @@ true || not(1 == 1 || 2 == 65)
                   <p>So, what's the value of knowing if a statement is true or false? Often, you'll use that to control whether a piece of code will execute or not.</p>
 
                   <pre><code  class="ruby">
-user_guess = 47
+user_guess = gets.chomp.to_i
 secret_number = 312
 
 if user_guess < secret_number 
@@ -662,15 +662,7 @@ end
                 <!-- Let's develop it: 15 minutes -->
                 <section>
                     <h3>Let's Develop It</h3>
-                    <!-- TODO: Make this use arrays or hashes                     <ul>
-                        <li>Write a program that asks the user to guess a number between a given range, such as 1 to 10</li>
-                        <li>The program should give the user hints such as "too high" or "too low". Alternatively, the hints might be "warm" or "cold" depending on how close they are to the number</li>
-                        <li>The computer will need to have a random number for the user to guess. Insert the following at the top of your program:</li>
-                        <pre><code  class="ruby">
-guess_me = rand(10)
-#generates a random number between 0 and 9, assigns it to the variable name guess_me 
-                        </code></pre>
-                    </ul>-->
+                   
                 <p>TO DO</p>
                 </section>
 
@@ -697,8 +689,9 @@ nil.size
                 </section>
 
                 <section>
-                    <h3>Homework:</h3>
-                    <!-- TO DO -->
+                    <h3>Homework</h3>
+                    <p><strong>Practice:</strong> Find two interesting methods for Enumerable (via <a href="http://www.ruby-doc.org/core-2.1.1/Enumerable.html" alt="Ruby Docs">Ruby Docs</a>) and write a little program that uses them for arrays or hashes. Do the exercises at the end of <a href="http://pine.fm/LearnToProgram/?Chapter=06" alt="Chp 6 of Learn to Program">Chapter 6</a>.</p>
+                    <p><strong>Prep:</strong> Read <a href="http://pine.fm/LearnToProgram/?Chapter=08" alt="Chp 8 of Learn to Program">Chapter 8</a> of Learn To Program- don't try to do the exercises at the end yet, though.</p>
                 </section>
             </div>
             <footer>
