@@ -62,14 +62,14 @@
     <li class="fragment">Programming code is human readable but also needs a form that the computer can run directly.
       This form is not human readable.
     </li>
-    <li class="fragment">To create the form of code the computer can use, we use the Ruby <a
-        href="http://en.wikipedia.org/wiki/Interpreter_(computing)">interpreter</a>. Other languages use other
-      interpreters or a <a href="http://en.wikipedia.org/wiki/Compiler">compiler</a>
-    </li>
-    <li class="fragment">Don't focus on what's "under the hood" for now. We will "drive the car" first.</li>
-    <li class="fragment">In other words, there are many layers to the onion. We start at one layer and slowly move
-      toward layers that are beneath or above us.
-    </li>
+    <!--<li class="fragment">To create the form of code the computer can use, we use the Ruby <a-->
+        <!--href="http://en.wikipedia.org/wiki/Interpreter_(computing)">interpreter</a>. Other languages use other-->
+      <!--interpreters or a <a href="http://en.wikipedia.org/wiki/Compiler">compiler</a>-->
+    <!--</li>-->
+    <!--<li class="fragment">Don't focus on what's "under the hood" for now. We will "drive the car" first.</li>-->
+    <!--<li class="fragment">In other words, there are many layers to the onion. We start at one layer and slowly move-->
+      <!--toward layers that are beneath or above us.-->
+    <!--</li>-->
   </ul>
 </section>
 <section>
@@ -85,10 +85,10 @@
   5.times do
       </code>
     </pre>
-    <li class="fragment">There are several web development tools written in Ruby: Rails, Sinatra, Camping.</li>
     <li class="fragment">The community is large, active and interested in helping others learn.</li>
-    <li class="fragment">You can make a lucrative career out of it.</li>
-    <li class="fragment">Using Ruby will cost you $0.</li>
+    <li class="fragment">You can get a web app off the ground quickly.</li>
+    <!--<li class="fragment">You can make a lucrative career out of it.</li>-->
+    <!--<li class="fragment">Using Ruby will cost you $0.</li>-->
   </ul>
 </section>
 <section>
@@ -109,17 +109,19 @@
     <li>Groupon</li>
     <li>Basecamp</li>
     <li>Github</li>
+    <li>#2 in 2014 on <a href="http://adambard.com/blog/top-github-languages-for-2013-so-far/">github</a></li>
+    <li>More <a href="https://www.ruby-lang.org/en/documentation/success-stories/">Success Stories</a></li>
   </ul>
 </section>
 <!-- Basic IRB - 10 min -->
 <section>
   <h3>Working with IRB</h3>
   <ul>
-    <li class="fragment">Open up your terminal and type `irb`</li>
     <li class="fragment">IRB is a command line interface to ruby that is installed when we install Ruby. It works like a calculator and is a
       great way to get started quickly.
     </li>
-    <li class="fragment">Type `quit` and then `enter` to get out of IRB</li>
+    <li class="fragment">Open: type `irb`</li>
+    <li class="fragment">Quit: Type `quit` and then press `enter`</li>
     <li class="fragment">Follow along with the examples in the slides. Type them in!</li>
     <li class="fragment">Feel free to explore as well. You will not accidentally break things.</li>
   </ul>
@@ -150,14 +152,8 @@
   </ul>
   <pre>
     <code contenteditable class="ruby fragment">
-  irb> File.open("/etc/hosts") {|f| f << "example"}
-  IOError: not opened for writing
-
-  irb> def foo
-  irb> end
-  => nil
-  irb> foo 1,2
-  ArgumentError: wrong number of arguments (2 for 0)
+  irb> foo
+  NameError: undefined local variable or method `foo' for main:Object
     </code>
   </pre>
 </section>
@@ -165,21 +161,85 @@
 <section>
   <h3>Variables</h3>
   <ul>
-    <li class="fragment">Variables are like nicknames given to information that will be used
-      often.
-    </li>
-    <li class="fragment"><strong>x = 6</strong> assigns a value of 6 to the `x` variable.</li>
-    <li class="fragment">Local variables begin with a lowercase letter and may include numbers and underscores.</li>
+    <li class="fragment">Variables are references to information.</li>
+    <li class="fragment">We reference variables by name.</li>
+    <li class="fragment">They are called variable because the information they reference may change.</li>
   </ul>
   <pre><code contenteditable class="ruby fragment">
   # Everything after this pound sign will not be evaluated.
   # These are called comments and I will use them to annotate code
-  x = 6
-  number5 = 5
-  other_number = 2
-  result = x + number5 + other_number
-  => 13
-  # You could also read the above as result = 6 + 5 + 2 = 13
+  my_age = 50
+  your_age = 20
+  average_age = (my_age + your_age) / 2
+  </code></pre>
+</section>
+<section>
+  <h3>Ruby's Variables</h3>
+  <ul>
+    <li class="fragment">Ruby has three kinds of variables, one kind of constant and exactly two pseudo-variables.</li>
+    <li class="fragment">A local variable has a name starting with a lower case letter or an underscore character (_).</li>
+  </ul>
+  <pre><code contenteditable class="ruby fragment">
+  age = 50
+  _age = 50
+  _my_age = 50
+  </code></pre>
+</section>
+<section>
+  <h3>What can I do with a Variable?</h3>
+  <ul>
+    <li class="fragment">Create - Initialize - Declare</li>
+    <li class="fragment">Get - Access - Read</li>
+    <li class="fragment">Put - Assign - Replace</li>
+  </ul>
+  <pre><code contenteditable class="ruby fragment">
+  # assign the value 0 to age
+  # initialize age to 0
+  age = 0
+  age = 50
+
+  # access the value in age
+  puts age
+
+  # replace value in age
+  age = 40
+  puts age
+  </code></pre>
+</section>
+<section>
+  <h3>Variable naming</h3>
+  <ul>
+    <li class="fragment">Express what is stored inside</li>
+    <li class="fragment">Make it easy to read</li>
+    <li class="fragment">Should be understood by someone who has no idea what your program does</li>
+    <li class="fragment">Should be unique</li>
+  </ul>
+  <pre><code contenteditable class="ruby fragment">
+  # good
+  occupation = "software engineer"
+
+  # bad
+  occupation_i_always_dreamed_of = "software engineer"
+  o = "software engineer"
+  1st_occupation = "software engineer"
+  </code></pre>
+</section>
+<section>
+  <h3>Local Variable Values</h3>
+  <ul>
+    <li class="fragment">No default value</li>
+    <li class="fragment">Do not live forever</li>
+    <li class="fragment">Hardware Value</li>
+    <li class="fragment">No type declaration</li>
+  </ul>
+  <pre><code contenteditable class="ruby fragment">
+  # error
+  name
+
+  name = "Heather"
+  defined?(name)
+
+  name.object_id
   </code></pre>
 </section>
 <!-- Data Types - 10 min -->
