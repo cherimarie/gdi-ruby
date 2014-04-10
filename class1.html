@@ -152,8 +152,8 @@
   </ul>
   <pre>
     <code contenteditable class="ruby fragment">
-  irb> foo
-  NameError: undefined local variable or method `foo' for main:Object
+  irb> hi
+  NameError: undefined local variable or method `hi' for main:Object
     </code>
   </pre>
 </section>
@@ -168,16 +168,17 @@
   <pre><code contenteditable class="ruby fragment">
   # Everything after this pound sign will not be evaluated.
   # These are called comments and I will use them to annotate code
-  my_age = 50
-  your_age = 20
-  average_age = (my_age + your_age) / 2
+  age = 50
+  days_in_year = 365
+  days_alive = age * days_in_year
+  => 14600
   </code></pre>
 </section>
 <section>
   <h3>Ruby's Variables</h3>
   <ul>
     <li class="fragment">Ruby has three kinds of variables, one kind of constant and exactly two pseudo-variables.</li>
-    <li class="fragment">A local variable has a name starting with a lower case letter or an underscore character (_).</li>
+    <li class="fragment">A local variable starts with a lower case letter or an underscore character (_) and consists entirely of letters, numbers and underscores.</li>
   </ul>
   <pre><code contenteditable class="ruby fragment">
   age = 50
@@ -188,22 +189,19 @@
 <section>
   <h3>What can I do with a Variable?</h3>
   <ul>
-    <li class="fragment">Create - Initialize - Declare</li>
-    <li class="fragment">Get - Access - Read</li>
-    <li class="fragment">Put - Assign - Replace</li>
+    <li class="fragment">Create - Initialize</li>
+    <li class="fragment">Access - Read</li>
+    <li class="fragment">Assign - Replace</li>
   </ul>
   <pre><code contenteditable class="ruby fragment">
-  # assign the value 0 to age
-  # initialize age to 0
+  # create and assign in one line
   age = 0
-  age = 50
 
   # access the value in age
-  puts age
+  age
 
   # replace value in age
   age = 40
-  puts age
   </code></pre>
 </section>
 <section>
@@ -219,7 +217,7 @@
   occupation = "software engineer"
 
   # bad
-  occupation_i_always_dreamed_of = "software engineer"
+  occupation_i_always_dreamed_of_having_in_seattle = "software engineer"
   o = "software engineer"
   1st_occupation = "software engineer"
   </code></pre>
@@ -228,9 +226,8 @@
   <h3>Local Variable Values</h3>
   <ul>
     <li class="fragment">No default value</li>
-    <li class="fragment">Do not live forever</li>
-    <li class="fragment">Hardware Value</li>
     <li class="fragment">No type declaration</li>
+    <li class="fragment">Do not live forever</li>
   </ul>
   <pre><code contenteditable class="ruby fragment">
   # error
@@ -238,8 +235,6 @@
 
   name = "Heather"
   defined?(name)
-
-  name.object_id
   </code></pre>
 </section>
 <!-- Data Types - 10 min -->
