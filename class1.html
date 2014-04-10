@@ -274,17 +274,22 @@
   =>"Spam Spam Spam Spam "
   together
   </code></pre>
-  <pre><code contenteditable class="ruby fragment">
-  a = 'spam '
-  b = 'eggs'
-  c = a * 4 + b
-  => "spam spam spam spam eggs"
-  </code></pre>
 </section>
 <section>
   <h3>Numbers</h3>
-  <p>Integers</p>
-  <p>Floats</p>
+  <p>Numeric data comes in two types: <strong>Integers</strong> and <strong>Floats</strong></p>
+  <p>Integers are either <strong>Fixnum</strong> or <strong>Bignum</strong>. They do not have decimals.</p>
+  <pre><code contenteditable class="ruby fragment">
+    irb> 1_000_000_000_000_000_000.class
+     => Fixnum
+    irb> 1_000_000_000_000_000_000_000.class
+     => Bignum
+  </code></pre>
+  <p>Floats are numbers with at least one number to the left of a decimal point.</p>
+  <pre><code contenteditable class="ruby fragment">
+    irb> 1.001.class
+     => Float
+  </code></pre>
 </section>
 <section>
   <h3>Symbols</h3>
@@ -338,13 +343,16 @@
 <section>
   <h3>Methods</h3>
   <ul>
-    <li class="fragment">Methods define the behavior of an Object.</li>
-    <li class="fragment">Number Objects can <strong>add</strong> and <strong>multiply</strong>, for example.</li>
-    <li class="fragment">`.to_s` converts one object into its String representation.</li>
-    <li class="fragment">What happens if we try to use division or subtraction with a string?</li>
+    <li class="fragment">Methods define the behavior for an Object.</li>
+    <li class="fragment">String Objects can <strong>reverse</strong>, for example.</li>
+    <li class="fragment">Some methods are accessed using our friend 'dot' and some are standalone.</li>
+    <li class="fragment">Let's call some methods</li>
   </ul>
   <pre>
     <code contenteditable class="ruby fragment">
+  irb> puts "hello"
+  hello
+  => nil
   irb> "2".to_i
   => 2
   irb> 2.to_s
@@ -358,6 +366,7 @@
   <h3>User Input</h3>
   <ul>
     <li class="fragment">To obtain user input, use `gets`</li>
+    <li class="fragment">To print out information, use `puts`</li>
     <li class="fragment">Let's create our first program together</li>
   </ul>
   </br>
@@ -377,8 +386,8 @@ ruby name.rb
 <section>
   <h3>Let's Develop It</h3>
   <ul>
-    <li>Write your own command line program that asks the user for their age, then tells them how old they are in dog years.</li>
-    <li>'Gets' method returns a string. To do math on it, convert it to an integer with .to_i method.</li>
+    <li>Write your own program using 'puts' and 'gets' to ask a user for their age and then tell them how old they are in dog years.</li>
+    <li>reminder: 'gets' method returns a string. To do math on it, convert it to an integer with .to_i method.</li>
     <pre><code class="ruby">
 user_age = gets.to_i
     </code></pre>
