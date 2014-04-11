@@ -141,7 +141,7 @@
   </pre>
 </section>
 <section>
-  <h3>Errors</h3>
+  <h3>Errors are Neat!</h3>
   <ul>
     <li class="fragment">There are different kinds of errors that can occur. We just saw the <strong>SyntaxError</strong> which often
       helps us find misspelled words or missing quotes.
@@ -276,6 +276,22 @@
   </code></pre>
 </section>
 <section>
+  <h3>String Practice</h3>
+  <pre><code contenteditable class="ruby">
+  "Heather".upcase
+  "Heather".downcase
+  "heather".capitalize
+  "Hello".reverse
+  "Heather".length
+  "Heather Moore".swapcase
+  "".empty?
+  </code></pre>
+  <p>What is the reverse of your name?</p>
+  <p>How many characters long is your name?</p>
+  <p>Can you repeat the word hello 100 times?</p>
+  <p>What is the 5th character of my name?</p>
+</section>
+<section>
   <h3>Numbers</h3>
   <p>Numeric data comes in two types: <strong>Integers</strong> and <strong>Floats</strong></p>
   <p>Integers are either <strong>Fixnum</strong> or <strong>Bignum</strong>. They do not have decimals.</p>
@@ -290,6 +306,22 @@
     irb> 1.001.class
      => Float
   </code></pre>
+</section>
+<section>
+  <h3>Number Practice</h3>
+  <pre><code contenteditable class="ruby">
+  7/8
+  7.0/8.0
+  3.14.to_s
+  3.14.to_i
+  1 + "2"
+  1 + "2".to_i
+  (1 + 2) * 3
+  1 + (2 * 3)
+  </code></pre>
+  <p>How many seconds are in an hour?</p>
+  <p>How many minutes are in a week?</p>
+  <p>How many years old are you if you've been alive 1 million seconds?</p>
 </section>
 <section>
   <h3>Symbols</h3>
@@ -389,9 +421,28 @@ ruby name.rb
     <li>Write your own program using 'puts' and 'gets' to ask a user for their age and then tell them how old they are in dog years.</li>
     <li>reminder: 'gets' method returns a string. To do math on it, convert it to an integer with .to_i method.</li>
     <pre><code class="ruby">
-user_age = gets.to_i
+    #1 dog year = 7 human years
+    user_age = gets.to_i
     </code></pre>
   </ul>
+</section>
+<section>
+  <h3>Lab 1</h3>
+  <ul>
+    <li>Update your code to return a message in all capital letters.</li>
+  </ul>
+  <pre><code class="ruby">
+  # YOU ARE 5 YEARS OLD IN DOG YEARS
+  </code></pre>
+</section>
+<section>
+  <h3>Lab 1</h3>
+  <ul>
+    <li>Update your code to return a message in all capital letters, reversed with a count of the characters returned in parens.</li>
+  </ul>
+  <pre><code class="ruby">
+  # YOU ARE 5 YEARS OLD IN DOG YEARS (32 characters)
+  </code></pre>
 </section>
 <section>
   <h3>Questions?</h3>
