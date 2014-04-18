@@ -696,7 +696,7 @@ $pets.collect{|p| p[:legs]}.reduce(:+) # returns sum of all pet legs
                 <p>Returns an array with all elements that did not meet the critera in code block.</p>
                 <pre><code class="ruby">
 $pets.reject{|p| p[:talents].include? "napping" }  
-            # returns array of pets whose talents do not include napping    
+      # returns array of pets whose talents do not include napping    
 
                 </code></pre>
             </section>
@@ -704,7 +704,6 @@ $pets.reject{|p| p[:talents].include? "napping" }
             <section>
               <h3>Let's Develop It</h3>
               <p>How many of our pets are nocturnal?</p>
-              <p>Find the sum of all odd numbers between 58 and 300(inclusive). </p>
 
             </section>
 
@@ -715,7 +714,6 @@ $pets.reject{|p| p[:talents].include? "napping" }
 $pets.reject{|p| p[:nocturnal]== false}.count
 
                 </code></pre>
-              <p>Find the sum of all odd numbers between 58 and 300(inclusive). </p>
 
             </section>
             
