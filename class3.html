@@ -45,6 +45,55 @@
           <h3>Homework Discussion</h3>
           <p>How was last week's homework? Do you have any questions or concepts that you'd like to discuss?</p>
         </section>
+
+        <section>
+          <h3>grandma.rb</h3>
+          <pre><code contenteditable class="ruby">
+            chatting = true
+            byes = 0
+            while chatting
+              puts "Ask Grandma a question:"
+              said = gets.chomp!
+              if said == "BYE"
+                byes += 1
+                if byes > 2
+                  chatting = false
+                else
+                  puts "** Grandma is ignoring you **"
+                end
+              elsif said == said.upcase
+                year = 1930 + Random.rand(20)
+                puts "NO, NOT SINCE #{year}!"
+              else
+                puts "HUH?!  SPEAK UP, SONNY!"
+              end
+            end
+            puts "Thanks for chatting with Grandma"
+  </code></pre>
+        </section>
+
+        <section>
+          <h3>leap.rb</h3>
+          <pre><code contenteditable class="ruby">
+            puts "Enter a starting year in the format YYYY"
+            starting = gets.chomp!.to_i
+            puts "Enter an ending year in the format YYYY"
+            ending = gets.chomp!.to_i
+            puts "LEAP YEARS between #{starting} and #{ending}"
+
+            starting.upto(ending) do |year|
+              divisible_by_4 = (year % 4) == 0
+              not_divisible_by_100 = (year % 100) != 0
+              divisible_by_400 = (year % 400) == 0
+              is_leap_year = (divisible_by_4 && not_divisible_by_100)
+                               || divisible_by_400
+              if is_leap_year
+                puts "#{year}"
+              end
+            end
+          </code></pre>
+        </section>
+
         <section>
           <h3>Review</h3>
           <ul>
@@ -54,6 +103,7 @@
             <li class="fragment">Hashes - {"one" => 1, "two" => 2}</li>
           </ul>
         </section>
+
         <section>
           <h3>What we will cover today</h3>
           <ul>
@@ -62,81 +112,171 @@
             <li class="fragment">Object Oriented Programming</li>
           </ul>
         </section>
+
         <section>
           <h3>Methods</h3>
-          <p>A <strong>method</strong> is a series of statements, also called a function.</p>
+          <p>A <strong>method</strong> is a name for a chunk of code</p>
           <p class="fragment">Methods are often used to define reusable behavior.</p>
           <p class="fragment">Let's look at a method we've already used:</p>
           <pre><code contenteditable class="fragment ruby">
-irb>1 + 1
-=> 2
-  </code></pre>
-          <p class="fragment">The `+` here is actually a method. You can view the code for this method in the <a href="http://www.ruby-doc.org/core-2.1.0/Fixnum.html#method-i-2B">ruby-docs</a>.</p>
-          <p class="fragment">Because `+` has been defined, you can use it many times without re-writing how addition works.</p>
+            1.even?
+            => false
+
+            "fred".capitalize
+            => "Fred"
+          </code></pre>
+          <p>If you have some code you want to reuse or organize, methods will help.</p>
         </section>
         <section>
-          <h3>Built in Methods</h3>
-          <p>Ruby has already defined many methods for you.</p>
-          <p>For example, we can find out if a number is even using <strong>.even?</strong> or capitalize names with <strong>.capitalize</strong>.</p>
+          <h3>Let's Develop It!</h3>
+          <p>Find the methods available on <a href="http://www.ruby-doc.org/core-2.1.0/String.html">String</a> and <a href="http://www.ruby-doc.org/core-2.1.0/Integer.html">Integer</a></p>
+          <p>Do they have any similar methods?</p>
           <pre><code contenteditable class="fragment ruby">
-    1.even?
-    => false
+    "abc".next
+    => "abd"
 
-    "fred".capitalize
-    => "Fred"
+    "abz".next
+    => "aca"
 
-    # Here's a trick to look at all the methods on a String
-    "fred".methods - Object.methods
-  </code></pre>
-        </section>
+    1.next
+    => 2
 
-        <section>
-          <h3>Method Input</h3>
-          <ul>
-            <li class="fragment">Some methods use data that you give them.</li>
-            <li class="fragment">Let's continue looking at "fred" and a new method <strong>.center</strong></li>
-            <li class="fragment">This method will place "fred" at the center of a new String with a padding of your choice on the sides.</li>
-          </ul>
-          <pre><code contenteditable class="fragment ruby">
-     # This places our 4 character String 'fred' at the center
-     # of a 20 character String with hyphens on the sides.
-     "fred".center(20, "-")
-     => "--------fred--------"
+    -1.next
+    => 0
   </code></pre>
         </section>
 
         <section>
           <h3>Write a Method</h3>
-          <p>Let's write a version of `center` that always uses hyphens to the sides.</p>
+          <p>Let's write a method together</p>
+          <p><strong>def</strong> means define</p>
+          <p><strong>subtract</strong> is the name of the method</p>
+          <p><strong>x, y</strong> are parameters</p>
+          <p><strong>x - y</strong> is the body of the method</p>
+          <p><strong>x - y</strong> is also the return value</p>
           <pre><code contenteditable class="fragment ruby">
-    # To define a method start with `def` followed by the method name
-    # `centered_with_hyphens` and any data it looks at
-    # `(passed_in_string)`. Use `end` at the end.
+def subtract x, y
+  x - y
+end
+        </code></pre>
+        </section>
 
-    def centered_with_hyphens(passed_in_string)
-      passed_in_string.center(20, "-")
-    end
+        <section>
+          <h3>Let's Develop It!</h3>
+          <p>Let's write a method that takes in a number and tells us if it is even.</p>
+          <p>Hint: if number % 2 == 0, then it is even</p>
+          <pre><code contenteditable class="fragment ruby">
+          def method_name(parameter)
+            # method implementation
+          end
+  </code></pre>
+        </section>
 
-    "fred".centered_with_hyphens
-    => "--------fred--------"
+
+        <section>
+          <h3>Method Return Value</h3>
+          <p>Every Ruby method returns something.</p>
+          <p>Usually, it's the last statement in the method.</p>
+          <p>It could be the value sent to <strong>return</strong> if that came first.</p>
+          <pre><code contenteditable class="fragment ruby">
+            def subtract(x,y)
+              x - y
+              'another thing'
+            end
+
+            return_value = subtract(5, 2)
+            puts return_value
+
+            def subtract(x,y)
+              return x - y
+              'another thing'
+            end
+
+            return_value = subtract(5, 2)
+            puts return_value
   </code></pre>
         </section>
 
         <section>
-          <h3>Methods & Return Values</h3>
-          <p>Every Ruby method returns something.</p>
-          <p>Usually, it's the last statement in the method.</p>
-          <p>If you don't want to return the last statement, you'll use a reserved word <strong>return</strong></p>
+          <h3>Arguments vs. Parameters</h3>
+          <p>Technically speaking, arguments are passed and parameters are declared.</p>
+          <p>Note that the variable names don't have to match!</p>
+          <p>In this code, 5 is an argument and x is a parameter</p>
           <pre><code contenteditable class="fragment ruby">
-    # These two methods return the same thing
+            def subtract(x,y)
+              x - y
+            end
 
-    def centered_with_hyphens(passed_in_string)
-      passed_in_string.center(20, "-")
-    end
+            subtract(5, 2)
+  </code></pre>
+        </section>
 
-    def centered_with_hyphens(passed_in_string)
-      return passed_in_string.center(20, "-")
-    end
+        <section>
+          <h3>Splat Arguments</h3>
+          <pre><code contenteditable class="fragment ruby">
+            def greet(greeting, *names)
+              names.each do |name|
+                puts "#{greeting}, #{name}!"
+              end
+            end
+
+            >> greet("Hello", "Alice", "Bob", "Charlie")
+            Hello, Alice!
+            Hello, Bob!
+            Hello, Charlie!
+  </code></pre>
+        </section>
+
+        <section>
+          <h3>Default Values</h3>
+          <pre><code contenteditable class="fragment ruby">
+            def eat(food = "chicken")
+              puts "Yum, #{food}!"
+            end
+
+            >> eat
+            Yum, chicken!
+
+            >> eat "arugula"
+            Yum, arugula!
+  </code></pre>
+        </section>
+
+        <section>
+          <h3>Default Hash Parameter</h3>
+          <pre><code contenteditable class="fragment ruby">
+            def add_to_x_and_y(amount, vals)
+              x = vals[:x]
+              y = vals[:y]
+              x + y + amount
+            end
+
+            add_to_x_and_y(2, {:x => 1, :y => 2})
+
+            # same as...
+            add_to_x_and_y 2, :x => 1, :y => 2
+
+            # same as...
+            add_to_x_and_y 2, x: 1, y: 2
+
+            # same as...
+            add_to_x_and_y 2, y: 2, x: 1
+  </code></pre>
+        </section>
+
+        <section>
+          <h3>Named Parameters</h3>
+          <p>To pass variable parameters, or to pass named parameters, you can use an options hash</p>
+          <pre><code contenteditable class="fragment ruby">
+            bake("Wheat")
+            bake("Sourdough", :flour => "sour")
+            bake("Pumpernickel", :creamer => "butter")
+
+            def bake(name, options = {})
+              flour = options[:flour] || "rye"
+              creamer = options[:creamer] || "cream"
+              puts "baking a nice #{flour} loaf with #{creamer}"
+            end
   </code></pre>
         </section>
 
@@ -144,22 +284,16 @@ irb>1 + 1
           <h3>Methods & Variables</h3>
           <p><strong>Local vars</strong> are only available in the methods where they were defined.</p>
           <pre><code contenteditable class="fragment ruby">
-    # Let's extract the length of the padded string into
-    # a local variable
-    def centered_with_hyphens(passed_in_string)
-      new_length = 20
-      passed_in_string.center(new_length, "-")
-    end
+            # Let's extract the length of the padded string into
+            # a local variable
+            def message(our_string)
+              length = 80
+              puts our_string.center(length, "-")
+            end
 
-    # If we define a new method, it will not know what
-    # new_length is
-
-    def centered_with_at_signs(passed_in_string)
-      passed_in_string.center(new_length, "@")
-    end
-
-    irb> centered_with_at_signs('fred')
-
+            def different_message(some_string)
+              puts our_string.center(length, "=")
+            end
   </code></pre>
         </section>
 
@@ -188,63 +322,72 @@ irb>1 + 1
           <p class="fragment">Classes define a template for objects. They describe what a certain type of object can do and what
             properties they have in common.
           </p>
+          <p>There are many kinds of objects, including String, Number, Array, Hash, Time, ...</p>
+          <p>To create an object we use .new</p>
           <pre><code contenteditable class="fragment ruby">
-    # Engineer in Trek headquarters defines
-    # what it takes to build a bike Object
-    class Bike
-    end
-
-    # Fabricator uses template to build a new Bike
-    bike = Bike.new
-
-    # Consumer buying a bike asks which template was used
-    # to fabricate the bike
-    bike.class
-    => Bike
+    array = []
+    array = Array.new
   </code></pre>
+          <p>now array refers to an object instance</p>
         </section>
 
         <section>
           <h3>Object Methods</h3>
-          <p>Methods have access to the properties of their objects.</p>
+          <p>Methods can be defined on objects.</p>
           <pre><code contenteditable class="fragment ruby">
-    class Bike
-      def set_brand
-        # Object property is noted with an @
-        @brand = "Fuji"
-      end
+            array = Object.new
 
-      def get_brand
-        puts "The brand of the bike is: #{@brand}"
-      end
-    end
+            def array.delete
+              puts "deleted the array"
+            end
 
-    bike = Bike.new
-    bike.set_brand
-    bike.get_brand
-    => "The brand of the bike is: Fuji"
+            array.methods(false)
   </code></pre>
         </section>
 
         <section>
-          <h3>Objects Working Together</h3>
+          <h3>Instance Variables</h3>
+          <p>Represent object state</p>
+          <p>Names start with an @</p>
+          <p>Only visible inside the object</p>
+          <pre><code contenteditable class="fragment ruby">
+            cookie = Object.new
+
+            def cookie.add_chips(num_chips)
+              @chips = num_chips
+            end
+
+            def cookie.yummy?
+              @chips > 100
+            end
+
+            cookie.add_chips(500)
+            cookie.yummy?   #=> true
+  </code></pre>
+        </section>
+
+        <section>
+          <h3>Object Oriented Programming</h3>
           <ul>
             <li class="fragment">Object Oriented Programming is one of many <strong>programming approaches</strong>: procedural, event-driven, functional,
               declarative...
             </li>
+            <li class="fragment">These days, most programming is done in an OO language: Java, C#, C++.</li>
             <li class="fragment">All this means is that programs are <strong>organized around objects</strong> (data & methods).</li>
             <li class="fragment">You might choose OOP because Objects make things <strong>easier to understand</strong> and act as a natural way to modularize code.
               When a large code base is composed of many small Objects, it is <strong>easier to maintain</strong> and change.
             </li>
           </ul>
         </section>
+
         <section>
           <h3>OOP & Easy Understanding</h3>
           <p>Objects often take on names from their domain which makes them easy to conceptualize.</p>
-          <p>For example, without seeing my code, you can probably guess what my Bike can do (or not do)</p>
+          <p>For example, without seeing my code, you can probably guess what a Bike object can do (or not do)</p>
         </section>
+
         <section>
-          <h3>OOP & Maintenance</h3>
+          <h3>OOP & Encapsulation</h3>
           <p>One thing that makes code easier to maintain is Encapsulation which is one of the fundamentals of OOP.</p>
           <p><strong>Encapsulation</strong> is a nice way of saying 'put all my properties/behaviors in my capsule where other
             objects can't touch them'.
@@ -253,67 +396,39 @@ irb>1 + 1
             accident.
           </p>
         </section>
-        <section>
-          <h3>OOP & Complexity</h3>
-          <p>As code becomes more complex, we as programmers need to think about which parts of the object are relevant to
-            others.
-          </p>
-          <p><strong>Abstraction</strong> is used to say only what is needed.</p>
-          <pre><code contenteditable class="fragment ruby">
-    class Bike
-      def perform_maintenance
-        @tires_filled = YES
-        @cleaned = YES
-        @bolts_tightened = YES
-      end
 
-      # Abstract maintenance details into a relevant method
-      def maintained?
-        @tires_filled & @cleaned & @bolts_tightened
-      end
-    end
-  </code></pre>
-        </section>
         <section>
-          <h3>OOP & Borrowing</h3>
+          <h3>OOP & Inheritance</h3>
           <p>Just as you inherited traits from your mom, your objects may inherit traits from other objects.</p>
           <p><strong>Inheritance</strong> is when you use one class as the basis for another.</p>
           <p>You might use Inheritance if two objects have the same properties and methods. This way you don't need to write the
             same thing twice.
           </p>
           <pre><code contenteditable class="fragment ruby">
-    class RoadBike < Bike
+    class MyString < String
     end
 
-    road_bike = RoadBike.new
-    road_bike.perform_maintenance
+    my_string = MyString.new
+    my_string.upcase
   </code></pre>
         </section>
+
         <section>
-          <h3>OOP & Ducks</h3>
+          <h3>OOP & Polymorphism</h3>
           <ul>
           <li>Similar to inherited traits and behaviors, there are also polymorphic traits and behaviors.</li>
           <li><strong>Polymorphic</strong> means many forms.</li>
           <li>Within OOP, this relates to different objects being able to respond to the same message in different ways.</li>
             </ul>
           <pre><code contenteditable class="fragment ruby">
-    class Fixie
-      def gears
-        1
-      end
-    end
-    class RoadBike
-      def gears
-        21
-      end
-    end
-            
-    [RoadBike.new, Fixie.new].each {|bike| puts bike.gears}
+    [1, "abc"].each {|object| puts object.next}
   </code></pre>
         </section>
+
         <section>
           <h3>Questions?</h3>
         </section>
+
         <section>
           <h3>Homework</h3>
           <p><strong>Practice:</strong> Do some of the exercises at the end of <a href="http://pine.fm/LearnToProgram/?Chapter=08" alt="Chp 8 of Learn to Program">Chapter 8</a> of Learn to Program.</p>
