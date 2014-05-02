@@ -60,6 +60,55 @@
                 </section>
 
                 <section>
+                  <h3>HW: English Numbers</h3>
+                  <p>You could expand the EnglishNumbers program by adding the following code to deal with thousands:</p>
+                  <pre><code class="ruby">
+left  = number  # this line was original code, setting the 'left' variable
+
+  write = left/1000          #  How many thousands left to write out?
+  left  = left - write*1000  #  Subtract off those thousands.
+  
+  if write > 0
+    thousands  = englishNumber write
+    numString = numString + thousands + ' thousand'
+
+    if left > 0
+      numString = numString + ' '
+    end
+  end
+
+  write = left/100 # this line begins the existing code that deals with hundreds
+                  </code></pre>
+                </section>
+
+                <section>
+                  <h3>HW: Wedding Numbers</h3>
+                  <p>You could modify the code in the EnglishNumbers program to make it WeddingNumbers by replacing some of the added spaces with added 'and's and spaces: </p>
+                  <pre><code class="ruby">
+# numString = numString + ' '   # old code
+
+numString = numString + ' and '
+                   </code></pre>
+                </section>
+
+                <section>
+                  <h3>HW: 99 Bottles of Beer</h3>
+                  <p>You could modify the code for 99 Bottles of Beer shown in Class2 to include the functionality in the EnglishNumber class: </p>
+                  <pre><code class="ruby">
+require_relative 'englishnumber.rb' 
+num_bottles = 999
+
+while num_bottles > 0
+  puts "#{englishNumber(num_bottles)} bottles of beer on the wall, 
+  #{englishNumber(num_bottles)} bottles of beer, take one down, pass it 
+  around, #{englishNumber(num_bottles - 1)} bottles of beer on the wall!"
+
+  num_bottles = num_bottles - 1
+end 
+                   </code></pre>
+                </section>
+
+                <section>
                     <h3>Review</h3>
                     <ul>
                         <li>What is a method?</li>
@@ -103,15 +152,13 @@ b.methods
                     <p>You can write new methods for the built in classes of Ruby. They will then be available to all instances of that class in your program.</p>
                     <pre><code contenteditable class="fragment ruby">
 class String
-
   def get_excited
     wow = self + "!!!"
     return wow 
   end 
-
 end 
                     </code></pre>
-                    <p>A Method defined within the String class is available to all instances of String in the program. "self" refers to the object using the method.</p> 
+                    <p>"self" refers to the object calling the method.</p> 
                     <p>You can redefine existing methods for classes this way, too, but it's not recommended.</p>
                 </section>
 
@@ -239,13 +286,11 @@ me.adventure
                     <h3>Inheritance</h3>
                     <p>Denote that Elf inherits from Character by using the &lt symbol</p>
                     <pre><code class="fragment ruby">
-# in character.rb, after defining Character class
+# in character.rb, after Character class code
 class Elf < Character
-
   def twinkle
     puts "I'm super magical!"
   end 
-
 end
 
 #in irb
@@ -253,7 +298,6 @@ load 'character.rb'
 me = Character.new("Cheri")
 me.adventure
 me.twinkle 
- 
                     </code></pre>
                     <p>Notice that the initialize method was also inherited, as our new Elf knows its name and started off with 10 health.</p>
                 </section>
@@ -263,21 +307,20 @@ me.twinkle
                     <p><strong>Subclasses</strong> may differ from from their <strong>super classes</strong> in some ways. Methods can be overwritten when this is the case.</p>
 
                     <pre><code contenteditable class="fragment ruby">
-# in character.rb, after defining Character class
+# in character.rb, after Character class code
 class Elf < Character
   def twinkle
     puts "I'm super magical!"
   end
 
   def heal
-    @health += 8 #it's easier to heal when you're magic
+    @health += 8 # it's easier to heal when you're magic
   end 
 end
 
 #in irb
 load 'character.rb'
-me = Character.new("Cheri")
-me.adventure
+me = Elf.new("Cheri")
 me.heal
                     </code></pre>
                     <p>More information about inheritance can be found <a href="http://rubylearning.com/satishtalim/ruby_inheritance.html" alt="rubylearning.com">here</a>.</p>
@@ -294,7 +337,7 @@ me.heal
                     </section>
                     <section>
                     <h3>Putting it all together</h3>
-                    <p>The file containing your class definitions: </p>
+                    <p>The file containing your class definitions, here called character.rb: </p>
                     <pre><code contenteditable class="ruby">
 # in character.rb
 class Character
@@ -309,7 +352,7 @@ end
 
                      <section>
                     <h3>Putting it all together</h3>
-                    <p>The file containing your program, which requires the class file: </p>
+                    <p>The file containing your program, here called adventure.rb, which requires the class file: </p>
                     <pre><code contenteditable class="ruby">
 # in adventure.rb
 require_relative 'character.rb' 
