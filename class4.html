@@ -115,6 +115,7 @@ end
                         <li>Creating & calling a method</li>
                         <li>What is an object?</li>
                     </ul>
+                    <p>What would you like to see reviewed?</p>
                 </section>
 
                 <!-- Built in classes of Ruby: 20 minutes -->
@@ -176,7 +177,7 @@ class Die
   end 
 
   def showing 
-    @numberShowing
+    return @numberShowing
   end 
 
 end 
@@ -295,7 +296,7 @@ end
 
 #in irb
 load 'character.rb'
-me = Character.new("Cheri")
+me = Elf.new("Cheri")
 me.adventure
 me.twinkle 
                     </code></pre>
@@ -341,11 +342,11 @@ me.heal
                     <pre><code contenteditable class="ruby">
 # in character.rb
 class Character
-  # contents of class definitions here 
+  # contents of class here 
 end
 
 class Elf < Character
-  # contents of class definitions here 
+  # contents of class here 
 end
                     </code></pre>
                     </section>
@@ -388,11 +389,14 @@ ruby adventure.rb
                     </ul>
                 </section>
 
+                <section>
+                    <h3>Questions?</h3>
+                </section>
+
             <!-- Wrap up: 10 minutes -->
                 <section> 
-                <!-- TODO: Make the styling here not ugly-->
-                    <h3>Further Resources</h3>
-                    <table style="font-size: 26px; line-height: 1.4em;">
+                  <h3>Further Resources</h3>
+                    <table style="font-size: 24px; line-height: 1.5em;">
                         <tr>
                             <td><a href="http://www.ruby-doc.org/">Ruby-doc.org</a></td>
                             <td>Official Ruby Documentation</td>
@@ -422,11 +426,6 @@ ruby adventure.rb
                             <td>Local workshops, events, and coding sessions with awesome people</td>
                         </tr>
                     </table>
-                </section>
-
-
-                <section>
-                    <h3>Questions?</h3>
                 </section>
 
                 <section>
