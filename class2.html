@@ -128,17 +128,18 @@
                 <section>
                 <h3>Boolean Expressions practice</h3>
                 <pre><code  class="ruby">
+# try some of these out in IRB
 a = 3
 b = 4
-puts a != b
-puts a <= 3
-puts a >= 4
+a != b
+a <= 3
+a >= 4
 a = 5
 b = 5
-puts a == b 
+a == b 
 c = a == b # Combine comparison and assignment
 puts c
-puts 3 &lt; 5
+3 &lt; 5
                 </code></pre>
                 <p>Remember: Equals does not equal "equals equals"</p>
                 <p> <a href="http://ruby.learncodethehardway.org/book/ex27.html">Further reading </a> on boolean expressions...</p>
@@ -220,7 +221,7 @@ end
                 <h3>Conditionals</h3>
                 <p>When we want different code to execute depending on certain criteria, we use a <strong>conditional</strong></p>
                 <p>We achieve this using <strong>if</strong> statements and boolean expressions.</p>
-                <pre><code  class="fragment ruby">
+                <pre><code  class="ruby">
 if x == 5
 puts 'x is equal to 5'
 end
@@ -229,7 +230,7 @@ end
                 <section>
                 <h3>Conditionals</h3>
                 <p>We often want a different block to execute if the statement is false. This can be accomplished using <strong>else</strong>.</p>
-                <pre><code  class="fragment ruby">
+                <pre><code  class="ruby">
 if x == 5
   puts 'x is equal to 5'
 else
@@ -265,7 +266,7 @@ end
                 <p>Chained conditionals use <strong>elsif</strong> to test if additional statements are true. The single 'else' action will only happen if all preceding conditions are false.</p>
 
                 <p>For example:</p>
-                <pre><code  class="fragment ruby">
+                <pre><code  class="ruby">
 if x > 10
   puts "x is greater than 10"
 elsif x <= 10 && x > 0
@@ -350,7 +351,7 @@ end
             <section>
                 <h3>While loops</h3>
                 <p>Consider the following example that uses a while loop to sing you a song.</p>
-                <pre><code  class="fragment ruby">
+                <pre><code  class="ruby">
 num_bottles = 99
 
 while num_bottles > 0
@@ -396,8 +397,8 @@ end
                 <h3>Each loops</h3>
                 <p>The most commonly used type of loop in Ruby is an each loop. It uses the <strong>.each</strong> method to iterate over a collection of elements, doing work to each one.</p>
 
-                <p>First, we need a collection. We use a <strong>range</strong> of numbers to loop over.</p>
-                <pre><code  class="fragment ruby">
+                <p>First, we need a collection. Let's use a <strong>range</strong> of numbers to loop over.</p>
+                <pre><code  class="ruby">
 (0..5).each do |i|
   puts "Value of i is #{i}"
 end
@@ -431,7 +432,7 @@ end
                   <li>Arrays</li>
                   <li>Hashes</li>
                 </ul>
-                <pre><code  class="fragment ruby">
+                <pre><code  class="ruby">
 new_range = (1..10)
 
 new_array = [1, 3, 5]
@@ -477,7 +478,7 @@ end
             <section>
                 <h3>Arrays</h3>
                 <p>Arrays have square brackets and can be filled with any type of object: integers, floats, strings, even other arrays or hashes.</p>
-                <pre><code  class="fragment ruby">
+                <pre><code  class="ruby">
 new_array = [1, 3, 5, 89, 212, 7, -100]
 arr = ["wow", "woooo", "zowie"]
 array = Array.new #will have no elements inside it initially
@@ -496,7 +497,7 @@ arr.include?("yee ha")
                 <p>Arrays are <strong>ordered</strong> and are <strong>integer-indexed</strong>, starting at 0. </p>
                 <p>Elements can be accessed by their position.</p>
 
-                <pre><code  class="fragment ruby">
+                <pre><code  class="ruby">
 new_array = [1, 3, 5, 89, 212, 7, -100]
 arr = ["wow", "woooo", "zowie"]
 
@@ -529,7 +530,7 @@ arr.pop                 # removes and returns the last element
             <section>
                 <h3>More Array Methods</h3>
                 <p>Arrays are used a lot in Ruby. There are a lot of cool methods available for them. </p>
-                <pre><code  class="fragment ruby">
+                <pre><code  class="ruby">
 arr = ["dog", "cat", "turtle", "parakeet", "ferret"]
 
 arr.index("dog")  # returns the index of the element that matches argument
@@ -548,7 +549,7 @@ arr.empty?        # returns a boolean
             <section>
             <h3>Hashes</h3>
             <p>Hashes have curly braces and hash rockets and can be filled with any data type: integers, floats, strings, even arrays and hashes. </p>
-            <pre><code  class="fragment ruby">
+            <pre><code  class="ruby">
 grades_hash = { "Jane Doe" => 10, "Jim Doe" => 6, "Jan Doe" => 8}
 new_hash = { 1 => "a", "d" => 12, "f" => 35 }
 
@@ -568,7 +569,7 @@ new_hash.has_value?(35)
             <h3>Accessing Elements in Hashes</h3>
             <p>Hashes are <strong>unordered.</strong> Hashes are like dictionaries, with unique <strong>key / value</strong> pairs.</p>
             <p>Because hashes can have any type of object as an idex, and are unordered, we must access values by their <strong>key</strong>.</p>
-            <pre><code  class="fragment ruby">
+            <pre><code  class="ruby">
 grades_hash = { "Jane Doe" => 10, "Jim Doe" => 6, "Jan Doe" => 8}
 new_hash = { 1 => "a", "d" => 12, "f" => 35 }
 
@@ -666,6 +667,8 @@ end
             <p>Hint: the modulo operator, %, will be helpful.</p>
             </section>
 
+<!-- we found that there wasn't enough time in this class for this content, but it may be useful as homework or additional material for advanced students.
+
             <section>
                 <h3>Enumerable</h3>
                 <p>Visit <a href="https://gist.github.com/cherimarie/11004115" alt="Gist with pets array">this page</a> and copy the contents of the Gist to a local file. Save it as pets.rb. We'll work with it together in IRB.</p>
@@ -715,27 +718,8 @@ $pets.reject{|p| p[:nocturnal]== false}.count
 
                 </code></pre>
 
-            </section>
-            
-<!-- 
-            <section>
-                <h3>Nil</h3>
-                <p class="fragment">Nil is an <strong>object</strong>! Try the following in IRB:</p>
-                <pre><code  class="fragment ruby">
-nil.class
-nil.to_a
-nil.to_i
-nil.to_s
-nil.size
-                </code></pre>
-                <p class="fragment">There are some methods associated with nil, like .to_a, to help prevent errors in your code. If you try to call .to_a on something without first setting the value of it, you'll get an empty array instead of an error.</p>
-
-                
-                <p>Learn more about the nil class <a href="http://www.ruby-doc.org/core-2.1.0/NilClass.html" alt="ruby documentation - nil class">here</a>.</p>
             </section> -->
-
-
-
+ 
             <section>
                 <h3>Questions?</h3>
             </section>

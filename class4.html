@@ -63,21 +63,21 @@
                   <h3>HW: English Numbers</h3>
                   <p>You could expand the EnglishNumbers program by adding the following code to deal with thousands:</p>
                   <pre><code class="ruby">
-left  = number  # this line was original code, setting the 'left' variable
+left  = number  #original code, set 'left' variable
 
-  write = left/1000          #  How many thousands left to write out?
-  left  = left - write*1000  #  Subtract off those thousands.
-  
-  if write > 0
-    thousands  = englishNumber write
-    numString = numString + thousands + ' thousand'
+write = left/1000          #  How many thousands left to write out?
+left  = left - write*1000  #  Subtract off those thousands.
 
-    if left > 0
-      numString = numString + ' '
-    end
+if write > 0
+  thousands  = englishNumber write
+  numString = numString + thousands + ' thousand'
+
+  if left > 0
+    numString = numString + ' '
   end
+end
 
-  write = left/100 # this line begins the existing code that deals with hundreds
+write = left/100 # this line begins the existing code that deals with hundreds
                   </code></pre>
                 </section>
 
@@ -130,7 +130,7 @@ end
                       <li>Hash</li>
                     </ul>
                     <p>They are commonly used object types, and have methods associated with them already. How convenient!</p> 
-                    <pre><code contenteditable class="fragment ruby">
+                    <pre><code contenteditable class="ruby">
 a = Array.new
 b = String.new 
 
@@ -141,7 +141,7 @@ b = String.new
                     <h3>Built in classes of Ruby</h3>
                     <p>When we create new objects from these classes, we can do things with them immediately.</p>
                     <p>To see all methods associated with an object or class, run ".methods" on it.</p>
-                    <pre><code contenteditable class="fragment ruby">
+                    <pre><code contenteditable class="ruby">
 b = "holy cow!"
 b.methods
                     </code></pre>
@@ -151,11 +151,10 @@ b.methods
                 <section>
                     <h3>Extending a Class</h3>
                     <p>You can write new methods for the built in classes of Ruby. They will then be available to all instances of that class in your program.</p>
-                    <pre><code contenteditable class="fragment ruby">
+                    <pre><code contenteditable class="ruby">
 class String
   def get_excited
-    wow = self + "!!!"
-    return wow 
+    return self + "!!!" 
   end 
 end 
                     </code></pre>
@@ -167,7 +166,7 @@ end
                 <section>
                     <h3>Creating a Class</h3>
                     <p>It's very easy to create your own classes in Ruby.</p>
-                    <pre><code contenteditable class="fragment ruby">
+                    <pre><code contenteditable class="ruby">
 # die.rb                    
 class Die
   
@@ -201,7 +200,7 @@ puts die.showing
                     <h3>Refactoring a Class</h3>
                     <p>What is the result of calling the .showing method on a newly-created, un-rolled Die object?</p>
                     <p>We can avoid this by calling the roll method as part of the creation of a new instance of Die.</p>
-                    <pre><code class="fragment ruby">
+                    <pre><code class="ruby">
 # die.rb
 class Die
   
@@ -226,7 +225,7 @@ end
                 <section>
                     <h3>Let's Develop It</h3>
                     <ul>
-                        <li>In your text editor, create your own class with an initialize method, and at least one other method.</li>
+                        <li>In your text editor, create a "Character" class with an initialize method that sets the Character's name, and at least one other method.</li>
                         <li>Open IRB and load the class. Create one or more objects from the class and run some methods on them.</li>
                         <li>You could use the next slides as an example.</li>
                     </ul>
@@ -286,7 +285,7 @@ me.adventure
                     <section>
                     <h3>Inheritance</h3>
                     <p>Denote that Elf inherits from Character by using the &lt symbol</p>
-                    <pre><code class="fragment ruby">
+                    <pre><code class="ruby">
 # in character.rb, after Character class code
 class Elf < Character
   def twinkle
@@ -307,7 +306,7 @@ me.twinkle
                     <h3>Inheritance</h3>
                     <p><strong>Subclasses</strong> may differ from from their <strong>super classes</strong> in some ways. Methods can be overwritten when this is the case.</p>
 
-                    <pre><code contenteditable class="fragment ruby">
+                    <pre><code contenteditable class="ruby">
 # in character.rb, after Character class code
 class Elf < Character
   def twinkle
@@ -340,7 +339,8 @@ me.heal
                     <h3>Putting it all together</h3>
                     <p>The file containing your class definitions, here called character.rb: </p>
                     <pre><code contenteditable class="ruby">
-# in character.rb
+# character.rb
+
 class Character
   # contents of class here 
 end
@@ -353,9 +353,10 @@ end
 
                      <section>
                     <h3>Putting it all together</h3>
-                    <p>The file containing your program, here called adventure.rb, which requires the class file: </p>
+                    <p>The file containing your program, here called adventure.rb, which will run from the command line and requires the class file: </p>
                     <pre><code contenteditable class="ruby">
-# in adventure.rb
+# adventure.rb
+
 require_relative 'character.rb' 
   #file path relative to the location of adventure.rb file
 require_relative 'die.rb'

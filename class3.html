@@ -47,50 +47,50 @@
         </section>
 
         <section>
-          <h3>grandma.rb</h3>
+          <h3>HW: grandma.rb</h3>
           <pre><code contenteditable class="ruby">
-            chatting = true
-            byes = 0
-            while chatting
-              puts "Ask Grandma a question:"
-              said = gets.chomp!
-              if said == "BYE"
-                byes += 1
-                if byes > 2
-                  chatting = false
-                else
-                  puts "** Grandma is ignoring you **"
-                end
-              elsif said == said.upcase
-                year = 1930 + Random.rand(20)
-                puts "NO, NOT SINCE #{year}!"
-              else
-                puts "HUH?!  SPEAK UP, SONNY!"
-              end
-            end
-            puts "Thanks for chatting with Grandma"
+chatting = true
+byes = 0
+while chatting
+  puts "Ask Grandma a question:"
+  said = gets.chomp!
+  if said == "BYE"
+    byes += 1
+    if byes > 2
+      chatting = false
+    else
+      puts "** Grandma is ignoring you **"
+    end
+  elsif said == said.upcase
+    year = 1930 + Random.rand(20)
+    puts "NO, NOT SINCE #{year}!"
+  else
+    puts "HUH?!  SPEAK UP, SONNY!"
+  end
+end
+puts "Thanks for chatting with Grandma"
   </code></pre>
         </section>
 
         <section>
-          <h3>leap.rb</h3>
+          <h3>HW: leap.rb</h3>
           <pre><code contenteditable class="ruby">
-            puts "Enter a starting year in the format YYYY"
-            starting = gets.chomp!.to_i
-            puts "Enter an ending year in the format YYYY"
-            ending = gets.chomp!.to_i
-            puts "LEAP YEARS between #{starting} and #{ending}"
+puts "Enter a starting year in the format YYYY"
+starting = gets.chomp!.to_i
+puts "Enter an ending year in the format YYYY"
+ending = gets.chomp!.to_i
+puts "LEAP YEARS between #{starting} and #{ending}"
 
-            starting.upto(ending) do |year|
-              divisible_by_4 = (year % 4) == 0
-              not_divisible_by_100 = (year % 100) != 0
-              divisible_by_400 = (year % 400) == 0
-              is_leap_year = (divisible_by_4 && not_divisible_by_100)
-                               || divisible_by_400
-              if is_leap_year
-                puts "#{year}"
-              end
-            end
+starting.upto(ending) do |year|
+  divisible_by_4 = (year % 4) == 0
+  not_divisible_by_100 = (year % 100) != 0
+  divisible_by_400 = (year % 400) == 0
+  is_leap_year = (divisible_by_4 && not_divisible_by_100)
+                   || divisible_by_400
+  if is_leap_year
+    puts "#{year}"
+  end
+end
           </code></pre>
         </section>
 
@@ -99,7 +99,7 @@
           <ul>
             <li class="fragment">Conditions - if, elsif, else</li>
             <li class="fragment">Loops - while, for</li>
-            <li class="fragment">Arrays - [1,2,3] or %w(one two three)</li>
+            <li class="fragment">Arrays - [1,2,3]</li>
             <li class="fragment">Hashes - {"one" => 1, "two" => 2}</li>
           </ul>
         </section>
@@ -119,30 +119,31 @@
           <p class="fragment">Methods are often used to define reusable behavior.</p>
           <p class="fragment">Let's look at a method we've already used:</p>
           <pre><code contenteditable class="fragment ruby">
-            1.even?
-            => false
+1.even?
+=> false
 
-            "fred".capitalize
-            => "Fred"
+"fred".capitalize
+=> "Fred"
           </code></pre>
           <p>If you have some code you want to reuse or organize, methods will help.</p>
         </section>
+
         <section>
           <h3>Let's Develop It!</h3>
           <p>Find the methods available on <a href="http://www.ruby-doc.org/core-2.1.0/String.html">String</a> and <a href="http://www.ruby-doc.org/core-2.1.0/Integer.html">Integer</a></p>
           <p>Do they have any similar methods?</p>
-          <pre><code contenteditable class="fragment ruby">
-    "abc".next
-    => "abd"
+          <pre><code contenteditable class="ruby">
+"abc".next
+=> "abd"
 
-    "abz".next
-    => "aca"
+"abz".next
+=> "aca"
 
-    1.next
-    => 2
+1.next
+=> 2
 
-    -1.next
-    => 0
+-1.next
+=> 0
   </code></pre>
         </section>
 
@@ -154,8 +155,8 @@
           <p><strong>x, y</strong> are parameters</p>
           <p><strong>x - y</strong> is the body of the method</p>
           <p><strong>x - y</strong> is also the return value</p>
-          <pre><code contenteditable class="fragment ruby">
-def subtract x, y
+          <pre><code contenteditable class="ruby">
+def subtract(x, y)
   x - y
 end
         </code></pre>
@@ -165,7 +166,7 @@ end
           <h3>Let's Develop It!</h3>
           <p>Let's write a method that takes in a number and tells us if it is even.</p>
           <p>Hint: if number % 2 == 0, then it is even</p>
-          <pre><code contenteditable class="fragment ruby">
+          <pre><code contenteditable class="ruby">
           def method_name(parameter)
             # method implementation
           end
@@ -178,22 +179,22 @@ end
           <p>Every Ruby method returns something.</p>
           <p>Usually, it's the last statement in the method.</p>
           <p>It could be the value sent to <strong>return</strong> if that came first.</p>
-          <pre><code contenteditable class="fragment ruby">
-            def subtract(x,y)
-              x - y
-              'another thing'
-            end
+          <pre><code contenteditable class="ruby">
+def subtract(x,y)
+  x - y
+  'another thing'
+end
 
-            return_value = subtract(5, 2)
-            puts return_value
+return_value = subtract(5, 2)
+puts return_value
 
-            def subtract(x,y)
-              return x - y
-              'another thing'
-            end
+def subtract(x,y)
+  return x - y
+  'another thing'
+end
 
-            return_value = subtract(5, 2)
-            puts return_value
+return_value = subtract(5, 2)
+puts return_value
   </code></pre>
         </section>
 
@@ -202,7 +203,7 @@ end
           <p>Technically speaking, arguments are passed and parameters are declared.</p>
           <p>Note that the variable names don't have to match!</p>
           <p>In this code, 5 is an argument and x is a parameter</p>
-          <pre><code contenteditable class="fragment ruby">
+          <pre><code contenteditable class="ruby">
             def subtract(x,y)
               x - y
             end
@@ -213,87 +214,79 @@ end
 
         <section>
           <h3>Splat Arguments</h3>
-          <pre><code contenteditable class="fragment ruby">
-            def greet(greeting, *names)
-              names.each do |name|
-                puts "#{greeting}, #{name}!"
-              end
-            end
+          <pre><code contenteditable class="ruby">
+def greet(greeting, *names)
+  names.each do |name|
+    puts "#{greeting}, #{name}!"
+  end
+end
 
-            >> greet("Hello", "Alice", "Bob", "Charlie")
-            Hello, Alice!
-            Hello, Bob!
-            Hello, Charlie!
+>> greet("Hello", "Alice", "Bob", "Charlie")
+Hello, Alice!
+Hello, Bob!
+Hello, Charlie!
   </code></pre>
         </section>
 
         <section>
           <h3>Default Values</h3>
-          <pre><code contenteditable class="fragment ruby">
-            def eat(food = "chicken")
-              puts "Yum, #{food}!"
-            end
+          <pre><code contenteditable class="ruby">
+def eat(food = "chicken")
+  puts "Yum, #{food}!"
+end
 
-            >> eat
-            Yum, chicken!
+>> eat
+Yum, chicken!
 
-            >> eat "arugula"
-            Yum, arugula!
+>> eat "arugula"
+Yum, arugula!
   </code></pre>
         </section>
 
         <section>
           <h3>Default Hash Parameter</h3>
-          <pre><code contenteditable class="fragment ruby">
-            def add_to_x_and_y(amount, vals)
-              x = vals[:x]
-              y = vals[:y]
-              x + y + amount
-            end
+          <pre><code contenteditable class="ruby">
+def add_to_x_and_y(amount, vals)
+  x = vals[:x]
+  y = vals[:y]
+  x + y + amount
+end
 
-            add_to_x_and_y(2, {:x => 1, :y => 2})
-
-            # same as...
-            add_to_x_and_y 2, :x => 1, :y => 2
-
-            # same as...
-            add_to_x_and_y 2, x: 1, y: 2
-
-            # same as...
-            add_to_x_and_y 2, y: 2, x: 1
+add_to_x_and_y(2, {:x => 1, :y => 2})
   </code></pre>
         </section>
 
         <section>
           <h3>Named Parameters</h3>
           <p>To pass variable parameters, or to pass named parameters, you can use an options hash</p>
-          <pre><code contenteditable class="fragment ruby">
-            bake("Wheat")
-            bake("Sourdough", :flour => "sour")
-            bake("Pumpernickel", :creamer => "butter")
+          <pre><code contenteditable class="ruby">
+def bake(name, options = {})
+  flour = options[:flour] || "rye"
+  creamer = options[:creamer] || "cream"
+  puts "baking a nice #{flour} loaf with #{creamer}"
+end
 
-            def bake(name, options = {})
-              flour = options[:flour] || "rye"
-              creamer = options[:creamer] || "cream"
-              puts "baking a nice #{flour} loaf with #{creamer}"
-            end
+bake("Wheat")
+bake("Sourdough", :flour => "sour")
+bake("Pumpernickel", :creamer => "butter")
   </code></pre>
         </section>
 
         <section>
           <h3>Methods & Variables</h3>
           <p><strong>Local vars</strong> are only available in the methods where they were defined.</p>
-          <pre><code contenteditable class="fragment ruby">
-            # Let's extract the length of the padded string into
-            # a local variable
-            def message(our_string)
-              length = 80
-              puts our_string.center(length, "-")
-            end
+          <pre><code contenteditable class="ruby">
+# Let's extract the length of the padded string into
+# a local variable
+def message(our_string)
+  length = 80
+  puts our_string.center(length, "-")
+end
 
-            def different_message(some_string)
-              puts our_string.center(length, "=")
-            end
+def different_message(some_string)
+  puts our_string.center(length, "=")
+end
+# Error! 'our_string' and 'length' are not defined inside this method 
   </code></pre>
         </section>
 
@@ -301,19 +294,19 @@ end
           <h3>Objects</h3>
           <p>An <strong>Object</strong> is the building block of a program.</p>
           <p class="fragment">Objects <strong>do things</strong> and have <strong>properties</strong>.</p>
-          <pre><code contenteditable class="fragment ruby">
-    Object: Number
-    What can it do?
-    - Add
-    - Subtract
-    - Divide
-    - Multiply
+          <h5>Object: Number</h5>
+          <p>What can it do?</p>
+          <ul>
+          <li> Add</li>
+          <li> Subtract</li>
+          <li> Divide</li>
+          <li> Multiply</li>
 
-    What are some properties of your Number?
-    - Length
-    - Base
-    - Even
-  </code></pre>
+          <p>What are some properties of your Number?</p>
+          <li> Length</li>
+          <li> Base</li>
+          <li> Even</li>
+
         </section>
 
         <section>
@@ -325,24 +318,23 @@ end
           <p>There are many kinds of objects, including String, Number, Array, Hash, Time, ...</p>
           <p>To create an object we use .new</p>
           <pre><code contenteditable class="fragment ruby">
-    array = []
-    array = Array.new
-  </code></pre>
-          <p>now array refers to an object instance</p>
+array = Array.new
+          </code></pre>
+          <p>'array' now refers to an object instance</p>
         </section>
 
         <section>
           <h3>Object Methods</h3>
           <p>Methods can be defined on objects.</p>
           <pre><code contenteditable class="fragment ruby">
-            array = Object.new
+array = Object.new
 
-            def array.delete
-              puts "deleted the array"
-            end
+def array.delete
+  puts "deleted the array"
+end
 
-            array.methods(false)
-  </code></pre>
+array.methods(false)
+        </code></pre>
         </section>
 
         <section>
@@ -351,19 +343,19 @@ end
           <p>Names start with an @</p>
           <p>Only visible inside the object</p>
           <pre><code contenteditable class="fragment ruby">
-            cookie = Object.new
+cookie = Object.new
 
-            def cookie.add_chips(num_chips)
-              @chips = num_chips
-            end
+def cookie.add_chips(num_chips)
+  @chips = num_chips
+end
 
-            def cookie.yummy?
-              @chips > 100
-            end
+def cookie.yummy?
+  @chips > 100
+end
 
-            cookie.add_chips(500)
-            cookie.yummy?   #=> true
-  </code></pre>
+cookie.add_chips(500)
+cookie.yummy?   #=> true
+        </code></pre>
         </section>
 
         <section>
@@ -383,7 +375,7 @@ end
         <section>
           <h3>OOP & Easy Understanding</h3>
           <p>Objects often take on names from their domain which makes them easy to conceptualize.</p>
-          <p>For example, without seeing my code, you can probably guess what a Bike object can do (or not do)</p>
+          <p>For example, without seeing my code, you can probably guess what an object called 'Bike' can do (or not do)</p>
         </section>
 
         <section>
