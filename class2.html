@@ -1,0 +1,793 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Intro to Ruby ~ Girl Develop It</title>
+    <meta name="description" content="This is the official Girl Develop It Core Intro to Ruby course. The course is meant to be taught in five two-hour sessions. Each of the slides and practice files are customizable according to the needs of a given class or audience.">
+    <meta name="author" content="Girl Develop It">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/simple.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <!-- light editor<link rel="stylesheet" href="lib/css/light.css">-->
+    <!-- dark editor--><link rel="stylesheet" href="lib/css/dark.css">
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+
+    <!-- If use the PDF print sheet so students can print slides-->
+
+    <link rel="stylesheet" href="css/print/pdf.css" type="text/css" media="print">
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+<!-- Opening slide -->
+        <section>
+          <img src = "img/gdi_logo_badge.png">
+          <h3>Intro to Ruby</h3>
+          <h4>Class 2</h4>
+        </section>
+
+        <section>
+          <h3>Welcome!</h3>
+          <div class = "left-align">
+          <p>Girl Develop It is here to provide affordable and accessible programs to learn software through mentorship and hands-on instruction.</p>
+          <p class ="green">Some "rules"</p>
+          <ul>
+            <li>We are here for you!</li>
+            <li>Every question is important</li>
+            <li>Help each other</li>
+            <li>Have fun</li>
+          </ul>
+          </div>
+        </section>
+
+        <!-- Homework Review - 10 min -->
+        <section>
+          <h3>Homework Discussion</h3>
+          <p>How was last week's homework? Do you have any questions or concepts that you'd like to discuss?</p>
+        </section>
+
+        <!-- Block 1 30 minutes -->
+        <section>
+          <h3>Review</h3>
+          <ul>
+              <li>Arithmetic and variables</li>
+              <li>Data types</li>
+              <li>Text editor, command line, and ruby shell</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>What we will cover today</h3>
+          <ul>
+              <li class ="fragment">Boolean Expressions and Conditionals</li>
+              <li class ="fragment">Loops</li>
+              <li class ="fragment">Collections</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Booleans</h3>
+          <p>A <strong>boolean</strong> is a basic data type. It can have only two values: true or false.</p>
+        </section>
+
+        <section>
+          <h3>Boolean Expressions</h3>
+          <p>Code that compares values and returns True or False is called a <strong>Boolean expression</strong></p>
+          <ul>
+              <li>Test for equality by using `==`. We can't use `=` because that is used for assignment</li>
+              <li>Test for greater than and less than using `&gt;` and `&lt;`</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Boolean Expressions cheat sheet</h3>
+          <table>
+              <tr>
+                  <td>a == b</td>
+                  <td>a is equal to b</td>
+              </tr>
+              <tr>
+                  <td>a != b</td>
+                  <td>a does not equal b</td>
+              </tr>
+              <tr>
+                  <td>a &lt; b</td>
+                  <td>a is less than b</td>
+              </tr>
+              <tr>
+                  <td>a &gt; b</td>
+                  <td>a is greater than b</td>
+              </tr>
+              <tr>
+                  <td>a &lt;= b</td>
+                  <td>a is less than or equal to b</td>
+              </tr>
+              <tr>
+                  <td>a &gt;= b</td>
+                  <td>a is greater than or equal to b</td>
+              </tr>
+            </table>
+            <p>Learn more about logical operators in Ruby <a href="http://www.tutorialspoint.com/ruby/ruby_operators.htm" alt="Operators tutorial">here</a>.</p>
+          </section>
+
+          <section>
+            <h3>Boolean Expressions practice</h3>
+            <pre><code  class="ruby">
+a = 3
+b = 4
+puts a != b
+puts a <= 3
+puts a >= 4
+a = 5
+b = 5
+puts a == b
+c = a == b # Combine comparison and assignment
+puts c
+puts 3 &lt; 5
+            </code></pre>
+            <p>Remember: Equals does not equal "equals equals"</p>
+            <p> <a href="http://ruby.learncodethehardway.org/book/ex27.html">Further reading </a> on boolean expressions...</p>
+        </section>
+
+        <section>
+          <h3>Boolean Expressions</h3>
+          <p>A boolean expression evaluates to true or false. It can also have multiple parts, joined by AND (&&) or OR (||).</p>
+          <table>
+            <tr>
+              <th>EXPRESSION</th>
+              <th>EVALUATES TO</th>
+            </tr>
+            <tr>
+              <td>true && true</td>
+              <td>true</td>
+            </tr>
+            <tr>
+              <td>true && false</td>
+              <td>false</td>
+            </tr>
+            <tr>
+              <td>false && false</td>
+              <td>false</td>
+            </tr>
+            <tr>
+              <td>true || true</td>
+              <td>true</td>
+            </tr>
+            <tr>
+              <td>true || false</td>
+              <td>true</td>
+            </tr>
+            <tr>
+              <td>false || false</td>
+              <td>false</td>
+            </tr>
+            <tr>
+              <td>not (true && false)</td>
+              <td>true</td>
+            </tr>
+          </table>
+          <p> <a href="http://ruby.learncodethehardway.org/book/ex28.html">Further practice </a> on boolean expressions...</p>
+        </section>
+
+        <section>
+          <h3>Let's Develop It</h3>
+          <p>Take a few minutes and experiment with boolean expressions in IRB. You can start with the examples below.</p>
+          <pre><code class="ruby">
+true && false
+1 == 1 && 2 > 37
+"boop" == "bip" || 7 == 8
+false || true
+89 > 88 || 89 < 90
+true || not(1 == 1 || 2 == 65)
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Putting Booleans to Work</h3>
+          <p>So, what's the value of knowing if a statement is true or false? Often, you'll use that to control whether a piece of code will execute or not.</p>
+
+          <pre><code  class="ruby">
+user_guess = gets.chomp.to_i
+secret_number = 312
+
+if user_guess < secret_number
+puts "Too low!"
+elsif user_guess > secret_number
+puts "Too high!"
+else
+puts "You guessed it. Wow maybe you're psychic...."
+end
+          </code></pre>
+          <p>Can you tell what this code does?</p>
+        </section>
+
+        <section>
+          <h3>Conditionals</h3>
+          <p>When we want different code to execute depending on certain criteria, we use a <strong>conditional</strong></p>
+          <p>We achieve this using <strong>if</strong> statements and boolean expressions.</p>
+          <pre><code  class="fragment ruby">
+if x == 5
+puts 'x is equal to 5'
+end
+          </code></pre>
+          </section>
+          <section>
+          <h3>Conditionals</h3>
+          <p>We often want a different block to execute if the statement is false. This can be accomplished using <strong>else</strong>.</p>
+          <pre><code  class="fragment ruby">
+if x == 5
+puts 'x is equal to 5'
+else
+puts 'x is not equal to 5'
+end
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Conditionals</h3>
+          <p>The following shows some examples of conditionals with more complex boolean expressions:</p>
+          <pre><code  class="ruby">
+# And
+if x > 3 && y > 3
+puts 'Both values are greater than 3'
+end
+
+# Or
+if x != 0 || y != 0
+puts 'The point x,y is not on the x or y axis'
+end
+
+# Not
+if not(x > y)
+puts 'x is less than y'
+end
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Chained conditionals</h3>
+          <p>Conditionals can also be <strong>chained</strong>.</p>
+          <p>Chained conditionals use <strong>elsif</strong> to test if additional statements are true. The single 'else' action will only happen if all preceding conditions are false.</p>
+
+          <p>For example:</p>
+          <pre><code  class="fragment ruby">
+if x > 10
+puts "x is greater than 10"
+elsif x <= 10 && x > 0
+puts "x is a number between 1 and 10"
+else
+puts "Wow, don't be so negative, dude"
+end
+          </code></pre>
+        </section>
+
+
+<!-- Let's develop it: 10 minutes  -->
+        <section>
+          <h3>Let's Develop It</h3>
+          <p>Write a program in your text editor that uses conditionals and user input to allow the user to play an adventure game.</p>
+          <p>"gets.chomp" is the value of user input at the command line, with the trailing whitespace chomped off. To do math with it, convert it to an integer with the ".to_i" method</p>
+          <pre><code>
+            input = gets.chomp.to_i
+          </code></pre>
+          <p>Run your program by calling it with Ruby from the command line.</p>
+          <pre><code>
+            $ ruby program_name.rb
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Let's Develop It Example</h3>
+          <pre><code class="ruby">
+# adventure.rb
+puts "A vicious dragon is chasing you!"
+puts "Options:"
+puts "1 - Hide in a cave"
+puts "2 - Climb a tree"
+
+input = gets.chomp
+
+if input == '1'
+puts "You hide in a cave. The dragon finds you and asks if you'd like to play Scrabble. Maybe it's not so vicious after all!"
+elsif input == '2'
+puts "You climb a tree. The dragon can't find you."
+else
+puts "That's not a valid option."
+end
+          </code></pre>
+          <pre><code class="ruby">
+
+#command line
+ruby dragon.rb
+          </code></pre>
+        </section>
+
+        <!-- Block 2 25 minutes -->
+        <section>
+          <h3>Loops</h3>
+          <p>It is often useful to perform a task and to repeat the process until a certain point is reached.</p>
+          <p>The repeated execution of a set of statements is called <strong>iteration</strong>, or, more commonly, a loop.</p>
+          <p>One way to achieve this, is with the <strong>while</strong> loop.</p>
+          <pre><code  class="ruby">
+x = 10
+
+while x > 0
+puts "Loop number #{x}"
+x = x - 1
+end
+
+puts 'Done'
+            </code></pre>
+        </section>
+        <section>
+          <h3>While Loops</h3>
+          <pre><code  class="ruby">
+x = 10
+
+while x > 0
+puts "Loop number #{x}"
+x = x - 1
+end
+          </code></pre>
+          <p>The while statement takes a condition, and as long as it evaluates to true, the code block beneath it is repeated. This creates a <strong>loop</strong>.</p>
+          <p> Without the `x = x - 1` statement, to increment the value of x, this would be an <strong>infinite loop</strong> :( :( :(</p>
+        </section>
+
+        <section>
+          <h3>While loops</h3>
+          <p>Consider the following example that uses a while loop to sing you a song.</p>
+          <pre><code  class="fragment ruby">
+num_bottles = 99
+
+while num_bottles > 0
+puts "#{num_bottles} bottles of beer on the wall,
+#{num_bottles} bottles of beer, take one down, pass it
+around, #{num_bottles - 1} bottles of beer on the wall!"
+
+num_bottles = num_bottles - 1
+end
+          </code></pre>
+          <p>"#{num_bottles}" is an example of <strong>string interpolation</strong></p>
+        </section>
+
+        <!-- Let's Develop It - 10 minutes -->
+        <section>
+          <h3>Let's Develop It</h3>
+          <ul>
+            <li>Write a program that obtains user input like the last program</li>
+            <li>This program should not exit until the user says it should (maybe by entering "quit"?)</li>
+            <li>Use a loop!</li>
+            <li>You can use the next slide as an example.</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Let's Develop It: Example</h3>
+          <pre><code>
+# loopy.rb
+loopy = true
+
+while loopy == true
+puts "Are we having fun yet?"
+puts "Answer 'true' or 'false'."
+user_input = gets.chomp
+if user_input == 'false'
+loopy = false
+end
+end
+          </code></pre>
+          <p>Learn more about loops in Ruby <a href="http://www.tutorialspoint.com/ruby/ruby_loops.htm" alt="Loops tutorial">here</a>.</p>
+        </section>
+
+          <section>
+            <h3>Each loops</h3>
+            <p>The most commonly used type of loop in Ruby is an each loop. It uses the <strong>.each</strong> method to iterate over a collection of elements, doing work to each one.</p>
+
+            <p>First, we need a collection. We use a <strong>range</strong> of numbers to loop over.</p>
+            <pre><code  class="fragment ruby">
+(0..5).each do |i|
+puts "Value of i is #{i}"
+end
+            </code></pre>
+
+          </section>
+
+          <section>
+            <h3>Each loops</h3>
+            <pre><code  class="ruby">
+(0..5).each do |i|
+puts "Value of i is #{i}"
+end
+            </code></pre>
+            <p>The loop has three parts:</p>
+            <ul>
+              <li>The collection that will be looped through, in this case a range- "(0..5)"</li>
+              <li>The name to give each element when the loop begins again - "i" - in the pipes "| |" </li>
+              <li>The code to execute with the element - the puts statement</li>
+            </ul>
+            <p>We will revisit the each loop when we have a better understanding of collections.</p>
+          </section>
+
+
+        <!-- Block 3 30 minutes -->
+        <section>
+          <h3>Collections</h3>
+          <p>There are three main types:</p>
+          <ul>
+            <li>Ranges</li>
+            <li>Arrays</li>
+            <li>Hashes</li>
+          </ul>
+          <pre><code  class="fragment ruby">
+new_range = (1..10)
+
+new_array = [1, 3, 5]
+
+new_hash = {"dog" => "snoopy", "bird" => "woodstock"}
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Ranges</h3>
+          <pre><code class="ruby">
+inclusive_range = (1..3)  # contains 1, 2, 3
+exclusive_range = (1...3) # contains 1, 2
+letter_range = ('a'..'e') # contains 'a', 'b', 'c', 'd', 'e'
+          </code></pre>
+          <p>Ranges are simply the range of values between the given first and last elements.</p>
+          <p><strong>Inclusive</strong> ranges have two dots, and include the last element. <strong>Exclusive</strong> ranges have three dots, and do not include the last element.</p>
+        <!--TODO is this right?-->
+          <p>Ranges need to be defined from lowest value to highest.</p>
+        </section>
+
+        <section>
+          <h3>Ranges</h3>
+          <p>Try out these range methods in IRB.</p>
+          <pre><code>
+(1..99).max
+('b'...'z').include?('j')
+(890..902).begin
+(890..902).first(4)
+(890..902).last(3)
+(890..902).end
+(28..22).min
+
+('a'...'g').each do |l|
+puts "#{l} is a pretty good letter"
+end
+
+(22..28).to_a
+          </code></pre>
+          <p>Learn more about ranges <a href="http://www.ruby-doc.org/core-2.1.1/Range.html" alt="Ruby Doc">here</a>.</p>
+        </section>
+
+        <section>
+          <h3>Arrays</h3>
+          <p>Arrays have square brackets and can be filled with any type of object: integers, floats, strings, even other arrays or hashes.</p>
+          <pre><code  class="fragment ruby">
+new_array = [1, 3, 5, 89, 212, 7, -100]
+arr = ["wow", "woooo", "zowie"]
+array = Array.new #will have no elements inside it initially
+varied_array = ["one", 2, "THREE", 0.4, ["five", 6]]
+
+# methods to get information about an array
+new_array.length
+new_array.count
+arr.include?("yee ha")
+          </code></pre>
+          <p>Arrays are a great way to keep track of information that changes frequently.</p>
+          </section>
+
+          <section>
+          <h3>Accessing Elements in an Arrays</h3>
+          <p>Arrays are <strong>ordered</strong> and are <strong>integer-indexed</strong>, starting at 0. </p>
+          <p>Elements can be accessed by their position.</p>
+
+          <pre><code  class="fragment ruby">
+new_array = [1, 3, 5, 89, 212, 7, -100]
+arr = ["wow", "woooo", "zowie"]
+
+new_array[0]    # returns the zeroth element
+arr[2]          # returns the third element
+arr[-1]         # returns the last (1st from the end) element
+new_array.last  # returns the last element
+new_array[1..2] # returns the second and third elements
+arr.first       # returns the first element
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Adding & Deleting From Arrays</h3>
+          <p>Adding and removing items to an array can be done in a variety of ways. These are the most common.</p>
+          <pre><code  class="ruby">
+arr = ["wow", "woooo", "zowie"]
+
+#add
+arr.push("hot diggity") # adds argument as last element
+arr << "yikes"          # adds argument as last element
+
+#remove
+arr.delete("wow")       # deletes the element that matches argument
+arr.pop                 # removes and returns the last element
+          </code></pre>
+        </section>
+
+
+        <section>
+          <h3>More Array Methods</h3>
+          <p>Arrays are used a lot in Ruby. There are a lot of cool methods available for them. </p>
+          <pre><code  class="fragment ruby">
+arr = ["dog", "cat", "turtle", "parakeet", "ferret"]
+
+arr.index("dog")  # returns the index of the element that matches argument
+arr.join          # returns a string made up of all the elements
+arr.clear         # removes all elements from the array
+arr.reverse       # returns new array with same elements, reversed
+arr.shuffle       # returns new array with same elements, shuffled
+arr.uniq          # returns a new array with only unique elements
+arr.size          # returns the number of elements in the array
+arr.empty?        # returns a boolean
+          </code></pre>
+          <p>Learn more about arrays <a href="http://www.ruby-doc.org/core-2.1.0/Array.html" alt="ruby documentation - array class">here</a>.</p>
+        </section>
+
+<!-- minutes-->
+        <section>
+          <h3>Hashes</h3>
+          <p>Hashes have curly braces and hash rockets and can be filled with any data type: integers, floats, strings, even arrays and hashes. </p>
+          <pre><code  class="fragment ruby">
+grades_hash = { "Jane Doe" => 10, "Jim Doe" => 6, "Jan Doe" => 8}
+new_hash = { 1 => "a", "d" => 12, "f" => 35 }
+
+# methods to find information about hashes
+new_hash.length
+grades_hash.count
+grades_hash.size
+grades_hash.has_key?("Jan Doe")
+new_hash.has_value?(35)
+
+          </code></pre>
+          <p>Syntax:</p>
+          <p>{ key => value, key => value }
+        </section>
+
+        <section>
+          <h3>Accessing Elements in Hashes</h3>
+          <p>Hashes are <strong>unordered.</strong> Hashes are like dictionaries, with unique <strong>key / value</strong> pairs.</p>
+          <p>Because hashes can have any type of object as an idex, and are unordered, we must access values by their <strong>key</strong>.</p>
+          <pre><code  class="fragment ruby">
+grades_hash = { "Jane Doe" => 10, "Jim Doe" => 6, "Jan Doe" => 8}
+new_hash = { 1 => "a", "d" => 12, "f" => 35 }
+
+grades_hash["Jane Doe"]   # returns 10, the value of this key
+new_hash["d"]             # returns 12, the value of this key
+grades_hash.first         # returns first key/value pair... probably
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Adding & Removing from Hashes</h3>
+          <pre><code  class="ruby">
+new_hash = { 1 => "a", "d" => 12, "f" => 35 }
+
+# add
+new_hash["z"] = 43   # adds a new key/value pair "z" => 43
+
+#remove
+new_hash.delete("d") # removes key/value pair with specified key
+new_hash.clear       # removes all key/value pairs
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>More Hash methods</h3>
+          <pre><code  class="ruby">
+chapters = {"My Early Home" => (1..15), "The Hunt" => (16..28),
+        "My Breaking In" => (29..46), "Birtwick Park" => (46..60)}
+
+chapters.count      # returns number of key/value pairs in hash
+chapters.keys       # returns an array of all the keys in hash
+chapters.has_key?("How It Ended")  # returns a boolean
+chapters.to_a       # converts hash to an array of arrays
+chapters.invert     # returns new hash with old one's values
+                  # as keys and keys as values
+            </code></pre>
+            <p>Learn more about hashes <a href="http://www.ruby-doc.org/core-2.1.1/Hash.html" alt="Ruby Docs">here</a>.</p>
+        </section>
+
+        <section>
+          <h3>Enumerable</h3>
+          <p><strong>Arrays</strong> and <strong>Hashes</strong> are both members of the <strong>Enumerable</strong> class. There are a lot of cool methods available for Enumerable, including <strong>each</strong>. </p>
+
+        <!-- <p>Learn more about the methods available to Enumerable <a href="http://www.ruby-doc.org/core-2.1.1/Enumerable.html" alt="Ruby Docs">here</a>.</p> -->
+        </section>
+
+        <section>
+          <h3>.each with Ranges</h3>
+          <p>This is the simplest!</p>
+          <pre><code class="ruby">
+(3..8).each do |n|
+puts n * 4
+end
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>.each with Arrays</h3>
+          <p>Can be simple or more complex, depending on the array.</p>
+          <pre><code class="ruby">
+pets_array = ["dog", "cat", "turtle", "parakeet", "ferret"]
+
+pets_array.each do |p|
+puts "I like #{p}s!!"
+end
+
+
+deep_array = [["mountain", "desert"], ["ocean", "sky"]]
+
+deep_array.each do |p|
+puts "I like #{p.first}s!!"  # each element is also an array
+end
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>.each with Hashes</h3>
+          <p>Each element has a key and value that needs to be dealt with.</p>
+          <pre><code class="ruby">
+grades_hash = { "Jane Doe" => 10, "Jim Doe" => 6, "Jan Doe" => 8}
+
+grades_hash.each do |key, value|
+puts "#{key}'s grade is #{value}"
+end
+          </code></pre>
+        </section>
+
+        <!-- Let's develop it: 10 minutes -->
+        <section>
+          <h3>Let's Develop It</h3>
+
+          <p>Write a program that prints out every number between 1 and 1000 that is divisible by 7.</p>
+          <br />
+          <p>Hint: the modulo operator, %, will be helpful.</p>
+        </section>
+
+        <section>
+          <h3>Enumerable</h3>
+          <p>Visit <a href="https://gist.github.com/cherimarie/11004115" alt="Gist with pets array">this page</a> and copy the contents of the Gist to a local file. Save it as pets.rb. We'll work with it together in IRB.</p>
+        </section>
+
+        <section>
+          <h3>Enumerable: Reduce</h3>
+          <p>Returns the product of running the operator on all elements of the enumerable.</p>
+          <pre><code class="ruby">
+(1..4).reduce(:*)   # returns 1 * 2 * 3 * 4
+(1...5).reduce(:+)  # returns 1 + 2 + 3 + 4
+(2...5).reduce(:**) # returns 2 ** 3 ** 4
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Enumerable: Collect and Map</h3>
+          <p>Returns an array with the results of running the block on each element. Can be used interchangably.</p>
+          <pre><code class="ruby">
+$pets.collect{|p| p[:name]}      # returns array of all pet names
+$pets.collect{|p| p[:legs]}.reduce(:+) # returns sum of all pet legs
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Enumerable: Reject</h3>
+          <p>Returns an array with all elements that did not meet the critera in code block.</p>
+          <pre><code class="ruby">
+$pets.reject{|p| p[:talents].include? "napping" }
+  # returns array of pets whose talents do not include napping
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Let's Develop It</h3>
+          <p>How many of our pets are nocturnal?</p>
+        </section>
+
+          <section>
+            <h3>Let's Develop It- Sample Code</h3>
+            <p>How many of our pets are nocturnal?</p>
+            <pre><code class="ruby">
+$pets.reject{|p| p[:nocturnal]== false}.count
+            </code></pre>
+          </section>
+
+<!--
+        <section>
+            <h3>Nil</h3>
+            <p class="fragment">Nil is an <strong>object</strong>! Try the following in IRB:</p>
+            <pre><code  class="fragment ruby">
+nil.class
+nil.to_a
+nil.to_i
+nil.to_s
+nil.size
+            </code></pre>
+            <p class="fragment">There are some methods associated with nil, like .to_a, to help prevent errors in your code. If you try to call .to_a on something without first setting the value of it, you'll get an empty array instead of an error.</p>
+
+
+            <p>Learn more about the nil class <a href="http://www.ruby-doc.org/core-2.1.0/NilClass.html" alt="ruby documentation - nil class">here</a>.</p>
+        </section> -->
+
+        <section>
+          <h3>Questions?</h3>
+        </section>
+
+        <section>
+          <h3>Homework</h3>
+          <p><strong>Practice:</strong> Find two interesting methods for Enumerable (via <a href="http://www.ruby-doc.org/core-2.1.1/Enumerable.html" alt="Ruby Docs">Ruby Docs</a>) and write a little program that uses them for arrays or hashes. Do any one the exercises at the end of <a href="http://pine.fm/LearnToProgram/?Chapter=06" alt="Chp 6 of Learn to Program">Chapter 6</a> of Learn to Program.</p>
+          <p><strong>Prep:</strong> Read <a href="http://pine.fm/LearnToProgram/?Chapter=08" alt="Chp 8 of Learn to Program">Chapter 8</a> of Learn To Program- don't try to do the exercises at the end yet, though.</p>
+        </section>
+
+      </div>
+      <footer>
+        <div class="copyright">
+          Intro to Ruby
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+        </div>
+      </footer>
+    </div>
+
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/accessibility-helper/js/accessibility-helper.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>

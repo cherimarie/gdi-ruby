@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Intro to Ruby ~ Girl Develop It</title>
+    <meta name="description" content="This is the official Girl Develop It Core Intro to Ruby course. The course is meant to be taught in five two-hour sessions. Each of the slides and practice files are customizable according to the needs of a given class or audience.">
+    <meta name="author" content="Girl Develop It">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/simple.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <!-- light editor<link rel="stylesheet" href="lib/css/light.css">-->
+    <!-- dark editor--><link rel="stylesheet" href="lib/css/dark.css">
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+
+    <!-- If use the PDF print sheet so students can print slides-->
+
+    <link rel="stylesheet" href="css/print/pdf.css" type="text/css" media="print">
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+        <section>
+          <img src="images/gdi_logo_badge.png">
+          <h3>Intro to Ruby</h3>
+          <h3>Class 3</h3>
+        </section>
+
+        <section>
+          <h3>Welcome!</h3>
+          <div class = "left-align">
+          <p>Girl Develop It is here to provide affordable and accessible programs to learn software through mentorship and hands-on instruction.</p>
+          <p class ="green">Some "rules"</p>
+          <ul>
+            <li>We are here for you!</li>
+            <li>Every question is important</li>
+            <li>Help each other</li>
+            <li>Have fun</li>
+          </ul>
+          </div>
+        </section>
+
+        <!-- Homework Review - 10 min -->
+        <section>
+          <h3>Homework Discussion</h3>
+          <p>How was last week's homework? Do you have any questions or concepts that you'd like to discuss?</p>
+        </section>
+
+        <section>
+          <h3>grandma.rb</h3>
+          <pre><code contenteditable class="ruby">
+chatting = true
+byes = 0
+while chatting
+  puts "Ask Grandma a question:"
+  said = gets.chomp!
+  if said == "BYE"
+    byes += 1
+    if byes > 2
+      chatting = false
+    else
+      puts "** Grandma is ignoring you **"
+    end
+  elsif said == said.upcase
+    year = 1930 + Random.rand(20)
+    puts "NO, NOT SINCE #{year}!"
+  else
+    puts "HUH?!  SPEAK UP, SONNY!"
+  end
+end
+puts "Thanks for chatting with Grandma"
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>leap.rb</h3>
+          <pre><code contenteditable class="ruby">
+puts "Enter a starting year in the format YYYY"
+starting = gets.chomp!.to_i
+puts "Enter an ending year in the format YYYY"
+ending = gets.chomp!.to_i
+puts "LEAP YEARS between #{starting} and #{ending}"
+
+starting.upto(ending) do |year|
+  divisible_by_4 = (year % 4) == 0
+  not_divisible_by_100 = (year % 100) != 0
+  divisible_by_400 = (year % 400) == 0
+  is_leap_year = (divisible_by_4 && not_divisible_by_100)
+                   || divisible_by_400
+  if is_leap_year
+    puts "#{year}"
+  end
+end
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Review</h3>
+          <ul>
+            <li class="fragment">Conditions - if, elsif, else</li>
+            <li class="fragment">Loops - while, for</li>
+            <li class="fragment">Arrays - [1,2,3] or %w(one two three)</li>
+            <li class="fragment">Hashes - {"one" => 1, "two" => 2}</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>What we will cover today</h3>
+          <ul>
+            <li class="fragment">Methods</li>
+            <li class="fragment">Objects</li>
+            <li class="fragment">Object Oriented Programming</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Methods</h3>
+          <p>A <strong>method</strong> is a name for a chunk of code</p>
+          <p class="fragment">Methods are often used to define reusable behavior.</p>
+          <p class="fragment">Let's look at a method we've already used:</p>
+          <pre><code contenteditable class="fragment ruby">
+1.even?
+=> false
+
+"fred".capitalize
+=> "Fred"
+          </code></pre>
+          <p>If you have some code you want to reuse or organize, methods will help.</p>
+        </section>
+        <section>
+          <h3>Let's Develop It!</h3>
+          <p>Find the methods available on <a href="http://www.ruby-doc.org/core-2.1.0/String.html">String</a> and <a href="http://www.ruby-doc.org/core-2.1.0/Integer.html">Integer</a></p>
+          <p>Do they have any similar methods?</p>
+          <pre><code contenteditable class="fragment ruby">
+"abc".next
+=> "abd"
+
+"abz".next
+=> "aca"
+
+1.next
+=> 2
+
+-1.next
+=> 0
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Write a Method</h3>
+          <p>Let's write a method together</p>
+          <p><strong>def</strong> means define</p>
+          <p><strong>subtract</strong> is the name of the method</p>
+          <p><strong>x, y</strong> are parameters</p>
+          <p><strong>x - y</strong> is the body of the method</p>
+          <p><strong>x - y</strong> is also the return value</p>
+          <pre><code contenteditable class="fragment ruby">
+def subtract x, y
+  x - y
+end
+        </code></pre>
+        </section>
+
+        <section>
+          <h3>Let's Develop It!</h3>
+          <p>Let's write a method that takes in a number and tells us if it is even.</p>
+          <p>Hint: if number % 2 == 0, then it is even</p>
+          <pre><code contenteditable class="fragment ruby">
+def method_name(parameter)
+  # method implementation
+end
+          </code></pre>
+        </section>
+
+
+        <section>
+          <h3>Method Return Value</h3>
+          <p>Every Ruby method returns something.</p>
+          <p>Usually, it's the last statement in the method.</p>
+          <p>It could be the value sent to <strong>return</strong> if that came first.</p>
+          <pre><code contenteditable class="fragment ruby">
+def subtract(x,y)
+  x - y
+  'another thing'
+end
+
+return_value = subtract(5, 2)
+puts return_value
+
+def subtract(x,y)
+  return x - y
+  'another thing'
+end
+
+return_value = subtract(5, 2)
+puts return_value
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Arguments vs. Parameters</h3>
+          <p>Technically speaking, arguments are passed and parameters are declared.</p>
+          <p>Note that the variable names don't have to match!</p>
+          <p>In this code, 5 is an argument and x is a parameter</p>
+          <pre><code contenteditable class="fragment ruby">
+def subtract(x,y)
+  x - y
+end
+
+subtract(5, 2)
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Splat Arguments</h3>
+          <pre><code contenteditable class="fragment ruby">
+def greet(greeting, *names)
+  names.each do |name|
+    puts "#{greeting}, #{name}!"
+  end
+end
+
+>> greet("Hello", "Alice", "Bob", "Charlie")
+Hello, Alice!
+Hello, Bob!
+Hello, Charlie!
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Default Values</h3>
+          <pre><code contenteditable class="fragment ruby">
+def eat(food = "chicken")
+  puts "Yum, #{food}!"
+end
+
+>> eat
+Yum, chicken!
+
+>> eat "bananas"
+Yum, bananas!
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Default Hash Parameter</h3>
+          <pre><code contenteditable class="fragment ruby">
+def add_to_x_and_y(amount, vals)
+  x = vals[:x]
+  y = vals[:y]
+  x + y + amount
+end
+
+add_to_x_and_y(2, {:x => 1, :y => 2})
+
+# same as...
+add_to_x_and_y 2, :x => 1, :y => 2
+
+# same as...
+add_to_x_and_y 2, x: 1, y: 2
+
+# same as...
+add_to_x_and_y 2, y: 2, x: 1
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Named Parameters</h3>
+          <p>To pass variable parameters, or to pass named parameters, you can use an options hash</p>
+          <pre><code contenteditable class="fragment ruby">
+bake("Wheat")
+bake("Sourdough", :flour => "sour")
+bake("Pumpernickel", :creamer => "butter")
+
+def bake(name, options = {})
+  flour = options[:flour] || "rye"
+  creamer = options[:creamer] || "cream"
+  puts "baking a nice #{flour} loaf with #{creamer}"
+end
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Methods & Variables</h3>
+          <p><strong>Local vars</strong> are only available in the methods where they were defined.</p>
+          <pre><code contenteditable class="fragment ruby">
+# Let's extract the length of the padded string into
+# a local variable
+def message(our_string)
+  length = 80
+  puts our_string.center(length, "-")
+end
+
+def different_message(some_string)
+  puts our_string.center(length, "=")
+end
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Objects</h3>
+          <p>An <strong>Object</strong> is the building block of a program.</p>
+          <p class="fragment">Objects <strong>do things</strong> and have <strong>properties</strong>.</p>
+          <pre><code contenteditable class="fragment ruby">
+Object: Number
+What can it do?
+- Add
+- Subtract
+- Divide
+- Multiply
+
+What are some properties of your Number?
+- Length
+- Base
+- Even
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Object Class</h3>
+          <p><strong>Objects</strong> can be grouped by Class.</p>
+          <p class="fragment">Classes define a template for objects. They describe what a certain type of object can do and what
+            properties they have in common.
+          </p>
+          <p>There are many kinds of objects, including String, Number, Array, Hash, Time, ...</p>
+          <p>To create an object we use .new</p>
+          <pre><code contenteditable class="fragment ruby">
+array = []
+array = Array.new
+          </code></pre>
+          <p>now array refers to an object instance</p>
+        </section>
+
+        <section>
+          <h3>Object Methods</h3>
+          <p>Methods can be defined on objects.</p>
+          <pre><code contenteditable class="fragment ruby">
+array = Object.new
+
+def array.delete
+  puts "deleted the array"
+end
+
+array.methods(false)
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Instance Variables</h3>
+          <p>Represent object state</p>
+          <p>Names start with an @</p>
+          <p>Only visible inside the object</p>
+          <pre><code contenteditable class="fragment ruby">
+cookie = Object.new
+
+def cookie.add_chips(num_chips)
+  @chips = num_chips
+end
+
+def cookie.yummy?
+  @chips > 100
+end
+
+cookie.add_chips(500)
+cookie.yummy?   #=> true
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Object Oriented Programming</h3>
+          <ul>
+            <li class="fragment">Object Oriented Programming is one of many <strong>programming approaches</strong>: procedural, event-driven, functional,
+              declarative...
+            </li>
+            <li class="fragment">These days, most programming is done in an OO language: Java, C#, C++.</li>
+            <li class="fragment">All this means is that programs are <strong>organized around objects</strong> (data & methods).</li>
+            <li class="fragment">You might choose OOP because Objects make things <strong>easier to understand</strong> and act as a natural way to modularize code.
+              When a large code base is composed of many small Objects, it is <strong>easier to maintain</strong> and change.
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>OOP & Easy Understanding</h3>
+          <p>Objects often take on names from their domain which makes them easy to conceptualize.</p>
+          <p>For example, without seeing my code, you can probably guess what a Bike object can do (or not do)</p>
+        </section>
+
+        <section>
+          <h3>OOP & Encapsulation</h3>
+          <p>One thing that makes code easier to maintain is Encapsulation which is one of the fundamentals of OOP.</p>
+          <p><strong>Encapsulation</strong> is a nice way of saying 'put all my properties/behaviors in my capsule where other
+            objects can't touch them'.
+          </p>
+          <p>By assigning certain responsibilities to objects, code is more purposeful and less likely to be changed by
+            accident.
+          </p>
+        </section>
+
+        <section>
+          <h3>OOP & Inheritance</h3>
+          <p>Just as you inherited traits from your mom, your objects may inherit traits from other objects.</p>
+          <p><strong>Inheritance</strong> is when you use one class as the basis for another.</p>
+          <p>You might use Inheritance if two objects have the same properties and methods. This way you don't need to write the
+            same thing twice.
+          </p>
+          <pre><code contenteditable class="fragment ruby">
+class MyString < String
+end
+
+my_string = MyString.new
+my_string.upcase
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>OOP & Polymorphism</h3>
+          <ul>
+          <li>Similar to inherited traits and behaviors, there are also polymorphic traits and behaviors.</li>
+          <li><strong>Polymorphic</strong> means many forms.</li>
+          <li>Within OOP, this relates to different objects being able to respond to the same message in different ways.</li>
+            </ul>
+          <pre><code contenteditable class="fragment ruby">
+[1, "abc"].each {|object| puts object.next}
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Questions?</h3>
+        </section>
+
+        <section>
+          <h3>Homework</h3>
+          <p><strong>Practice:</strong> Do some of the exercises at the end of <a href="http://pine.fm/LearnToProgram/?Chapter=08" alt="Chp 8 of Learn to Program">Chapter 8</a> of Learn to Program.</p>
+          <p><strong>Prep:</strong> Read <a href="http://pine.fm/LearnToProgram/?Chapter=09" alt="Chp 9 of Learn to Program">Chapter 9</a> of Learn To Program- don't try to do the exercises at the end yet, though.</p>
+        </section>
+      </div>
+      <footer>
+        <div class="copyright">
+          Intro to Ruby
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+        </div>
+      </footer>
+    </div>
+
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/accessibility-helper/js/accessibility-helper.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>

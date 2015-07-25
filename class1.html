@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Intro to Ruby ~ Girl Develop It</title>
+    <meta name="description" content="This is the official Girl Develop It Core Intro to Ruby course. The course is meant to be taught in five two-hour sessions. Each of the slides and practice files are customizable according to the needs of a given class or audience.">
+    <meta name="author" content="Girl Develop It">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/simple.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <!-- light editor<link rel="stylesheet" href="lib/css/light.css">-->
+    <!-- dark editor--><link rel="stylesheet" href="lib/css/dark.css">
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+
+    <!-- If use the PDF print sheet so students can print slides-->
+
+    <link rel="stylesheet" href="css/print/pdf.css" type="text/css" media="print">
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+<!-- Welcome & Intros - 20 min -->
+        <section>
+          <img src="img/gdi_logo_badge.png">
+          <h3>Intro to Ruby</h3>
+          <h4>Class 1</h4>
+        </section>
+        <section>
+          <h3>Welcome!</h3>
+          <div class="left-align">
+            <p>Girl Develop It is here to provide affordable and accessible programs to learn software through mentorship and
+              hands-on instruction.
+            </p>
+            <p class="green">Some "rules"</p>
+            <ul>
+              <li>We are here for you!</li>
+              <li>Every question is important.</li>
+              <li>Help each other.</li>
+              <li>Have fun!</li>
+            </ul>
+          </div>
+        </section>
+        <!-- Homework Review - 10 min -->
+        <section>
+          <h3>Homework Discussion</h3>
+          <p>How was last week's homework? Do you have any questions or concepts that you'd like to discuss?</p>
+        </section>
+        <!-- Setting the Stage - 10 min -->
+        <section>
+          <h3>What we will cover today</h3>
+          <ul>
+            <li class="fragment">What is programming?</li>
+            <li class="fragment">Why Ruby?</li>
+            <li class="fragment">Variables, Arithmetic & Objects</li>
+            <li class="fragment">Methods and Error Messages</li>
+          </ul>
+        </section>
+        <section>
+          <h3>What is programming?</h3>
+          <ul>
+            <li class="fragment">Teaching the computer to do a task.</li>
+            <li class="fragment">A program is made of one or more files of code, each of which solve part of the overall task.
+            </li>
+            <li class="fragment">Programming code is human readable but also needs a form that the computer can run directly.
+              This form is not human readable.
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h3>Why Ruby?</h3>
+          <ul>
+            <li class="fragment">It reads like English. The syntax is intuitive.</li>
+            <pre>
+              <code contenteditable class="ruby fragment">
+# Java
+for(int i = 0; i < 5; i++)
+
+# Ruby
+5.times do
+              </code>
+            </pre>
+            <li class="fragment">The community is large, active and interested in helping others learn.</li>
+            <li class="fragment">You can get a web app off the ground quickly.</li>
+            <li class="fragment">You can make a lucrative career out of it.</li>
+            <li class="fragment">Using Ruby will cost you $0.</li>
+          </ul>
+        </section>
+        <section>
+          <h3>What is Ruby used for?</h3>
+          <ul>
+            <li class="fragment">Web development (Rails)</li>
+            <li class="fragment">iPhone apps (RubyMotion)</li>
+            <li class="fragment">System Administration (Chef)</li>
+            <li class="fragment">Testing (Vagrant)</li>
+            <li class="fragment">Security (Metasploit)</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Who is using Ruby?</h3>
+          <ul>
+            <li>Hulu</li>
+            <li>LivingSocial</li>
+            <li>Groupon</li>
+            <li>Basecamp</li>
+            <li>Github</li>
+            <li>#2 in 2014 on <a href="http://adambard.com/blog/top-github-languages-for-2013-so-far/">github</a></li>
+            <li>More <a href="https://www.ruby-lang.org/en/documentation/success-stories/">Success Stories</a></li>
+          </ul>
+        </section>
+        <!-- Basic IRB - 10 min -->
+        <section>
+          <h3>Working with IRB</h3>
+          <ul>
+            <li class="fragment">IRB is a command line interface to ruby that is installed when we install Ruby. It works like a calculator and is a
+              great way to get started quickly.
+            </li>
+            <li class="fragment">Open: type `irb`</li>
+            <li class="fragment">Quit: Type `quit` and then press `enter`</li>
+            <li class="fragment">Follow along with the examples in the slides. Type them in!</li>
+            <li class="fragment">Feel free to explore as well. You will not accidentally break things.</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Arithmetic</h3>
+          <p>Try out some calculator functions</p>
+          <pre>
+            <code contenteditable class="ruby">
+3 + 4
+2 * 4
+6 - 2
+4 / 2
+4 /* 2
+=> SyntaxError: (irb):10:syntax error, unexpected *
+            </code>
+          </pre>
+        </section>
+        <section>
+          <h3>Errors are Neat!</h3>
+          <ul>
+            <li class="fragment">There are different kinds of errors that can occur. We just saw the <strong>SyntaxError</strong> which often
+              helps us find misspelled words or missing quotes.
+            </li>
+            <li class="fragment">Take time to read each Error. They often tell you how to fix the issue and can be a great
+              starting point when searching for help online.
+            </li>
+          </ul>
+          <pre>
+            <code contenteditable class="ruby fragment">
+irb> hi
+NameError: undefined local variable or method `hi' for main:Object
+            </code>
+          </pre>
+        </section>
+        <!-- Variables - 10 min -->
+        <section>
+          <h3>Variables</h3>
+          <ul>
+            <li class="fragment">Variables are references to information.</li>
+            <li class="fragment">We reference variables by name.</li>
+            <li class="fragment">They are called variable because the information they reference may change.</li>
+          </ul>
+          <pre><code contenteditable class="ruby fragment">
+# Everything after this pound sign will not be evaluated.
+# These are called comments and I will use them to annotate code
+age = 50
+days_in_year = 365
+days_alive = age * days_in_year
+=> 18250
+          </code></pre>
+        </section>
+        <section>
+          <h3>Ruby's Variables</h3>
+          <ul>
+            <li class="fragment">Ruby has three kinds of variables, one kind of constant and exactly two pseudo-variables.</li>
+            <li class="fragment">A local variable starts with a lower case letter or an underscore character (_) and consists entirely of letters, numbers and underscores.</li>
+          </ul>
+          <pre><code contenteditable class="ruby fragment">
+age = 50
+_age = 50
+_my_age = 50
+          </code></pre>
+        </section>
+        <section>
+          <h3>What can I do with a Variable?</h3>
+          <ul>
+            <li class="fragment">Create - Initialize</li>
+            <li class="fragment">Access - Read</li>
+            <li class="fragment">Assign - Replace</li>
+          </ul>
+          <pre><code contenteditable class="ruby fragment">
+# create and assign in one line
+age = 0
+
+# access the value in age
+age
+
+# replace value in age
+age = 40
+          </code></pre>
+        </section>
+        <section>
+          <h3>Variable naming</h3>
+          <ul>
+            <li class="fragment">Express what is stored inside</li>
+            <li class="fragment">Make it easy to read</li>
+            <li class="fragment">Should be understood by someone who has no idea what your program does</li>
+            <li class="fragment">Should be unique</li>
+          </ul>
+          <pre><code contenteditable class="ruby fragment">
+# good
+occupation = "software engineer"
+
+# bad
+occupation_i_always_dreamed_of_having_in_seattle = "software engineer"
+o = "software engineer"
+1st_occupation = "software engineer"
+          </code></pre>
+        </section>
+        <section>
+          <h3>Local Variable Values</h3>
+          <ul>
+            <li class="fragment">No default value</li>
+            <li class="fragment">No type declaration</li>
+            <li class="fragment">Do not live forever</li>
+          </ul>
+          <pre><code contenteditable class="ruby fragment">
+# error
+name
+
+name = "Heather"
+defined?(name)
+          </code></pre>
+        </section>
+        <!-- Data Types - 10 min -->
+        <section>
+          <h2>Data Types</h2>
+          <p class="fragment">Built-in: Numbers, Strings, Symbols, Booleans, Regular Expressions, Arrays, Ranges & Hashes</p>
+          <ul>
+            <li class="fragment">Data always has a "type"</li>
+            <li class="fragment">You will hear the words Class/Type/Object used interchangeably</li>
+            <li class="fragment">Let's explore a few built in Objects</li>
+          </ul>
+          <pre><code contenteditable class="ruby fragment">
+irb> 1.class
+=> Fixnum
+irb> "Hello".class
+=> String
+irb> 1.0022.class
+=> Float
+irb> [1,2,3].class
+=> Array
+          </code></pre>
+        </section>
+        <section>
+          <h3>Strings</h3>
+          <p>Strings are characters inside double or single quotes.</p>
+          <pre><code contenteditable class="ruby fragment">
+a = 'Hello '
+b = "World"
+c = a + b
+c.reverse
+=> "dlroW olleH"
+          </code></pre>
+          <pre><code contenteditable class="ruby fragment">
+a = "Spam "
+b = a * 4
+# Here multiplying a "Spam " by 4 concatenates (links) four strings
+=>"Spam Spam Spam Spam "
+together
+          </code></pre>
+        </section>
+        <section>
+          <h3>String Practice</h3>
+          <pre><code contenteditable class="ruby">
+"Heather".upcase
+"Heather".downcase
+"heather".capitalize
+"Hello".reverse
+"Heather".length
+"Heather Moore".swapcase
+"".empty?
+          </code></pre>
+          <p>What is the reverse of your name?</p>
+          <p>How many characters long is your name?</p>
+          <p>Can you repeat the word hello 100 times?</p>
+          <p>What is the 5th character of my name?</p>
+        </section>
+        <section>
+          <h3>Numbers</h3>
+          <p>Numeric data comes in two types: <strong>Integers</strong> and <strong>Floats</strong></p>
+          <p>Integers are either <strong>Fixnum</strong> or <strong>Bignum</strong>. They do not have decimals.</p>
+          <pre><code contenteditable class="ruby fragment">
+irb> 1_000_000_000_000_000_000.class
+ => Fixnum
+irb> 1_000_000_000_000_000_000_000.class
+ => Bignum
+          </code></pre>
+          <p>Floats are numbers with at least one number to the left of a decimal point.</p>
+          <pre><code contenteditable class="ruby fragment">
+            irb> 1.001.class
+             => Float
+          </code></pre>
+        </section>
+        <section>
+          <h3>Number Practice</h3>
+          <pre><code contenteditable class="ruby">
+7/8
+7.0/8.0
+3.14.to_s
+3.14.to_i
+1 + "2"
+1 + "2".to_i
+(1 + 2) * 3
+1 + (2 * 3)
+          </code></pre>
+          <p>How many seconds are in an hour?</p>
+          <p>How many minutes are in a week?</p>
+          <p>How many years old are you if you've been alive 1 million seconds?</p>
+        </section>
+        <section>
+          <h3>Symbols</h3>
+          <p class="fragment">You can think of symbols as lightweight Strings.</p>
+          <p class="fragment">It's good to know these exist, but don't think about them too much for now.</p>
+          <pre><code contenteditable class="ruby fragment">
+# transient and mutable
+"hello"
+
+# permanent and immutable
+:hello
+          </code></pre>
+        </section>
+        <section>
+          <h3>Booleans</h3>
+          <p class="fragment">This is another Object that we will learn about later.</p>
+          <p class="fragment">For now, when you hear Boolean, think TRUE and FALSE.</p>
+          <pre><code contenteditable class="ruby fragment">
+# NOT true
+!true
+=> false
+
+# NOT false
+!false
+=> true
+          </code></pre>
+        </section>
+        <section>
+          <h3>Arrays, Ranges & Hashes</h3>
+          <p>We will also leave these data types for the next class</p>
+          <p class="fragment">Examples of what they will look like:</p>
+          <pre><code contenteditable class="ruby fragment">
+# Arrays are used to hold sets of data.
+irb> array_of_numbers = [1,2,3]
+irb> array_of_numbers.first
+=> 1
+
+# Ranges are used to express a sequence.
+irb> range_of_numbers = (1..5)
+irb> range_of_numbers.include?(4)
+=> true
+
+# Hashes are like dictionaries. You can look up a value by a key.
+irb> hash_of_key_to_value =
+  {
+    "Apple" => "A fruit.",
+    "Cucumber" => "A vegetable."
+  }
+          </code></pre>
+        </section>
+        <section>
+          <h3>Methods</h3>
+          <ul>
+            <li class="fragment">Methods define the behavior for an Object.</li>
+            <li class="fragment">String Objects can <strong>reverse</strong>, for example.</li>
+            <li class="fragment">Some methods are accessed using our friend 'dot' and some are standalone.</li>
+            <li class="fragment">Let's call some methods</li>
+          </ul>
+          <pre>
+            <code contenteditable class="ruby fragment">
+irb> puts "hello"
+hello
+=> nil
+irb> "2".to_i
+=> 2
+irb> 2.to_s
+=> "2"
+irb> "2" / 5
+NoMethodError: undefined method `/' for "2":String
+            </code>
+          </pre>
+        </section>
+        <section>
+          <h3>User Input</h3>
+          <ul>
+            <li class="fragment">To obtain user input, use `gets`</li>
+            <li class="fragment">To print out information, use `puts`</li>
+            <li class="fragment">Let's create our first program together</li>
+          </ul>
+          </br>
+          </br>
+          <p class="fragment">Put the code below in a file and save it as name.rb</p>
+          <pre><code contenteditable class="fragment ruby">
+puts 'Hello there, and what\'s your name?'
+name = gets
+puts 'Your name is ' + name.chomp! + '? What a lovely name!'
+puts 'Pleased to meet you, ' + name + '. :)'
+          </code></pre>
+          <p class="fragment">Run your program from the command line:</p>
+          <pre><code class="fragment">
+        ruby name.rb
+          </code></pre>
+        </section>
+        <section>
+          <h3>Let's Develop It</h3>
+          <ul>
+            <li>Write your own program using 'puts' and 'gets' to ask a user for their age and then tell them how old they are in dog years.</li>
+            <li>reminder: 'gets' method returns a string. To do math on it, convert it to an integer with .to_i method.</li>
+            <pre><code class="ruby">
+            #1 dog year = 7 human years
+            user_age = gets.to_i
+            </code></pre>
+          </ul>
+        </section>
+        <section>
+          <h3>Lab 1</h3>
+          <ul>
+            <li>Update your code to return a message in all capital letters.</li>
+          </ul>
+          <pre><code class="ruby">
+# YOU ARE 5 YEARS OLD IN DOG YEARS
+          </code></pre>
+        </section>
+        <section>
+          <h3>Lab 2</h3>
+          <ul>
+            <li>Update your code to return a message in all capital letters, reversed with a count of the characters returned in parens.</li>
+          </ul>
+          <pre><code class="ruby">
+# YOU ARE 5 YEARS OLD IN DOG YEARS (32 characters)
+          </code></pre>
+        </section>
+        <section>
+          <h3>Questions?</h3>
+        </section>
+
+        <section>
+          <h3>Homework</h3>
+          <p><strong>Practice:</strong> Write a command line program that asks the user for their birthday (be sure to specify format), then calculates their age in years, days, and seconds. Tell the user how old they are in these different formats. (Note: you'll be using 'gets' and 'puts' in this program, along with some math!)</p>
+          <p><strong>Prep:</strong> Read <a href="https://pine.fm/LearnToProgram/?Chapter=06" alt="Chp 6 of Learn to Program">Chapter 6</a> and <a href="https://pine.fm/LearnToProgram/?Chapter=07" alt="Chp 7 of Learn to Program">Chapter 7</a> of Learn To Program- don't try to do the exercises at the end yet, though.</p>
+        </section>
+
+      </div>
+      <footer>
+        <div class="copyright">
+          Intro to Ruby
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+        </div>
+      </footer>
+    </div>
+
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/accessibility-helper/js/accessibility-helper.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>

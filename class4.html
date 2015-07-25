@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Intro to Ruby ~ Girl Develop It</title>
+    <meta name="description" content="This is the official Girl Develop It Core Intro to Ruby course. The course is meant to be taught in five two-hour sessions. Each of the slides and practice files are customizable according to the needs of a given class or audience.">
+    <meta name="author" content="Girl Develop It">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/simple.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <!-- light editor<link rel="stylesheet" href="lib/css/light.css">-->
+    <!-- dark editor--><link rel="stylesheet" href="lib/css/dark.css">
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+
+    <!-- If use the PDF print sheet so students can print slides-->
+
+    <link rel="stylesheet" href="css/print/pdf.css" type="text/css" media="print">
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+       <!-- Opening slide -->
+        <section>
+          <img src = "images/gdi_logo_badge.png">
+          <h3>Intro to Ruby</h3>
+          <h4>Class 4</h4>
+        </section>
+
+        <section>
+          <h3>Welcome!</h3>
+          <div class = "left-align">
+          <p>Girl Develop It is here to provide affordable and accessible programs to learn software through mentorship and hands-on instruction.</p>
+          <p class ="green">Some "rules"</p>
+          <ul>
+            <li>We are here for you!</li>
+            <li>Every question is important</li>
+            <li>Help each other</li>
+            <li>Have fun</li>
+          </ul>
+          </div>
+        </section>
+
+        <!-- Homework Review - 10 min -->
+        <section>
+          <h3>Homework Discussion</h3>
+          <p>How was last week's homework? Do you have any questions or concepts that you'd like to discuss?</p>
+        </section>
+
+        <section>
+          <h3>HW: English Numbers</h3>
+          <p>You could expand the EnglishNumbers program by adding the following code to deal with thousands:</p>
+          <pre><code class="ruby">
+left  = number  # this line was original code, setting the 'left' variable
+
+write = left/1000          #  How many thousands left to write out?
+left  = left - write*1000  #  Subtract off those thousands.
+
+if write > 0
+thousands  = englishNumber write
+numString = numString + thousands + ' thousand'
+
+if left > 0
+numString = numString + ' '
+end
+end
+
+write = left/100 # this line begins the existing code that deals with hundreds
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>HW: Wedding Numbers</h3>
+          <p>You could modify the code in the EnglishNumbers program to make it WeddingNumbers by replacing some of the added spaces with added 'and's and spaces: </p>
+          <pre><code class="ruby">
+# numString = numString + ' '   # old code
+
+numString = numString + ' and '
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>HW: 99 Bottles of Beer</h3>
+          <p>You could modify the code for 99 Bottles of Beer shown in Class2 to include the functionality in the EnglishNumber class: </p>
+          <pre><code class="ruby">
+require_relative 'englishnumber.rb'
+num_bottles = 999
+
+while num_bottles > 0
+puts "#{englishNumber(num_bottles)} bottles of beer on the wall,
+#{englishNumber(num_bottles)} bottles of beer, take one down, pass it
+around, #{englishNumber(num_bottles - 1)} bottles of beer on the wall!"
+
+num_bottles = num_bottles - 1
+end
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Review</h3>
+          <ul>
+            <li>What is a method?</li>
+            <li>Creating & calling a method</li>
+            <li>What is an object?</li>
+          </ul>
+          <p>What would you like to see reviewed?</p>
+        </section>
+
+        <!-- Built in classes of Ruby: 20 minutes -->
+        <section>
+          <h3>Built in classes of Ruby</h3>
+          <p>Ruby has many classes predefined:</p>
+          <ul>
+            <li>String</li>
+            <li>Integer</li>
+            <li>Float</li>
+            <li>Array</li>
+            <li>Hash</li>
+          </ul>
+          <p>They are commonly used object types, and have methods associated with them already. How convenient!</p>
+          <pre><code contenteditable class="fragment ruby">
+a = Array.new
+b = String.new
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Built in classes of Ruby</h3>
+          <p>When we create new objects from these classes, we can do things with them immediately.</p>
+          <p>To see all methods associated with an object or class, run ".methods" on it.</p>
+          <pre><code contenteditable class="fragment ruby">
+b = "holy cow!"
+b.methods
+          </code></pre>
+          <p>You can view all the built in classes and their associated methods in the <a href="http://www.ruby-doc.org/core-2.0.0/" alt="Ruby docuemntation">Ruby documentation</a>.</p>
+        </section>
+
+        <section>
+          <h3>Extending a Class</h3>
+          <p>You can write new methods for the built in classes of Ruby. They will then be available to all instances of that class in your program.</p>
+          <pre><code contenteditable class="fragment ruby">
+class String
+def get_excited
+wow = self + "!!!"
+return wow
+end
+end
+          </code></pre>
+          <p>"self" refers to the object calling the method.</p>
+          <p>You can redefine existing methods for classes this way, too, but it's not recommended.</p>
+        </section>
+
+<!-- Creating a class: 20 minutes -->
+        <section>
+          <h3>Creating a Class</h3>
+          <p>It's very easy to create your own classes in Ruby.</p>
+          <pre><code contenteditable class="fragment ruby">
+# die.rb
+class Die
+
+def roll
+@numberShowing = 1 + rand(6)
+#rand(6) returns a random-ish number between 0-5
+end
+
+def showing
+return @numberShowing
+end
+
+end
+          </code></pre>
+          <p>Inside the class, define its methods.</p>
+        </section>
+        <section>
+        <h3>Creating a Class</h3>
+        <p>You can use your class right away by loading it into IRB.</p>
+        <pre><code>
+#in irb
+load 'die.rb'
+die = Die.new
+die.roll
+puts die.showing
+        </code></pre>
+        <p>You can use it in another file by requiring it. We'll discuss this later.</p>
+        <!-- pause here til everyone's got this working -->
+        </section>
+        <section>
+          <h3>Refactoring a Class</h3>
+          <p>What is the result of calling the .showing method on a newly-created, un-rolled Die object?</p>
+          <p>We can avoid this by calling the roll method as part of the creation of a new instance of Die.</p>
+          <pre><code class="fragment ruby">
+# die.rb
+class Die
+
+def initialize
+roll
+end
+
+def roll
+@numberShowing = 1 + rand(6)
+end
+
+def showing
+@numberShowing
+end
+
+end
+          </code></pre>
+        </section>
+
+      <!-- Let's develop it: 10 minutes -->
+        <section>
+          <h3>Let's Develop It</h3>
+          <ul>
+            <li>In your text editor, create your own class with an initialize method, and at least one other method.</li>
+            <li>Open IRB and load the class. Create one or more objects from the class and run some methods on them.</li>
+            <li>You could use the next slides as an example.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Example of creating a class</h3>
+          <pre><code contenteditable class="ruby">
+# in character.rb
+class Character
+
+def initialize(name)
+@name = name
+@health = 10
+end
+
+def heal
+@health += 6
+end
+
+def adventure
+if @health > 0
+puts "#{@name} goes on a great adventure and meets a dragon!"
+puts "The dragon hugged #{@name} kind of hard..."
+@health -= 5
+else
+puts "#{@name} is dead :("
+exit
+end
+end
+
+end
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Running example program in IRB</h3>
+          <pre><code contenteditable class="ruby">
+# in irb
+load 'character.rb'
+me = Character.new("Cheri")
+me.adventure
+me.heal
+me.adventure
+# repeat until you're done having fun
+
+          </code></pre>
+        </section>
+
+<!-- Putting it together: 10 minutes -->
+        <section>
+          <h3>Inheritance</h3>
+          <p>Classes can <strong>inherit</strong> from one other class.</p>
+          <p>All elves are characters, so if all characters have an adventure method, so do all elves. Elves may also have their own methods that other characters do not.</p>
+          </section>
+
+          <section>
+          <h3>Inheritance</h3>
+          <p>Denote that Elf inherits from Character by using the &lt symbol</p>
+          <pre><code class="fragment ruby">
+# in character.rb, after Character class code
+class Elf < Character
+def twinkle
+puts "I'm super magical!"
+end
+end
+
+#in irb
+load 'character.rb'
+me = Elf.new("Cheri")
+me.adventure
+me.twinkle
+          </code></pre>
+          <p>Notice that the initialize method was also inherited, as our new Elf knows its name and started off with 10 health.</p>
+        </section>
+
+        <section>
+          <h3>Inheritance</h3>
+          <p><strong>Subclasses</strong> may differ from from their <strong>super classes</strong> in some ways. Methods can be overwritten when this is the case.</p>
+
+          <pre><code contenteditable class="fragment ruby">
+# in character.rb, after Character class code
+class Elf < Character
+def twinkle
+puts "I'm super magical!"
+end
+
+def heal
+@health += 8 # it's easier to heal when you're magic
+end
+end
+
+#in irb
+load 'character.rb'
+me = Elf.new("Cheri")
+me.heal
+          </code></pre>
+          <p>More information about inheritance can be found <a href="http://rubylearning.com/satishtalim/ruby_inheritance.html" alt="rubylearning.com">here</a>.</p>
+        </section>
+
+        <section>
+          <h3>Putting it all together</h3>
+          <p>For a command line program, you need these pieces:</p>
+          <ol>
+            <li>File(s) containing your class definitions</li>
+            <li>A file containing your program, which requires the class file(s)</li>
+            <li>To call the program file from the command line (not IRB)</li>
+          </ol>
+          </section>
+          <section>
+          <h3>Putting it all together</h3>
+          <p>The file containing your class definitions, here called character.rb: </p>
+          <pre><code contenteditable class="ruby">
+# in character.rb
+class Character
+# contents of class here
+end
+
+class Elf < Character
+# contents of class here
+end
+            </code></pre>
+          </section>
+
+           <section>
+            <h3>Putting it all together</h3>
+            <p>The file containing your program, here called adventure.rb, which requires the class file: </p>
+            <pre><code contenteditable class="ruby">
+# in adventure.rb
+require_relative 'character.rb'
+#file path relative to the location of adventure.rb file
+require_relative 'die.rb'
+
+
+puts "Your name?"
+char = Character.new(gets.chomp)
+# plus lots more adventuring.....
+            </code></pre>
+          </section>
+
+          <section>
+            <h3>Putting it all together</h3>
+            <p>Call the program file from the command line: </p>
+            <pre><code contenteditable class="ruby">
+#in command line
+ruby adventure.rb
+# then have some fun!
+            </code></pre>
+        </section>
+
+      <!-- Let's develop it: 40 minutes -->
+        <section>
+          <h3>Let's Develop It</h3>
+          <p>Putting it all together: A role-playing game!</p>
+          <ul>
+            <li>If you didn't write a Character class, copy and paste the code to get one started.</li>
+            <li>Create a few subclasses of Character.</li>
+            <li>Write a command-line program that calls your character and die classes to allow the user to have an adventure!</li>
+            <li>Maybe user can choose their character type?</li>
+            <li>Maybe the user's progress will be dependent on outcome of dice-rolling?</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Questions?</h3>
+        </section>
+
+    <!-- Wrap up: 10 minutes -->
+        <section>
+          <h3>Further Resources</h3>
+            <table style="font-size: 24px; line-height: 1.5em;">
+              <tr>
+                <td><a href="http://www.ruby-doc.org/">Ruby-doc.org</a></td>
+                <td>Official Ruby Documentation</td>
+              </tr>
+               <tr>
+                <td><a href="https://projecteuler.net">Project Euler</a></td>
+                <td>Offers tons of small math problems to be solved via programming, plus forums to share and discuss solutions</td>
+              </tr>
+              <tr>
+                <td><a href="https://rubymonk.com/">Ruby Monk</a></td>
+                <td>Free, interactive, in-browser tutorials</td>
+              </tr>
+              <tr>
+                <td><a href="http://ruby.learncodethehardway.org/">Ruby the Hard Way</a></td>
+                <td>Fun, free (HTML version) book with great information about programming</td>
+              </tr>
+              <tr>
+                <td><a href="http://www.sinatrarb.com/">Sinatra</a></td>
+                <td>A basic web app framework that runs on Ruby</td>
+              </tr>
+              <tr>
+                <td><a href="http://ruby.railstutorial.org/">The Rails Tutorial</a></td>
+                <td>The Rails web app framework is the most popular use of Ruby... are you ready to dive in?</td>
+              </tr>
+              <tr>
+                <td><a href="http://girldevelopit.com/">Girl Develop It</a></td>
+                <td>Local workshops, events, and coding sessions with awesome people</td>
+              </tr>
+            </table>
+        </section>
+
+        <section>
+          <h3>Homework</h3>
+          <p><strong>Practice:</strong>  Make your final project even bigger and better! If you're taking this class as part of a job plan, attend a local meetup and talk to a couple of strangers about what you've learned and what you're excited about doing with programming. </p>
+        </section>
+      </div>
+      <footer>
+        <div class="copyright">
+          Intro to Ruby
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+        </div>
+      </footer>
+    </div>
+
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/accessibility-helper/js/accessibility-helper.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>

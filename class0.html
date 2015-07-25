@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Intro to Ruby ~ Girl Develop It</title>
+    <meta name="description" content="This is the official Girl Develop It Core Intro to Ruby course. The course is meant to be taught in five two-hour sessions. Each of the slides and practice files are customizable according to the needs of a given class or audience.">
+    <meta name="author" content="Girl Develop It">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/simple.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <!-- light editor<link rel="stylesheet" href="lib/css/light.css">-->
+    <!-- dark editor--><link rel="stylesheet" href="lib/css/dark.css">
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
+
+    <!-- If use the PDF print sheet so students can print slides-->
+
+    <link rel="stylesheet" href="css/print/pdf.css" type="text/css" media="print">
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <!-- Opening -->
+        <section>
+          <img src = "img/gdi_logo_badge.png">
+          <h3>Intro to Ruby</h3>
+          <h4>Class 0</h4>
+        </section>
+
+        <!-- Welcome-->
+        <section>
+          <h3>Welcome!</h3>
+          <div class = "left-align">
+          <p>Girl Develop It is here to provide affordable and accessible programs to learn software through mentorship and hands-on instruction.</p>
+          <p class ="green">Some "rules"</p>
+          <ul>
+            <li>We are here for you!</li>
+            <li>Every question is important</li>
+            <li>Help each other</li>
+            <li>Have fun</li>
+          </ul>
+          </div>
+        </section>
+
+         <section>
+          <h3>Welcome!</h3>
+          <div class = "left-align">
+          <p class = "blue">Tell us about yourself.</p>
+          <ul>
+            <li>Who are you?</li>
+            <li>What do you hope to get out of this class?</li>
+            <li>What is your favorite ice cream or frozen dessert?</li>
+          </ul>
+          </div>
+        </section>
+
+        <section>
+          <h3>What we will cover today</h3>
+          <ul>
+            <li>Installing Ruby</li>
+            <li>Istalling all the other tools you'll need</li>
+            <li>Command Line Basics</li>
+          </ul>
+        </section>
+
+        <!-- Part 1: Installfest, 60 minutes -->
+        <section>
+          <h3>A little help from our friends...</h3>
+          <p>We'll be using Railsbridge's Installfest instructions to get set up. <a href="http://railsbridge.org/" alt="railsbridge home">Railsbridge</a> is an awesome organization that we're friends with and you should be, too! </p>
+        </section>
+
+        <section>
+          <h3>Installfest</h3>
+          <p><a href="http://docs.railsbridge.org/installfest/" alt="railsbridge installfest">Here it is!</a></p>
+          <p class="green">http://docs.railsbridge.org/installfest/</p>
+          <p>Just work through the instructions for your operating system. <strong>Stop after the "Configure Git" step.</strong> Ask a volunteer for help if you get stuck or lost. This process should take about an hour.</p>
+        </section>
+
+        <!-- Part 2: Intro to Terminal, 20 minutes -->
+        <section>
+          <h3>Intro to Terminal</h3>
+          <p>Working in the terminal can be really intimidating at first!</p>
+          <p>With practice, navigation and file manipulation is significantly faster in the terminal than in the GUI.</p>
+          <p>Professional software developers use the terminal all the time, and this class will require some use of it.</p>
+        </section>
+
+        <section>
+          <h3>Intro to Terminal</h3>
+          <p>Mac & Linux users: Open <strong>Terminal</strong></p>
+          <p>Windows users: Open <strong>Git-Bash</strong></p>
+          <br >
+          <p>We will not be using Windows "cmd" program, as it uses a different syntax than *NIX systems.</p>
+        </section>
+
+        <section>
+          <h3>Intro to Terminal Prompt</h3>
+          <p>The line that appears in the terminal when you open it is called the prompt. It usually contains information about the user and current directory. It can be customized.</p>
+          <img src="img/prompt1.png" alt="example prompt">
+          <img src="img/prompt2.png" alt="example prompt">
+          <img src="img/prompt3.png" alt="example prompt">
+          <img src="img/prompt4.png" alt="example prompt">
+          <img src="img/prompt5.png" alt="example prompt">
+          <p>Terminal instructions often start a line with a $. This represents the last character in the prompt, you don't have to type it.</p>
+        </section>
+
+        <section>
+          <h3>Terminal Cheatsheet</h3>
+          <table style="font-size: 20px; line-height: 1.4em;">
+            <tr>
+              <td>.</td>
+              <td>the current directory- ex: "touch ./wow.txt"</td>
+            </tr>
+            <tr>
+              <td>..</td>
+              <td>the parent of current directory - ex: "cd ../RubyParty"</td>
+            </tr>
+            <tr>
+              <td>~</td>
+              <td>the root directory- ex: "cd ~/Pictures"</td>
+            </tr>
+            <tr>
+              <td>cd [location]</td>
+              <td>"change directory" to [location]</td>
+            </tr>
+            <tr>
+              <td>pwd</td>
+              <td>"present working directory" - where am I?</td>
+            </tr>
+            <tr>
+              <td>ls -al</td>
+              <td>"list all" of the contents of current directory, including invisible ones</td>
+            </tr>
+            <tr>
+              <td>touch [filename.extension]</td>
+              <td>create a file called filename.extension in the current directory</td>
+            </tr>
+            <tr>
+              <td>mkdir [directoryname]</td>
+              <td>create a directory called directoryname in the current directory</td>
+            </tr>
+            <tr>
+              <td>rm [filename]</td>
+              <td>"remove" (delete) the file called filename</td>
+            </tr>
+            <tr>
+              <td>rm -rf [directoryname]</td>
+              <td>"remove recursively with force" the directory called directoryname</td>
+            </tr>
+            <tr>
+              <td>clear OR cmd+k</td>
+              <td>clear the terminal screen</td>
+            </tr>
+            <tr>
+              <td>help</td>
+              <td>lists all possible commands</td>
+            </tr>
+            <tr>
+              <td>man [command]</td>
+              <td>displays the manual for command</td>
+            </tr>
+          </table>
+        </section>
+
+        <section>
+          <h3>Terminal Activities</h3>
+          <pre><code class="terminal">
+# navigate to your desktop
+cd ~/Desktop    #Linux, Mac
+cd desktop      #Windows
+
+# make a directory called ruby_adventures
+mkdir ruby_adventures
+
+# navigate into new directory
+cd ruby_adventures
+
+# create a file
+touch class0.rb
+
+# list the contents of the directory
+ls
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Terminal Activities</h3>
+          <pre><code class="terminal">
+  man ls
+          </code></pre>
+          <p>Output:</p>
+          <img src="img/manls.png" >
+        </section>
+
+        <!-- Let's Develop It - 10 min -->
+        <section>
+          <h3>Let's Develop It!</h3>
+          <p>Working in the terminal, create a directory called gdi_ruby in the location of your choosing (Desktop? Documents? Somewhere you'll be able to find it again!). Inside the gdi_ruby directory, create a file called class0.txt.</p>
+        </section>
+
+        <section>
+          <h3>Questions?</h3>
+        </section>
+
+        <section>
+          <h3>Homework</h3>
+          <p><strong>Practice:</strong> spend at least 20 minutes practicing navigating and creating/removing documents and directories with the command line.</p>
+          <p><strong>Prep:</strong> Work through Code Academy's <a href="http://www.codecademy.com/courses/ruby-beginner-en-d1Ylq/0/1?curriculum_id=5059f8619189a5000201fbcb" alt="Code Academy">"Intro to Ruby"</a>. If you don't have previous programming experience, read Chapters 1 and 2 in <a href="https://pine.fm/LearnToProgram/?Chapter=01" alt="Learn to Program">Learn to Program</a> - don't try to do the exercises at the end, though. </p>
+        </section>
+
+        <section>
+          <h3>Resources</h3>
+          <p>Learning is more fun with people! </p>
+          <ul>
+            <li>Start a study group with some classmates</li>
+            <!-- include some local/community resources here -->
+          </ul>
+        </section>
+
+      </div>
+      <footer>
+        <div class="copyright">
+          Intro to Ruby
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc/3.0/80x15.png" /></a>
+        </div>
+      </footer>
+    </div>
+
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/accessibility-helper/js/accessibility-helper.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
